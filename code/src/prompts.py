@@ -1,3 +1,35 @@
+'''
+Raccolta di prompt e specifiche per la generazione del manuale.
+
+MANUAL_STYLE_GUIDE: 
+    Linee guida di stile per il manuale.
+
+TOPIC_SPECS:
+    Specifiche per ogni argomento del manuale. Dizionario.
+
+    Esempio:
+        {
+            "text_generation": {
+                "title": "Prompt engineering per generazione di testi",
+                "query": "prompting guide text generation writing style constraints examples",
+                "deliverable_sections": [
+                    "Cos'è e quando usarlo",
+                    "Checklist prompt (ruolo, contesto, vincoli, formato)",
+                    "Esempi per social/newsletter/sito",
+                    "Errori comuni",
+                    "Limiti e buone pratiche",
+                ],
+            }, ...
+        }
+
+TOPIC_SELECTOR_SYSTEM:
+    Prompt di sistema per la selezione degli estratti rilevanti.
+
+ADAPT_SYSTEM:
+    Prompt di sistema per l'adattamento dei contenuti secondo le linee guida di stile.
+    Unisce anche le regole specifiche per il manuale.
+'''
+
 MANUAL_STYLE_GUIDE = """
 Sei un content strategist senior in un'agenzia di comunicazione digitale.
 Obiettivo: creare un manuale d'uso dell'IA per copywriter e content strategist.

@@ -7,6 +7,15 @@ from graph import build_graph, State
 from prompts import TOPIC_SPECS
 
 def assemble_manual(sections: dict) -> str:
+    '''
+    Assembla il manuale completo in formato markdown.
+    
+    Args:
+        sections(dict): Dizionario contenente le sezioni del manuale.
+
+    Returns:
+        str: Testo completo del manuale in formato markdown.
+    '''
     parts = []
     parts.append("# Manuale d’Uso dell’IA (Bozza automatizzata)\n")
     parts.append("## Introduzione\n")

@@ -9,12 +9,24 @@ import nbformat
 
 @dataclass
 class DocChunk:
+    '''
+    Classe che rappresenta un chunk del documento.
+    '''
     id: str
     path: str
     content: str
 
 
 def iter_source_files(cookbook_path: str) -> Iterable[Path]:
+    '''
+    Itera sui file sorgente nella cartella del cookbook.
+
+    Args:
+        cookbook_path(str): Percorso alla cartella del cookbook.
+    
+    Returns:
+        Iterable[Path]: Iteratore sui percorsi dei file sorgente.
+    '''
     root = Path(cookbook_path)
     for p in root.rglob("*"):
         if p.is_file() and p.suffix.lower() in [".md", ".ipynb"]:
@@ -22,13 +34,21 @@ def iter_source_files(cookbook_path: str) -> Iterable[Path]:
 
 
 def ipynb_to_markdown_text(p: Path) -> str:
+    '''
+    Converte un file .ipynb in testo markdown.
+
+    Args:
+        p(Path): Percorso al file .ipynb.
+
+    Returns:
+        str: Testo markdown estratto dal notebook.
+    '''
     nb = nbformat.read(p, as_version=4)
     parts = []
     for cell in nb.cells:
         if cell.cell_type == "markdown":
             parts.append(cell.source)
         elif cell.cell_type == "code":
-            # manteniamo solo codice "esemplificativo" breve, altrimenti rumore
             code = cell.source.strip()
             if code and len(code) <= 1200:
                 parts.append("```python\n" + code + "\n```")
@@ -36,6 +56,15 @@ def ipynb_to_markdown_text(p: Path) -> str:
 
 
 def read_file_text(p: Path) -> str:
+    '''
+    Legge il testo da un file, supportando .md e .ipynb.
+
+    Args:
+        p(Path): Percorso al file.
+
+    Returns:
+        str: Testo letto dal file.
+    '''
     if p.suffix.lower() == ".md":
         return p.read_text(encoding="utf-8", errors="ignore")
     if p.suffix.lower() == ".ipynb":
@@ -44,13 +73,23 @@ def read_file_text(p: Path) -> str:
 
 
 def chunk_text(text: str, max_chars: int = 1800, overlap: int = 200) -> List[str]:
+    '''
+    Divide il testo in chunk di dimensione massima specificata, con sovrapposizione.
+
+    Args:
+        text(str): Testo da dividere in chunk.
+        max_chars(int): Numero massimo di caratteri per chunk.
+        overlap(int): Numero di caratteri di sovrapposizione tra chunk.
+    
+    Returns:
+        List[str]: Lista di chunk di testo.
+    '''
     text = text.replace("\r\n", "\n")
     chunks = []
     i = 0
     while i < len(text):
         j = min(len(text), i + max_chars)
         chunk = text[i:j]
-        # prova a tagliare su fine paragrafo
         cut = chunk.rfind("\n\n")
         if cut > 500:
             chunk = chunk[:cut]
@@ -61,6 +100,15 @@ def chunk_text(text: str, max_chars: int = 1800, overlap: int = 200) -> List[str
 
 
 def build_chunks(cookbook_path: str) -> List[DocChunk]:
+    '''
+    Costruisce i chunk dei documenti dalla cartella del cookbook.
+
+    Args:
+        cookbook_path(str): Percorso alla cartella del cookbook.
+    
+    Returns:
+        List[DocChunk]: Lista di chunk dei documenti.
+    '''
     chunks: List[DocChunk] = []
     for p in iter_source_files(cookbook_path):
         txt = read_file_text(p)
@@ -78,6 +126,16 @@ def build_chunks(cookbook_path: str) -> List[DocChunk]:
 
 
 def save_manifest(chunks: List[DocChunk], out_path: str) -> None:
+    '''
+    Salva il manifesto dei chunk in un file JSON.
+
+    Args:
+        chunks(List[DocChunk]): Lista di chunk dei documenti.
+        out_path(str): Percorso del file di output per il manifesto.
+    
+    Returns:
+        None
+    '''
     data = [{"id": c.id, "path": c.path, "content": c.content} for c in chunks]
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     Path(out_path).write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
