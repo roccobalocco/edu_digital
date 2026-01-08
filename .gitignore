@@ -1,0 +1,4 @@
+code/src/.edit_dig_venv
+.env
+__pycache__/
+manifest.json
