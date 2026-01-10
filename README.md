@@ -2,27 +2,28 @@
 
 Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 
-## Pagina dedicata:
+## Pagina dedicata
 
-(Github Page)[https://roccobalocco.github.io/edu_digital/]
+[Github Page](https://roccobalocco.github.io/edu_digital/)
 
-## Comandi:
+## Comandi
 
-- `python run.py`, preferisce il riutilizzo dell'indice e crea il manuale
+- `python run.py` – preferisce il riutilizzo dell'indice e crea il manuale
 
-## Opzioni:
+## Opzioni
 
-- `--reindex`, reindicizza e crea il manuale
-- `--full`, unisce le sezioni in un'unico manuale markdown
+- `--reindex` – reindicizza e crea il manuale
+- `--full` – unisce le sezioni in un unico manuale Markdown
 
-## Next steps:
+## Next steps
 
- - [ ] (Crea manuale)[https://github.com/roccobalocco/MD_Doc_Gen] integralo ed eseguilo per avere il manuale del manuale ><
+- [Crea manuale](https://github.com/roccobalocco/MD_Doc_Gen) – integralo ed eseguilo per avere il manuale del manuale ><
 
-## Strumenti utiizzati:
-- (Google AI Studio)[https://aistudio.google.com] per creare il progetto e la sua API key
-- (ChatGPT)[https://chatgpt.com] e (Claude)[https://claude.ai] come supporto per la stesura del codice
-- Knowhow ottenuto implementando (SofIA)[https://www.softeam.it/prodotti/sofia/] (LangGraph, Embedding, python, etc...)
-- (Github Codespaces)[https://github.com/features/codespaces] per lo sviluppo in cloud
-- (OpenAI Cookbook)[https://github.com/openai/openai-cookbook/tree/main], gitclone del repo per ottenere le fonti
-- (FAISS)[https://faiss.ai] per cercare le similarità
+## Strumenti utilizzati
+
+- [Google AI Studio](https://aistudio.google.com) – per creare il progetto e la sua API key
+- [ChatGPT](https://chatgpt.com) e [Claude](https://claude.ai) – come supporto per la stesura del codice
+- Knowhow ottenuto implementando [SofIA](https://www.softeam.it/prodotti/sofia/) (LangGraph, Embedding, Python, etc...)
+- [Github Codespaces](https://github.com/features/codespaces) – per lo sviluppo in cloud
+- [OpenAI Cookbook](https://github.com/openai/openai-cookbook/tree/main) – git clone del repo per ottenere le fonti
+- [FAISS](https://faiss.ai) – per cercare le similarità
