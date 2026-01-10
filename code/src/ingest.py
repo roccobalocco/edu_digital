@@ -3,7 +3,8 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, List, Dict, Any
+from typing import Any, Iterable, List
+import uuid
 
 import nbformat
 
@@ -33,6 +34,13 @@ def iter_source_files(cookbook_path: str) -> Iterable[Path]:
             yield p
 
 
+def add_missing_cell_ids(nb:Any):
+    for cell in nb.cells:
+        if 'id' not in cell:
+            cell['id'] = str(uuid.uuid4())
+    return nb
+
+    
 def ipynb_to_markdown_text(p: Path) -> str:
     '''
     Converte un file .ipynb in testo markdown.
@@ -43,15 +51,17 @@ def ipynb_to_markdown_text(p: Path) -> str:
     Returns:
         str: Testo markdown estratto dal notebook.
     '''
-    nb = nbformat.read(p, as_version=4)
+    nb = nbformat.read(p, as_version=4)  # legge senza validare
+    
     parts = []
     for cell in nb.cells:
         if cell.cell_type == "markdown":
             parts.append(cell.source)
         elif cell.cell_type == "code":
             code = cell.source.strip()
-            if code and len(code) <= 1200:
+            if code and len(code) <= 1200:  
                 parts.append("```python\n" + code + "\n```")
+
     return "\n\n".join(parts).strip()
 
 

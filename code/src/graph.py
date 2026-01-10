@@ -2,13 +2,16 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass
+import os
 from pathlib import Path
 from typing import Dict, Any, List
 
 from langgraph.graph import StateGraph, END
+from langgraph.graph.state import CompiledStateGraph
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.documents import Document
 
+from helper import ensure_str
 from config import Settings
 from ingest import build_chunks, save_manifest
 from retriever import build_or_load_vectorstore, retrieve
@@ -26,12 +29,14 @@ class State:
         retrieved(Dict[str, List[Document]] | None): Documenti recuperati per ogni argomento.
         selected(Dict[str, List[Dict[str, Any]]] | None): Documenti selezionati per ogni argomento.
         manual_sections(Dict[str, str] | None): Sezioni del manuale generate per ogni argomento.
+        approved_sections(Dict[str, str] | None): Sezioni del manuale approvate per ogni argomento.
     '''
     settings: Settings
     vectorstore: Any | None = None
     retrieved: Dict[str, List[Document]] | None = None
     selected: Dict[str, List[Dict[str, Any]]] | None = None
     manual_sections: Dict[str, str] | None = None
+    approved_sections: Dict[str, str] | None = None
 
 
 def node_index(state: State) -> State:
@@ -176,7 +181,87 @@ def node_adapt(state: State) -> State:
     return state
 
 
-def build_graph():
+def node_review(state: State) -> State:
+    '''
+    Nodo per la revisione e l'approvazione delle sezioni del manuale.
+    
+    Args:
+        state(State): Stato corrente del grafo.
+        
+    Returns:
+        State: Stato aggiornato con le sezioni del manuale approvate.
+    '''
+    assert state.manual_sections is not None
+    assert state.selected is not None
+
+    approved: Dict[str, str] = {}
+    output_dir = Path(state.settings.output_path).parent
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    editor = os.environ.get("EDITOR", "nano")  # usa l'editor di sistema, default nano
+
+    for key, raw_content in state.manual_sections.items():
+        spec = TOPIC_SPECS[key]
+        review_file = output_dir / f"review_{key}.md"
+
+        while True:
+            # Scrive il contenuto corrente su file
+            content: str = ensure_str(raw_content)
+            review_file.write_text(content, encoding="utf-8")
+
+            print("\n" + "=" * 80)
+            print(f"SEZIONE: {spec['title']}")
+            print("=" * 80)
+            print(f"Apri il file e modificalo nell'editor. Salva e chiudi per continuare.")
+            print("-" * 80)
+
+            # apre l'editor di sistema
+            os.system(f"{editor} {review_file.resolve()}")
+
+            choice = input("Approvare questa sezione? [Y/N]: ").strip().lower()
+
+            if choice == "y":
+                # Rileggi il file aggiornato
+                updated_content = review_file.read_text(encoding="utf-8")
+                approved[key] = updated_content
+                break
+
+            elif choice == "n":
+                feedback = input(
+                    "Descrivi cosa va modificato (tono, esempi, struttura, contenuti):\n> "
+                )
+
+                # Rigenera la sezione con LLM usando il feedback
+                payload = {
+                    "topic": spec["title"],
+                    "required_sections": spec["deliverable_sections"],
+                    "sources": state.selected[key],
+                    "editor_feedback": feedback,
+                }
+
+                prompt = (
+                    f"{ADAPT_SYSTEM}\n\n"
+                    "Rigenera la sezione TENENDO CONTO del feedback editoriale.\n"
+                    "Migliora chiarezza, aderenza al contesto aziendale e struttura.\n\n"
+                    f"INPUT:\n{json.dumps(payload, ensure_ascii=False, indent=2)}\n\n"
+                    "OUTPUT: Markdown completo (solo testo)."
+                )
+
+                raw_content = ChatGoogleGenerativeAI(
+                    model=state.settings.gemini_model,
+                    temperature=0.4,
+                ).invoke(prompt).content
+
+                raw_content = ensure_str(raw_content)
+
+            else:
+                print("Risposta non valida. Inserisci Y o N.")
+
+    state.approved_sections = approved
+    return state
+
+
+def build_graph() -> CompiledStateGraph[State, None, State, State]:
     '''
     Costruisce e restituisce il grafo di elaborazione.
 
@@ -188,10 +273,13 @@ def build_graph():
     g.add_node("retrieve", node_retrieve)
     g.add_node("select", node_select)
     g.add_node("adapt", node_adapt)
+    g.add_node("review", node_review)
 
     g.set_entry_point("index")
     g.add_edge("index", "retrieve")
     g.add_edge("retrieve", "select")
     g.add_edge("select", "adapt")
-    g.add_edge("adapt", END)
+    g.add_edge("adapt", "review")
+    g.add_edge("review", END)
+
     return g.compile()

@@ -5,16 +5,20 @@ Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 ## Comandi:
 
 - `python run.py`, preferisce il riutilizzo dell'indice e crea il manuale
-- `python run.py --reindex`, reindicizza e crea il manuale
+
+## Opzioni:
+
+- `--reindex`, reindicizza e crea il manuale
+- `--full`, unisce le sezioni in un'unico manuale markdown
 
 ## Next steps:
 
-- [ ] (Crea manuale)[https://github.com/roccobalocco/MD_Doc_Gen] integralo ed eseguilo per avere il manuale del manuale ><
-- [ ] Aggiungi al grafo:
+ - [ ] (Crea manuale)[https://github.com/roccobalocco/MD_Doc_Gen] integralo ed eseguilo per avere il manuale del manuale ><
+ - [ ] Aggiungi al grafo:
     * [ ] Human in the loop su fonti scelte
     * [ ] altro...
-- [ ] Imposta la possibilità di ottenere output multipli sfruttando Pandoc! (base di partenza? Markdown ovviamente)
-- [ ] Scorpora metadati e mettili in YML
+ - [ ] Imposta la possibilità di ottenere output multipli sfruttando Pandoc! (base di partenza? Markdown ovviamente)
+ - [ ] Scorpora metadati e mettili in YML
 
 ## Strumenti utiizzati:
 - (Google AI Studio)[https://aistudio.google.com] per creare il progetto e la sua API key
