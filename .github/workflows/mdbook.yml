@@ -39,7 +39,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # upload della cartella HTML generata
-          path: /home/runner/work/edu_digital/edu_digital/code/data/output
+          path: /home/runner/work/edu_digital/edu_digital/code/data/output/html
 
   deploy:
     environment:
