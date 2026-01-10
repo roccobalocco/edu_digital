@@ -30,8 +30,9 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with mdBook
-        # specifica il percorso della cartella che contiene book.toml e SUMMARY.md
-        run: mdbook build edu_digital/code/data/output -d edu_digital/code/data/output/html
+        run: |
+          cd edu_digital/code/data/output
+          mdbook build -d html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
