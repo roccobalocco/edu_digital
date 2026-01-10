@@ -1,8 +1,8 @@
-# Manuale d’Uso dell’IA Generativa
+# Summary
 
-## Prompt engineering per generazione di testi
+- [Manuale d’Uso](README.md)
 
-# Manuale d'Uso dell'IA per Copywriter e Content Strategist
+- [# Manuale d'Uso dell'IA per Copywriter e Content Strategist
 
 ## Prompt Engineering per Generazione di Testi
 
@@ -267,12 +267,8 @@ Anche l'IA più avanzata può darti risultati deludenti se non la guidi corretta
 *   ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb
 *   ../data/openai-cookbook/examples/Optimize_Prompts.ipynb
 *   ../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb
-*   ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb
-
-
-## Prompt engineering per rilevamento lingua
-
-# Rilevamento Lingua con l'IA
+*   ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb](01-text_generation.md)
+- [# Rilevamento Lingua con l'IA
 
 Questa sezione ti mostra come usare l'Intelligenza Artificiale per identificare la lingua di un testo. È uno strumento utile per gestire grandi volumi di contenuti multilingue o per assicurarti che la tua comunicazione sia sempre nel giusto idioma.
 
@@ -462,12 +458,8 @@ Testo:
 *   `../data/openai-cookbook/examples/Using_logprobs.ipynb`
 *   `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb`
 *   `../data/openai-cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents.ipynb`
-*   `../data/openai-cookbook/examples/o1/Using_chained_calls_for_o1_structured_outputs.ipynb`
-
-
-## Prompt engineering per cross-tabular analysis
-
-# Analisi Dati Tabellari con l'IA: Trovare Insight per Contenuti e Campagne
+*   `../data/openai-cookbook/examples/o1/Using_chained_calls_for_o1_structured_outputs.ipynb`](02-language_detection.md)
+- [# Analisi Dati Tabellari con l'IA: Trovare Insight per Contenuti e Campagne
 
 Questa sezione ti guiderà su come usare l'Intelligenza Artificiale per analizzare tabelle di dati, scoprendo trend, anomalie e suggerimenti utili per le tue strategie di contenuto e campagne.
 
@@ -632,5 +624,4 @@ L'IA è un potente alleato, ma ha i suoi limiti.
 *   `../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb`
 *   `../data/openai-cookbook/examples/vector_databases/kusto/Getting_started_with_kusto_and_openai_embeddings.ipynb`
 *   `../data/openai-cookbook/examples/Semantic_text_search_using_embeddings.ipynb`
-*   `../data/openai-cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/prompts/code_interpreter.md`
-
+*   `../data/openai-cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/prompts/code_interpreter.md`](03-cross_tabular_analysis.md)

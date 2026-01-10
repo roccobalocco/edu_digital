@@ -4,7 +4,7 @@ from pathlib import Path
 
 from config import Settings
 from graph import build_graph, State
-from manual import write_section_files, write_readme, assemble_full_manual
+from manual import write_section_files, write_readme, assemble_full_manual, write_summary, write_book_toml
 
 def main():
     parser = argparse.ArgumentParser()
@@ -25,6 +25,8 @@ def main():
 
     write_section_files(sections, output_dir)
     write_readme(sections, output_dir)
+    write_summary(sections, output_dir)
+    write_book_toml("Manuale d’Uso dell’IA Generativa", "Tuo Nome", output_dir)
 
     if args.full:
         full_md = assemble_full_manual(sections)

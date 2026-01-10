@@ -1,0 +1,7 @@
+[book]
+title = "Manuale d’Uso dell’IA Generativa"
+author = "Tuo Nome"
+src = "."
+
+[build]
+build-dir = "html"

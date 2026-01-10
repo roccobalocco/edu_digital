@@ -80,6 +80,48 @@ def write_readme(sections: Dict[str, str], output_dir: Path):
     )
 
 
+def write_summary(sections: Dict[str, str], output_dir: Path):
+    """
+    Scrive il file SUMMARY.md per mdBook. NECESSARIO PER USARE mdBook.
+
+    Args:
+        sections (Dict[str, str]): Dizionario contenente le sezioni del manuale. La chiave è il nome del file, il valore il titolo.
+        output_dir (Path): Cartella di output dove salvare il file.
+    """
+    lines = ["# Summary\n", "- [Manuale d’Uso](README.md)\n"]
+
+    for i, key in enumerate(sections.keys(), start=1):
+        title = sections[key]  # titolo della sezione
+        fname = f"{i:02d}-{key}.md"
+        lines.append(f"- [{title}]({fname})")
+
+    summary_path = output_dir / "SUMMARY.md"
+    summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+def write_book_toml(title: str, author: str, output_dir: Path, build_dir: str = "html"):
+    """
+    Scrive il file book.toml per mdBook. NECESSARIO PER USARE mdBook.
+
+    Args:
+        title (str): Titolo del libro.
+        author (str): Nome dell'autore.
+        output_dir (Path): Cartella di output dove salvare il file.
+        build_dir (str, optional): Cartella dove mdBook genera il sito HTML. Default: "html".
+    """
+    toml_content = f"""
+[book]
+title = "{title}"
+author = "{author}"
+src = "."
+
+[build]
+build-dir = "{build_dir}"
+"""
+
+    book_toml_path = output_dir / "book.toml"
+    book_toml_path.write_text(toml_content.strip() + "\n", encoding="utf-8")
+
+
 def assemble_full_manual(sections: Dict[str, str]) -> str:
     '''
     Assembla il manuale completo in formato markdown.
