@@ -1,5 +1,3 @@
-# Prompt engineering per rilevamento lingua
-
 Ecco la sezione del manuale dedicata al rilevamento della lingua tramite IA.
 
 ---

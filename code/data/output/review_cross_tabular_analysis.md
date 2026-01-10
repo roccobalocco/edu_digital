@@ -1,5 +1,3 @@
-# Prompt engineering per cross-tabular analysis
-
 Ecco la sezione del manuale sull'uso dell'IA per l'analisi cross-tabulare, pensata per copywriter e content strategist.
 
 ---

@@ -1,5 +1,3 @@
-# Prompt engineering per generazione di testi
-
 # Manuale d'Uso dell'IA per Copywriter e Content Strategist
 
 ## Prompt Engineering per la Generazione di Testi

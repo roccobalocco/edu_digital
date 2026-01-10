@@ -4,457 +4,427 @@
 
 # Manuale d'Uso dell'IA per Copywriter e Content Strategist
 
-## Prompt Engineering per Generazione di Testi
+## Prompt Engineering per la Generazione di Testi
 
 ### 1. Cos'è e quando usarlo
 
-**Obiettivo:** Capire cosa sia il "prompt engineering" e quando usarlo per il tuo lavoro quotidiano.
+**Obiettivo:** Capire come "parlare" all'IA per ottenere i testi che desideri.
 
-Il "prompt engineering" è l'arte di dare istruzioni chiare e precise a un'Intelligenza Artificiale per ottenere il testo che desideri. Immagina di essere un regista e l'IA è il tuo attore: più dettagliata è la tua sceneggiatura (il prompt), migliore sarà la performance.
+Immagina di dare istruzioni a un nuovo stagista molto bravo, ma che non conosce il tuo brand. Il "prompt" è esattamente questo: l'insieme di istruzioni che dai all'Intelligenza Artificiale per fargli creare un testo. Più le istruzioni sono chiare e complete, migliore sarà il risultato.
 
 **Quando usarlo:**
-L'IA è un assistente potente per:
-*   **Generare idee:** Brainstorming di titoli, slogan, concetti per campagne.
-*   **Drafting veloce:** Scrivere bozze di post social, email, descrizioni prodotto.
-*   **Riformulare testi:** Adattare un contenuto per un pubblico diverso o un tono specifico.
-*   **Riassumere:** Estrarre i punti chiave da testi lunghi.
-*   **Creare varianti:** Ottenere diverse opzioni per lo stesso messaggio (es. 5 versioni di un copy Instagram).
-*   **Migliorare la coerenza:** Mantenere uno stile o un tono uniforme su più pezzi di contenuto.
+Ogni volta che vuoi che l'IA scriva qualcosa per te. Che sia un post per i social, una bozza di newsletter, un titolo per un articolo del blog o una descrizione prodotto.
 
-In pratica, ogni volta che hai bisogno di testo e vuoi accelerare il processo creativo o ottenere nuove prospettive, il prompt engineering è il tuo strumento.
+**Come usarlo:**
+Ci sono due modi principali per dare istruzioni:
 
-### 2. Checklist prompt: Ruolo, Contesto, Obiettivo, Vincoli, Formato
+1.  **Istruzione Diretta:** Dici all'IA esattamente cosa vuoi che faccia. Ad esempio: "Scrivi un post su X". Puoi mettere le istruzioni all'inizio, alla fine o in entrambi i punti del tuo messaggio. Sii dettagliato: non aver paura di scrivere un paragrafo intero per descrivere l'output desiderato.
+    *   *Esempio semplice:*
+        ```
+        Estrai il nome dell'autore dalla citazione seguente.
 
-**Obiettivo:** Imparare a costruire un prompt efficace, passo dopo passo, per guidare l'IA al meglio.
+        “Alcuni umani teorizzano che le specie intelligenti si estinguano prima di poter espandersi nello spazio. Se hanno ragione, allora il silenzio del cielo notturno è il silenzio del cimitero.”
+        ― Ted Chiang, Exhalation
+        ```
+        *Output:* Ted Chiang
+        (Fonte: `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1`)
 
-Un buon prompt è come un briefing ben fatto. Deve essere chiaro, completo e strutturato. Ecco gli elementi chiave da includere:
+2.  **Completamento:** Inizi tu una frase o un modello di testo, e l'IA cerca di completarlo nel modo più logico. Questo richiede più sperimentazione e l'IA potrebbe non sapere dove fermarsi, quindi potresti dover "tagliare" il testo extra.
+    *   *Esempio semplice:*
+        ```
+        “Alcuni umani teorizzano che le specie intelligenti si estinguano p
+        ```
+        L'IA cercherà di completare la frase.
+        (Fonte: `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1`)
 
-*   **1. Ruolo:**
-    *   **Cosa:** Chiedi all'IA di "vestire i panni" di una figura specifica. Questo la aiuta a capire la prospettiva e il tono.
-    *   **Come:** Inizia con frasi come: "Agisci come un copywriter esperto di marketing digitale...", "Sei un social media manager...", "Immagina di essere un giornalista specializzato in tecnologia...".
-    *   **Esempio:** `Agisci come un copywriter esperto di e-commerce.`
+Le IA più recenti sono molto brave a seguire le istruzioni e a presentare il testo in modo ordinato, specialmente se sei preciso.
+(Fonte: `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
 
-*   **2. Contesto:**
-    *   **Cosa:** Descrivi la situazione o lo scenario in cui si inserisce il testo.
-    *   **Come:** Spiega il prodotto/servizio, il pubblico di riferimento, l'occasione (es. lancio, promozione, articolo di blog).
-    *   **Esempio:** `Stiamo lanciando un nuovo paio di scarpe da corsa leggere e ammortizzate, pensate per runner amatoriali che cercano comfort e prestazioni.`
+---
 
-*   **3. Obiettivo:**
-    *   **Cosa:** Indica chiaramente cosa vuoi che l'IA produca.
-    *   **Come:** Sii specifico: "Genera 3 idee per post Instagram...", "Scrivi un oggetto e un'anteprima per una newsletter...", "Crea una meta description per questa pagina...".
-    *   **Esempio:** `Genera 3 idee per post Instagram per il lancio di queste scarpe.`
+### 2. Checklist Prompt (Ruolo, Contesto, Vincoli, Formato)
 
-*   **4. Vincoli:**
-    *   **Cosa:** Specifica le regole e i limiti che l'IA deve rispettare. Questi sono fondamentali per un output di qualità.
-    *   **Come:**
-        *   **Lunghezza:** "Massimo 150 caratteri", "circa 100 parole".
-        *   **Tono:** "Tono amichevole e motivante", "professionale ma accessibile", "ironico".
-        *   **Parole chiave:** "Includi le parole chiave 'comfort', 'leggerezza', 'ammortizzazione'".
-        *   **Pubblico:** "Rivolgiti a un pubblico giovane e attivo".
-        *   **Cosa evitare:** "Non usare gergo tecnico", "evita frasi troppo lunghe".
-    *   **Esempio:** `Ogni post deve avere un tono motivante e includere un invito all'azione. Usa gli hashtag #NuoveScarpe #Corsa #Comfort. La lunghezza massima per ogni copy è di 200 caratteri. Non usare emoji.`
+**Obiettivo:** Creare prompt efficaci e strutturati per ottenere risultati migliori e più pertinenti.
 
-*   **5. Formato:**
-    *   **Cosa:** Indica come deve essere organizzato l'output.
-    *   **Come:** "Elenco puntato", "formato Markdown", "solo il testo del post, senza introduzioni o commenti", "tabella".
-    *   **Esempio:** `Restituisci i 3 post in un elenco numerato, con il copy e gli hashtag separati.`
+Pensa al tuo prompt come a un brief creativo. Deve contenere tutte le informazioni essenziali.
 
-*   **6. Esempi (se utile):**
-    *   **Cosa:** A volte, mostrare all'IA un esempio di ciò che cerchi può essere più efficace di mille parole.
-    *   **Come:** Includi un piccolo esempio di stile, struttura o contenuto desiderato.
-    *   **Esempio:** `Ecco un esempio di stile che mi piace: "Senti il vento tra i capelli e la libertà ai tuoi piedi. Le nostre nuove scarpe ti portano oltre ogni limite!"`
+Ecco una checklist per costruire un prompt completo:
 
-**Ricorda:** Organizza il tuo prompt in sezioni chiare (anche con titoli come "RUOLO:", "CONTESTO:", ecc.) per renderlo più leggibile per l'IA e per te stesso. Le istruzioni più importanti possono essere evidenziate, magari in maiuscolo.
-*(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-*(Fonte: ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9)*
+*   **1. Ruolo:** Assegna un ruolo all'IA. Questo la aiuta a capire la prospettiva e il tono.
+    *   *Esempio:* "Sei un copywriter esperto in marketing digitale per il settore food."
+    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - concetto di "system prompt" e sezioni)
 
-### 3. Esempi pratici per social, newsletter, sito
+*   **2. Contesto:** Fornisci tutte le informazioni di base necessarie.
+    *   **Chi è il brand?** (Nome, settore, valori, mission)
+    *   **Chi è il pubblico target?** (Età, interessi, problemi, desideri)
+    *   **Qual è l'obiettivo del testo?** (Informare, vendere, intrattenere, generare lead)
+    *   **Qual è il prodotto/servizio?** (Nome, caratteristiche principali, benefici unici)
+    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - "Organizing your prompt makes it easier for the model to understand context")
+
+*   **3. Vincoli e Requisiti:** Sii specifico su cosa includere e cosa evitare.
+    *   **Lunghezza:** "Massimo 150 parole", "3 paragrafi", "non più di 280 caratteri".
+        (Fonte: `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
+    *   **Tono di voce:** "Amichevole e informale", "professionale e autorevole", "ironico", "entusiasta".
+    *   **Parole chiave:** "Includi le parole chiave 'sostenibilità', 'innovazione', 'qualità artigianale'".
+    *   **Call to Action (CTA):** "Includi una CTA chiara: 'Scopri di più sul nostro sito'".
+    *   **Esclusioni:** "Non usare gergo tecnico", "Evita frasi come 'clicca qui'".
+    *   **Lingua:** "Scrivi in italiano", "Assicurati che l'output sia in italiano".
+        (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+    *   **Varietà:** Se dai esempi, chiedi all'IA di non ripeterli alla lettera ma di usarli come ispirazione per creare frasi nuove e varie.
+        (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+
+*   **4. Formato dell'Output:** Specifica come vuoi che sia strutturato il testo.
+    *   "Formato Markdown (con titoli e liste puntate)."
+        (Fonte: `../data/openai-cookbook/examples/Optimize_Prompts.ipynb::chunk8`)
+    *   "Lista puntata", "paragrafi separati", "tabella", "solo il testo del post senza introduzioni".
+    *   "Usa sezioni chiare e intitolate per organizzare le informazioni."
+        (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+
+*   **5. Esempi (se utili):** Se hai un esempio di testo che ti piace o un modello da seguire, includilo. L'IA tende a seguire molto da vicino gli esempi forniti.
+    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+
+*   **6. Chiarezza e Precisione:**
+    *   Usa frasi brevi e chiare.
+    *   Preferisci elenchi puntati ai paragrafi lunghi per le istruzioni.
+    *   Evita ambiguità: istruzioni confuse portano a risultati scadenti.
+    *   Usa il maiuscolo per enfatizzare le regole più importanti.
+    *   Trasforma regole non testuali in testo (es. invece di "SE X > 3 ALLORA ESCALATE", scrivi "SE CI SONO PIÙ DI TRE FALLIMENTI ALLORA ESCALATE").
+    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+
+---
+
+### 3. Esempi Pratici per Social, Newsletter, Sito
 
 **Obiettivo:** Vedere come applicare la checklist a scenari reali di agenzia.
 
-#### Esempio 1: Post Instagram per lancio prodotto
+#### Esempio 1: Post per Social Media (Instagram)
 
-**Prompt:**
+**Scenario:** Lanciare un nuovo gusto di gelato artigianale "Pistacchio Salato" per un brand che punta su ingredienti di qualità e innovazione.
+
 ```
-RUOLO: Agisci come un copywriter esperto di social media.
+**Ruolo:** Sei un social media copywriter esperto per brand food.
 
-CONTESTO: Stiamo lanciando una nuova linea di snack proteici vegani, "GreenBoost", pensati per sportivi e persone attente alla dieta che cercano uno spuntino sano e gustoso.
+**Contesto:**
+- **Brand:** Gelateria "Dolce Tentazione".
+- **Prodotto:** Nuovo gelato "Pistacchio Salato".
+- **Valori:** Qualità artigianale, ingredienti selezionati, innovazione nei gusti.
+- **Target:** Giovani adulti (25-40 anni), amanti del buon cibo, curiosi di nuove esperienze gustative.
+- **Obiettivo:** Creare hype per il lancio, invitare a provare il nuovo gusto.
 
-OBIETTIVO: Genera 3 idee per post Instagram per il lancio.
+**Vincoli e Requisiti:**
+- **Lunghezza:** Massimo 180 caratteri per il testo principale.
+- **Tono di voce:** Entusiasta, goloso, un po' audace.
+- **Parole chiave:** "Pistacchio Salato", "Gelato Artigianale", "Novità".
+- **Emoji:** Includi 2-3 emoji pertinenti.
+- **Hashtag:** Suggerisci 3-5 hashtag popolari e di nicchia.
+- **Call to Action:** "Vieni a provarlo!" o simile.
 
-VINCOLI:
-- Tono: energico, positivo, inclusivo.
-- Ogni post deve includere un invito all'azione chiaro (es. "Scopri di più", "Provali ora").
-- Includi gli hashtag: #GreenBoost #SnackVegano #ProteineVegetali #VitaSana.
-- Lunghezza massima per ogni copy: 220 caratteri.
-- Non usare emoji.
-
-FORMATO: Restituisci i 3 post in un elenco numerato. Per ogni post, indica prima il copy e poi gli hashtag.
+**Formato dell'Output:**
+- Testo del post.
+- Elenco puntato degli hashtag.
 ```
+(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
 
-**Output (esempio):**
-1.  **Copy:** Energia pulita per le tue giornate! I nuovi snack GreenBoost sono qui per darti la carica con gusto e ingredienti 100% vegetali. Provali ora e senti la differenza!
-    **Hashtag:** #GreenBoost #SnackVegano #ProteineVegetali #VitaSana
-2.  **Copy:** Il tuo allenamento merita il meglio. Con GreenBoost, hai lo spuntino proteico vegano perfetto per recuperare e ripartire. Non aspettare, scopri tutta la linea!
-    **Hashtag:** #GreenBoost #SnackVegano #ProteineVegetali #VitaSana
-3.  **Copy:** Sano, gustoso, vegano. GreenBoost è lo snack che stavi aspettando per nutrire il tuo corpo con il potere delle piante. Clicca sul link in bio per acquistarli!
-    **Hashtag:** #GreenBoost #SnackVegano #ProteineVegetali #VitaSana
+#### Esempio 2: Oggetto e Anteprima per Newsletter
 
-#### Esempio 2: Oggetto e anteprima per Newsletter
+**Scenario:** Promuovere un webinar gratuito su "Strategie SEO per E-commerce" per un'agenzia di marketing digitale.
 
-**Prompt:**
 ```
-RUOLO: Sei un esperto di email marketing.
+**Ruolo:** Sei un email marketing specialist per un'agenzia di comunicazione digitale.
 
-CONTESTO: Dobbiamo inviare una newsletter ai nostri clienti per promuovere una vendita flash del 30% su tutti i prodotti per la casa intelligente (lampadine, termostati, assistenti vocali). La vendita dura solo 48 ore.
+**Contesto:**
+- **Brand:** "Digital Boost Agency".
+- **Evento:** Webinar gratuito "Strategie SEO per E-commerce".
+- **Valori:** Competenza, utilità, risultati concreti.
+- **Target:** Proprietari di e-commerce, marketing manager, professionisti del digitale.
+- **Obiettivo:** Massimizzare le iscrizioni al webinar.
 
-OBIETTIVO: Crea 5 opzioni di oggetto e testo di anteprima (preheader) per la newsletter.
+**Vincoli e Requisiti:**
+- **Lunghezza Oggetto:** Massimo 50 caratteri.
+- **Lunghezza Anteprima:** Massimo 80 caratteri.
+- **Tono di voce:** Professionale, informativo, persuasivo.
+- **Urgenza/Beneficio:** Sottolinea il valore del webinar e l'opportunità.
+- **Emoji:** Non usare emoji nell'oggetto o nell'anteprima.
 
-VINCOLI:
-- Tono: urgente, vantaggioso, entusiasmante.
-- L'oggetto deve essere accattivante e far capire l'urgenza.
-- L'anteprima deve completare l'oggetto e invogliare all'apertura.
-- Lunghezza oggetto: massimo 50 caratteri.
-- Lunghezza anteprima: massimo 75 caratteri.
-- Includi il riferimento al "30% di sconto" e "48 ore".
-
-FORMATO: Presenta le 5 opzioni in un elenco puntato, con "Oggetto:" e "Anteprima:" per ogni opzione.
+**Formato dell'Output:**
+- Oggetto: [Testo]
+- Anteprima: [Testo]
 ```
+(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
 
-**Output (esempio):**
-*   **Oggetto:** ⚡️ Vendita Flash: -30% su Smart Home!
-    **Anteprima:** Solo 48 ore per trasformare la tua casa. Non perdere il 30% di sconto!
-*   **Oggetto:** La tua casa intelligente al -30% (solo 48h)
-    **Anteprima:** Affrettati! Sconti incredibili su lampadine, termostati e altro.
-*   **Oggetto:** Ultima Chance: 30% Off Smart Home!
-    **Anteprima:** La nostra vendita lampo finisce presto. Cogli l'occasione entro 48 ore!
-*   **Oggetto:** Casa Smart: -30% per 48 Ore!
-    **Anteprima:** Non sognare, agisci! Sconti imperdibili ti aspettano.
-*   **Oggetto:** Sconto 30% Smart Home: Solo 2 Giorni!
-    **Anteprima:** Upgrade la tua casa con offerte che non dureranno.
+#### Esempio 3: Descrizione Prodotto per Sito E-commerce
 
-#### Esempio 3: Descrizione prodotto e Meta Description per Sito Web
+**Scenario:** Scrivere una descrizione per un paio di scarpe da running ecologiche.
 
-**Prompt:**
 ```
-RUOLO: Agisci come un copywriter SEO specializzato in descrizioni di prodotti.
+**Ruolo:** Sei un copywriter e-commerce specializzato in prodotti sostenibili.
 
-CONTESTO: Devi scrivere una descrizione prodotto e una meta description per una nuova tazza termica riutilizzabile, "ThermoMug Pro", ideale per bevande calde e fredde, realizzata in acciaio inossidabile, con design elegante e chiusura ermetica.
+**Contesto:**
+- **Brand:** "GreenStride".
+- **Prodotto:** Scarpe da running modello "EcoRunner".
+- **Caratteristiche:** Realizzate con materiali riciclati, suola ammortizzata, leggere, traspiranti.
+- **Benefici:** Comfort, performance, rispetto per l'ambiente, stile moderno.
+- **Target:** Atleti e appassionati di running attenti all'ambiente e alla sostenibilità.
+- **Obiettivo:** Convincere all'acquisto evidenziando i benefici e i valori etici.
 
-OBIETTIVO: Genera:
-1.  Una descrizione prodotto persuasiva (circa 150 parole).
-2.  Una meta description ottimizzata per SEO (massimo 160 caratteri).
+**Vincoli e Requisiti:**
+- **Lunghezza:** Circa 200 parole, suddivise in 3-4 paragrafi.
+- **Tono di voce:** Ispirazionale, tecnico ma accessibile, orientato ai valori.
+- **Parole chiave:** "Scarpe running ecologiche", "materiali riciclati", "sostenibilità", "performance".
+- **Struttura:** Introduzione accattivante, dettagli sui materiali/tecnologia, benefici per l'utente, conclusione con invito all'azione implicito.
 
-VINCOLI:
-- Tono: pratico, ecologico, di alta qualità.
-- Descrizione prodotto: Evidenzia i benefici (mantiene caldo/freddo, riutilizzabile, design, ermetica). Includi le parole chiave "tazza termica", "acciaio inossidabile", "bevande calde e fredde", "riutilizzabile".
-- Meta Description: Deve essere concisa, includere le parole chiave principali e un invito all'azione implicito.
-
-FORMATO: Presenta prima la descrizione prodotto e poi la meta description, chiaramente etichettate.
+**Formato dell'Output:**
+- Testo descrittivo in paragrafi.
 ```
+(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
 
-**Output (esempio):**
-**Descrizione Prodotto:**
-La ThermoMug Pro è la compagna ideale per le tue giornate, perfetta per chi non rinuncia al comfort e allo stile. Realizzata in robusto **acciaio inossidabile** di alta qualità, questa **tazza termica** avanzata mantiene le tue **bevande calde e fredde** alla temperatura perfetta per ore. Dimentica tazze usa e getta: con ThermoMug Pro scegli la sostenibilità. Il suo design elegante si adatta a ogni contesto, dalla scrivania all'avventura. Grazie alla chiusura ermetica, puoi portarla con te senza preoccupazioni di perdite. È la soluzione **riutilizzabile** definitiva per caffè, tè, acqua o frullati. Scegli ThermoMug Pro e goditi ogni sorso, ovunque tu sia.
+---
 
-**Meta Description:**
-Tazza termica ThermoMug Pro in acciaio inossidabile: mantiene bevande calde e fredde per ore. Design elegante, riutilizzabile e 100% ermetica. Scopri la qualità!
+### 4. Errori Comuni
 
-### 4. Errori comuni
+**Obiettivo:** Imparare dagli errori più frequenti per migliorare i tuoi prompt.
 
-**Obiettivo:** Riconoscere e evitare gli errori più frequenti nell'uso dell'IA per la generazione di testi.
+Anche le IA più avanzate possono dare risultati deludenti se le istruzioni non sono chiare. Ecco gli errori più comuni da evitare:
 
-Anche l'IA più avanzata può darti risultati deludenti se non la guidi correttamente. Ecco gli errori da evitare:
-
-*   **1. Istruzioni vaghe o ambigue:**
+*   **1. Istruzioni Vaghi o Ambigue:**
     *   **Errore:** "Scrivi qualcosa sul nostro nuovo prodotto."
-    *   **Perché è un errore:** L'IA non sa cosa "qualcosa" significhi. Non ha contesto, tono o obiettivo.
-    *   **Soluzione:** Sii sempre specifico su cosa vuoi, per chi, con quale tono e perché.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
+    *   **Perché è un errore:** L'IA non sa cosa scrivere, per chi, con quale obiettivo o tono.
+    *   **Soluzione:** Sii sempre specifico. Chi, cosa, quando, dove, perché e come.
+    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - "Be precise: Ambiguity or conflicting instructions = degraded performance")
 
-*   **2. Non specificare formato o lunghezza:**
-    *   **Errore:** Chiedere un "post" senza dire se è per Facebook, Instagram, LinkedIn, o quanti caratteri.
-    *   **Perché è un errore:** L'IA potrebbe generare un testo troppo lungo, troppo corto, o in un formato inutilizzabile.
-    *   **Soluzione:** Indica sempre il formato (elenco, paragrafo, Markdown) e i limiti di lunghezza (caratteri, parole).
-    *(Fonte: ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9)*
+*   **2. Troppi Vincoli o Vincoli Contraddittori:**
+    *   **Errore:** "Scrivi un post divertente, ma molto formale, di massimo 10 parole, che spieghi in dettaglio un concetto complesso."
+    *   **Perché è un errore:** L'IA si trova in un vicolo cieco. Un tono divertente e formale sono difficili da conciliare, e 10 parole non bastano per un concetto complesso.
+    *   **Soluzione:** Rivedi i tuoi vincoli. Assicurati che siano realistici e non si contraddicano. Se chiedi un comportamento specifico ("devi sempre fare X"), aggiungi una via d'uscita ("se non hai abbastanza informazioni, chiedi all'utente").
+    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
 
-*   **3. Non dare un ruolo all'IA:**
-    *   **Errore:** Chiedere "Scrivi un testo di vendita."
-    *   **Perché è un errore:** L'IA non sa se deve essere un venditore aggressivo, un consulente amichevole o un esperto tecnico.
-    *   **Soluzione:** Assegna un ruolo specifico (es. "Agisci come un copywriter esperto di vendita B2B").
+*   **3. Mancanza di Esempi o Istruzioni per la Varietà:**
+    *   **Errore:** Fornire all'IA una lista di frasi di esempio senza istruzioni aggiuntive.
+    *   **Perché è un errore:** L'IA potrebbe usare quelle frasi alla lettera, rendendo il testo ripetitivo e "robotico".
+    *   **Soluzione:** Se usi esempi, istruisci l'IA a "usare queste frasi come ispirazione, ma variarle per evitare ripetizioni".
+    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
 
-*   **4. Aspettarsi che l'IA "sappia" o "capisca" tutto (Allucinazioni):**
-    *   **Errore:** Dare per scontato che l'IA conosca dettagli specifici del tuo brand, dati recenti o eventi non ampiamente pubblicati.
-    *   **Perché è un errore:** L'IA può "allucinare", ovvero inventare fatti, dati o citazioni che sembrano veri ma non lo sono, se non ha abbastanza informazioni o se le istruzioni sono troppo generiche.
-    *   **Soluzione:** Fornisci sempre le informazioni chiave e verifica sempre l'accuratezza dei fatti generati. Se l'IA non ha abbastanza informazioni per una richiesta, istruiscila a chiedere chiarimenti.
-    *(Fonte: ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9)*
+*   **4. Non Specificare il Formato o la Lunghezza:**
+    *   **Errore:** "Scrivi un testo per il blog."
+    *   **Perché è un errore:** L'IA potrebbe produrre un testo troppo lungo, troppo corto, senza titoli, o con una formattazione indesiderata (es. spiegazioni extra sul perché ha scritto così).
+    *   **Soluzione:** Specifica sempre il formato (es. "in Markdown, con un titolo H1 e 3 paragrafi") e la lunghezza ("circa 300 parole").
+    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
 
-*   **5. Non chiedere varietà (output ripetitivo):**
-    *   **Errore:** Chiedere "Scrivi 5 slogan per il prodotto X" senza specificare che devono essere diversi.
-    *   **Perché è un errore:** L'IA potrebbe generare slogan molto simili tra loro, o usare le stesse frasi.
-    *   **Soluzione:** Includi sempre istruzioni come "Genera 5 varianti diverse", "Usa un linguaggio vario e creativo", "Evita ripetizioni".
-    *(Fonte: ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9)*
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
+*   **5. Non Organizzare il Prompt:**
+    *   **Errore:** Scrivere tutte le istruzioni in un unico, lungo paragrafo.
+    *   **Perché è un errore:** Rende difficile per l'IA (e per te) identificare le diverse parti delle istruzioni e seguirle.
+    *   **Soluzione:** Usa sezioni chiare e intitolate (come in questa guida: Ruolo, Contesto, Vincoli, Formato) e elenchi puntati. Questo aiuta l'IA a elaborare meglio le informazioni.
+    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
 
-*   **6. Istruzioni contraddittorie:**
-    *   **Errore:** Chiedere un testo "formale" ma anche "giovanile e slang".
-    *   **Perché è un errore:** L'IA si confonde e l'output sarà di scarsa qualità o incoerente.
-    *   **Soluzione:** Rileggi il prompt per assicurarti che tutte le istruzioni siano allineate e non si contraddicano.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
+---
 
-### 5. Limiti e buone pratiche
+### 5. Limiti e Buone Pratiche
 
-**Obiettivo:** Comprendere le capacità e i confini dell'IA e adottare le migliori strategie per massimizzarne l'efficacia.
+**Obiettivo:** Gestire le aspettative sull'IA e adottare strategie per massimizzare i risultati.
 
-#### Limiti dell'IA
+L'IA è uno strumento potente, ma ha i suoi limiti. Conoscendoli e adottando buone pratiche, puoi usarla al meglio.
 
-*   **Non è un essere umano:** L'IA non ha intuito, empatia reale, esperienza di vita o capacità di comprendere il sarcasmo o le sfumature culturali implicite come un umano. Genera testo basandosi su schemi appresi.
-*   **Può inventare fatti (allucinazioni):** Come menzionato, se non ha dati sufficienti o se le viene chiesto di speculare, l'IA può generare informazioni false ma plausibili. **Verifica sempre ogni dato o affermazione.**
-*   **Non capisce il contesto implicito:** Ha bisogno di tutto esplicitamente. Ciò che per noi è ovvio, per l'IA non lo è.
-*   **Non tutte le IA funzionano allo stesso modo:** Alcuni modelli AI (come quelli per la trascrizione audio) potrebbero seguire lo "stile" di un esempio più che le istruzioni dirette. Per la generazione di testo, i modelli più recenti sono molto bravi a seguire le istruzioni, ma è bene sapere che le tecnologie AI possono avere comportamenti diversi.
-    *(Fonte: ../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0)*
-*   **Ha limiti di lunghezza:** Ogni IA può elaborare solo una certa quantità di testo alla volta (il tuo prompt più la risposta). Se il prompt è troppo lungo, potrebbe ignorare le parti iniziali. Sii conciso ma completo.
-    *(Fonte: ../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1)*
-    *(Fonte: ../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0)*
+#### Limiti
 
-#### Buone pratiche
+*   **1. Non è un Essere Umano:** L'IA non "capisce" nel senso umano. Segue schemi e probabilità. Non ha intuizione, emozioni o esperienza di vita.
+*   **2. Può "Allucinare":** A volte, l'IA può inventare fatti, citazioni o informazioni che sembrano plausibili ma non sono vere. Questo è particolarmente vero se non ha abbastanza dati o se le istruzioni sono ambigue.
+    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+*   **3. Sensibilità alla Lunghezza:** I prompt molto lunghi possono confondere l'IA o farle perdere il contesto iniziale. Anche se non c'è un limite fisso universale, è bene essere concisi pur essendo completi.
+    (Fonte: `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0` - concetto di limite di token, generalizzato per LLMs)
+*   **4. Ripetizioni:** Senza istruzioni specifiche, l'IA può cadere in schemi ripetitivi o frasi generiche.
+    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+*   **5. Dipendenza dal Contesto del Prompt:** In alcuni contesti (es. trascrizione audio), l'IA potrebbe seguire più lo "stile" del prompt che le istruzioni dirette contenute in esso. Per la generazione di testo, le istruzioni dirette sono solitamente ben seguite, ma è un promemoria dell'importanza del *come* si formula il prompt.
+    (Fonte: `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0`, adattato per il contesto di generazione testo)
 
-*   **1. Iterare senza sosta:**
-    *   **Cosa:** Non aspettarti il risultato perfetto al primo tentativo. Modifica il prompt, aggiungi dettagli, prova diverse formulazioni. Piccole modifiche possono fare una grande differenza.
-    *   **Come:** Prendi l'output, analizza cosa non va e modifica il prompt di conseguenza.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
+#### Buone Pratiche
 
-*   **2. Sii preciso e specifico:**
-    *   **Cosa:** Ogni parola conta. Evita ambiguità. Più dettagli fornisci, più l'output sarà allineato alle tue aspettative.
-    *   **Come:** Invece di "Scrivi un testo bello", prova "Scrivi un testo persuasivo, con tono entusiasta, che evidenzi i benefici X, Y, Z per il pubblico A".
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-
-*   **3. Guida con esempi:**
-    *   **Cosa:** Se hai in mente uno stile o un formato particolare, mostra all'IA un esempio.
-    *   **Come:** Includi nel prompt "Ecco un esempio di tono che mi piace: '...'". L'IA è brava a replicare pattern.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-
-*   **4. Struttura il prompt:**
-    *   **Cosa:** Organizza il tuo prompt in sezioni chiare e facili da leggere.
-    *   **Come:** Usa punti elenco, titoli in maiuscolo (es. "RUOLO:", "CONTESTO:", "OBIETTIVO:") per rendere le istruzioni più evidenti. Questo aiuta l'IA a elaborare le informazioni in modo più coerente.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-
-*   **5. Chiedi varietà:**
-    *   **Cosa:** Per evitare output ripetitivi, chiedi esplicitamente all'IA di variare il linguaggio.
-    *   **Come:** Aggiungi una regola come "Assicurati che le frasi siano diverse e non ripetitive" o "Genera 3 opzioni con stili leggermente diversi".
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-
-*   **6. Controlla sempre l'output:**
-    *   **Cosa:** L'IA è un assistente, non un sostituto. Ogni testo generato deve essere revisionato, corretto e adattato da te.
-    *   **Come:** Leggi criticamente, verifica i fatti, adatta il tono e lo stile per renderlo autentico e in linea con il tuo brand.
-
-*   **7. Usa il maiuscolo per enfasi:**
-    *   **Cosa:** Per le regole o le istruzioni più importanti, usa il maiuscolo.
-    *   **Come:** "NON INCLUDERE PREZZI NEL COPY", "LUNGHEZZA MASSIMA 150 CARATTERI". Questo le rende più visibili all'IA.
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
-
-*   **8. Converti regole non testuali in testo:**
-    *   **Cosa:** Se hai una regola logica o numerica, esprimila in parole.
-    *   **Come:** Invece di "SE X > 3 ALLORA ESCALA", scrivi "SE CI SONO PIÙ DI TRE ERRORI, ALLORA SEGNALA IL PROBLEMA".
-    *(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1)*
+*   **1. Iterare Senza Sosta:** Il primo prompt raramente è quello perfetto. Modifica piccole parole, cambia l'ordine delle istruzioni, aggiungi o togli dettagli. Ogni piccola modifica può fare una grande differenza nel risultato.
+    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **2. Dai Esempi:** Se hai un'idea precisa di stile, tono o struttura, fornire uno o più esempi all'IA è uno dei modi più efficaci per guidarla.
+    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **3. Sii Preciso e Chiaro:** La chiarezza è fondamentale. Evita ambiguità. Se un'istruzione può essere interpretata in più modi, l'IA potrebbe scegliere quello sbagliato.
+    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **4. Controlla Sempre l'Output:** L'IA è un assistente, non un sostituto. Rileggi sempre il testo generato, verifica i fatti, adatta il tono e assicurati che sia in linea con il brand e gli obiettivi. Non pubblicare mai un testo generato dall'IA senza revisione.
+*   **5. Struttura il Tuo Prompt:** Usa sezioni chiare, elenchi puntati e, se necessario, il maiuscolo per enfatizzare le regole chiave. Un prompt ben organizzato è più facile da capire per l'IA e da modificare per te.
+    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **6. Chiedi Chiarimenti:** Se l'IA non ha abbastanza informazioni per eseguire un compito, istruiscila a "chiedere all'utente le informazioni mancanti" piuttosto che inventare.
+    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
 
 ---
 
 ### Fonti
 
-*   ../data/openai-cookbook/articles/how_to_work_with_large_language_models.md
-*   ../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb
-*   ../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb
-*   ../data/openai-cookbook/examples/Optimize_Prompts.ipynb
-*   ../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb
-*   ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb
+*   `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md`
+*   `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb`
+*   `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb`
+*   `../data/openai-cookbook/examples/Optimize_Prompts.ipynb`
+*   `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb`
+*   `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb`
 
 
 ## Prompt engineering per rilevamento lingua
 
-# Rilevamento Lingua con l'IA
+Ecco la sezione del manuale dedicata al rilevamento della lingua tramite IA.
 
-Questa sezione ti mostra come usare l'Intelligenza Artificiale per identificare la lingua di un testo. È uno strumento utile per gestire grandi volumi di contenuti multilingue o per assicurarti che la tua comunicazione sia sempre nel giusto idioma.
+---
 
-## Obiettivo
+# Rilevamento della Lingua con l'IA
 
-Identificare la lingua di un testo in modo rapido e affidabile.
+Capire in che lingua è scritto un testo è il primo passo per molte attività di marketing e comunicazione. L'IA può aiutarti a identificare rapidamente la lingua di qualsiasi contenuto, rendendo più efficienti i tuoi flussi di lavoro.
 
 ## Quando serve in agenzia
 
-Come copywriter o content strategist, ti troverai spesso a gestire contenuti provenienti da diverse fonti o destinati a pubblici internazionali. L'IA per il rilevamento lingua è utile in questi casi:
+Identificare la lingua di un testo è fondamentale in diverse situazioni quotidiane:
 
-*   **Gestione di contenuti generati dagli utenti (UGC):** Se la tua azienda riceve commenti, recensioni o post sui social da clienti di tutto il mondo, l'IA può aiutarti a capire rapidamente in che lingua sono scritti. Questo è fondamentale per la moderazione o per rispondere in modo appropriato.
-*   **Personalizzazione della comunicazione:** Prima di inviare email o messaggi, puoi usare l'IA per verificare la lingua preferita del destinatario, assicurandoti che il tuo messaggio sia sempre pertinente.
-*   **Classificazione e organizzazione:** Per archiviare o categorizzare articoli, post di blog o documenti in base alla loro lingua, facilitando la ricerca e la gestione dei contenuti.
-*   **Analisi di mercato:** Quando analizzi conversazioni online o feedback dei clienti da diverse aree geografiche, l'IA ti aiuta a filtrare e raggruppare i dati per lingua.
+*   **Gestione commenti social**: Per smistare i commenti dei follower in base alla lingua e rispondere in modo appropriato, oppure per analizzare il sentiment specifico per mercato.
+*   **Analisi UGC (User Generated Content)**: Quando raccogli recensioni, testimonianze o contenuti creati dagli utenti, l'IA può aiutarti a categorizzarli per lingua prima di un'analisi più approfondita (ad esempio, per capire il sentiment in diverse lingue).
+*   **Smistamento email e richieste di supporto**: Instradare automaticamente le email dei clienti al team di supporto o al copywriter giusto in base alla lingua.
+*   **Localizzazione contenuti**: Preparare i testi per la traduzione, assicurandosi di conoscere la lingua di partenza.
+*   **Ricerca di mercato**: Analizzare conversazioni online o trend in diverse aree geografiche.
+
+*(Fonte: ../data/openai-cookbook/examples/evaluation/use-cases/structured-outputs-evaluation.ipynb)*
 
 ## Prompt template
 
-Per chiedere all'IA di rilevare una lingua, devi essere chiaro e specifico. Il template di base è semplice:
+Per chiedere all'IA di rilevare la lingua, devi essere chiaro e specifico. L'obiettivo è ottenere una risposta pulita e standardizzata, come un codice lingua.
+
+**Obiettivo del prompt**: Identificare la lingua di un testo e restituire solo il codice ISO 639-1 (es. `it`, `en`, `es`).
+
+**Come usarlo**: Copia e incolla questo template nel tuo strumento IA, sostituendo `[Il tuo testo qui]` con il contenuto da analizzare.
 
 ```
-Identifica la lingua del seguente testo.
-Rispondi solo con il nome della lingua (es. "Italiano", "Inglese", "Spagnolo").
+Sei un esperto di lingue.
+Il tuo compito è identificare la lingua del testo che ti fornirò.
+Rispondi solo con il codice ISO 639-1 della lingua (es. 'it' per italiano, 'en' per inglese, 'es' per spagnolo), e nient'altro.
 
 Testo:
-[INSERISCI QUI IL TESTO DA ANALIZZARE]
+[Il tuo testo qui]
 ```
-*(Riferimento: `../data/openai-cookbook/examples/Using_logprobs.ipynb::chunk3` - adattato per classificazione lingua)*
 
-**Per un output più strutturato e preciso (utile per l'integrazione con altri strumenti):**
+**Spiegazione del prompt**:
+*   `Sei un esperto di lingue.`: Assegna un "ruolo" all'IA, aiutandola a focalizzarsi sul compito.
+*   `Il tuo compito è identificare la lingua del testo che ti fornirò.`: Definisce chiaramente l'azione richiesta.
+*   `Rispondi solo con il codice ISO 639-1 della lingua (...) e nient'altro.`: Questa è la parte più importante. Forza l'IA a dare una risposta precisa e senza fronzoli, facilitando l'automazione o l'analisi successiva.
+*   `Testo:`: Indica chiaramente dove inserire il contenuto da analizzare.
 
+*(Fonte: ../data/openai-cookbook/examples/Using_logprobs.ipynb::chunk3, ../data/openai-cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents.ipynb::chunk26, ../data/openai-cookbook/examples/o1/Using_chained_calls_for_o1_structured_outputs.ipynb::chunk2)*
+
+## Esempi pratici (da agenzia)
+
+Ecco come puoi usare il prompt con diversi tipi di contenuto:
+
+### 1. Commenti social
+
+**Input (Testo da analizzare):**
+"Che bello questo post! Complimenti al team, continuate così!"
+
+**Prompt completo:**
 ```
-Identifica la lingua del seguente testo.
-Rispondi solo con il codice ISO 639-1 a due lettere della lingua (es. "it", "en", "es").
+Sei un esperto di lingue.
+Il tuo compito è identificare la lingua del testo che ti fornirò.
+Rispondi solo con il codice ISO 639-1 della lingua (es. 'it' per italiano, 'en' per inglese, 'es' per spagnolo), e nient'altro.
 
 Testo:
-[INSERISCI QUI IL TESTO DA ANALIZZARE]
+Che bello questo post! Complimenti al team, continuate così!
 ```
-*(Riferimento: `../data/openai-cookbook/examples/o1/Using_chained_calls_for_o1_structured_outputs.ipynb::chunk2` - per output strutturati)*
 
-## Esempi pratici da agenzia
+**Output atteso dall'IA:**
+`it`
 
-Ecco come puoi usare questi prompt con testi reali:
+### 2. Recensione UGC (User Generated Content)
 
-### Esempio 1: Commento social
+**Input (Testo da analizzare):**
+"This product is amazing, totally recommend it! Fast delivery and great quality."
 
-Immagina di monitorare i commenti sui social media per un brand internazionale.
-
-**Prompt:**
+**Prompt completo:**
 ```
-Identifica la lingua del seguente testo.
-Rispondi solo con il nome della lingua.
+Sei un esperto di lingue.
+Il tuo compito è identificare la lingua del testo che ti fornirò.
+Rispondi solo con il codice ISO 639-1 della lingua (es. 'it' per italiano, 'en' per inglese, 'es' per spagnolo), e nient'altro.
 
 Testo:
-"This product is amazing! I love the new features."
+This product is amazing, totally recommend it! Fast delivery and great quality.
 ```
 
-**Output dell'IA:**
-```
-Inglese
-```
+**Output atteso dall'IA:**
+`en`
 
-**Prompt:**
-```
-Identifica la lingua del seguente testo.
-Rispondi solo con il nome della lingua.
+### 3. Email o messaggio cliente
 
-Testo:
-"No estoy seguro de lo que pienso sobre este producto."
-```
+**Input (Testo da analizzare):**
+"No estoy seguro de lo que pienso sobre este producto. ¿Podrían darme más información?"
 
-**Output dell'IA:**
+**Prompt completo:**
 ```
-Spagnolo
-```
-*(Riferimento: `../data/openai-cookbook/examples/evaluation/use-cases/structured-outputs-evaluation.ipynb::chunk3` - testi di esempio)*
-
-### Esempio 2: Recensione utente (UGC)
-
-Un cliente ha lasciato una recensione sul tuo sito e vuoi sapere in che lingua è.
-
-**Prompt:**
-```
-Identifica la lingua del seguente testo.
-Rispondi solo con il codice ISO 639-1 a due lettere.
+Sei un esperto di lingue.
+Il tuo compito è identificare la lingua del testo che ti fornirò.
+Rispondi solo con il codice ISO 639-1 della lingua (es. 'it' per italiano, 'en' per inglese, 'es' per spagnolo), e nient'altro.
 
 Testo:
-"总体来说，我对这款产品很满意。"
+No estoy seguro de lo que pienso sobre este producto. ¿Podrían darme más información?
 ```
 
-**Output dell'IA:**
-```
-zh
-```
-*(Riferimento: `../data/openai-cookbook/examples/evaluation/use-cases/structured-outputs-evaluation.ipynb::chunk3` - testo di esempio)*
+**Output atteso dall'IA:**
+`es`
 
-### Esempio 3: Oggetto di un'email
+### 4. Recensione app (lingue non latine)
 
-Stai gestendo una campagna email multilingue e vuoi assicurarti che l'oggetto sia nella lingua giusta.
+**Input (Testo da analizzare):**
+"总体来说，我对这款产品很满意。功能强大，界面友好。"
 
-**Prompt:**
+**Prompt completo:**
 ```
-Identifica la lingua del seguente testo.
-Rispondi solo con il nome della lingua.
+Sei un esperto di lingue.
+Il tuo compito è identificare la lingua del testo che ti fornirò.
+Rispondi solo con il codice ISO 639-1 della lingua (es. 'it' per italiano, 'en' per inglese, 'es' per spagnolo), e nient'altro.
 
 Testo:
-"Scopri le nostre nuove offerte esclusive!"
+总体来说，我对这款产品很满意。功能强大，界面友好。
 ```
 
-**Output dell'IA:**
-```
-Italiano
-```
+**Output atteso dall'IA:**
+`zh`
+
+*(Fonte: ../data/openai-cookbook/examples/evaluation/use-cases/structured-outputs-evaluation.ipynb::chunk3)*
 
 ## Ambiguità e casi misti
 
-Non tutti i testi sono "puri". L'IA può incontrare difficoltà con:
+L'IA è molto brava, ma non è infallibile. Ci sono situazioni in cui il rilevamento della lingua può essere più complesso:
 
-*   **Testi molto brevi:** Meno parole significano meno contesto per l'IA. "Ciao!" potrebbe essere italiano, ma anche un saluto informale in altre lingue.
-*   **Code-switching (cambio di codice):** Quando una persona mescola due o più lingue nella stessa frase o paragrafo (es. "Ho avuto un meeting super busy oggi").
-*   **Slang, dialetti o gergo specifico:** L'IA potrebbe non riconoscere forme linguistiche non standard.
-*   **Testi con citazioni in altre lingue:** Un testo principalmente in italiano che include una frase in inglese potrebbe confondere l'IA se non istruita correttamente.
+*   **Testi molto brevi**: Con poche parole, l'IA ha meno indizi e potrebbe fare errori. Ad esempio, "Ok" potrebbe essere in molte lingue.
+*   **Gergo, slang o nomi propri**: Parole non standard o nomi di persone/luoghi possono confondere l'IA, soprattutto se sembrano appartenere a un'altra lingua.
+*   **Code-switching (lingue mescolate)**: Quando un testo contiene frasi o parole di più lingue ("Questo è un *must-have* per il mio *workflow*"). L'IA di solito identifica la lingua predominante, ma non sempre è quello che cerchi.
+*   **Lingue simili**: Italiano e spagnolo, o portoghese e spagnolo, possono essere difficili da distinguere per l'IA con testi brevi o con lessico comune.
 
-**Come gestire i casi misti:**
+**Come gestire questi casi**:
 
-Puoi istruire l'IA su come comportarsi in queste situazioni.
+*   **Sii più specifico nel prompt**: Se sai che potresti avere testi misti, puoi chiedere all'IA di identificare la lingua *principale* o di segnalare se il testo è *multilingue*.
+*   **Fornisci contesto**: Se possibile, aggiungi informazioni che possano aiutare l'IA (es. "Questo testo proviene da un utente in Italia").
+*   **Definisci una risposta per l'incertezza**: Puoi aggiungere al prompt: "Se non sei sicuro, rispondi 'sconosciuto'".
 
-**Prompt per lingua principale:**
-```
-Identifica la lingua principale del seguente testo. Se ci sono più lingue, indica solo quella predominante.
-Rispondi solo con il nome della lingua.
-
-Testo:
-"Ho avuto un meeting super busy oggi, ma alla fine abbiamo chiuso il deal!"
-```
-
-**Output dell'IA:**
-```
-Italiano
-```
-
-**Prompt per tutte le lingue:**
-```
-Elenca tutte le lingue presenti nel seguente testo.
-Rispondi con un elenco puntato dei nomi delle lingue.
-
-Testo:
-"The new campaign is amazing! La nuova campagna è fantastica!"
-```
-
-**Output dell'IA:**
-```
-- Inglese
-- Italiano
-```
-*(Riferimento: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk5` - concetto di "code switching")*
+*(Fonte: ../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk5)*
 
 ## Limiti e buone pratiche
 
-### Limiti
+Per ottenere i migliori risultati e gestire le aspettative:
 
-*   **Precisione con testi brevi o specifici:** L'IA è meno affidabile con frasi molto corte o con testi che contengono molto gergo tecnico o slang non comune.
-*   **Lingue rare o dialetti:** Potrebbe avere difficoltà a identificare lingue meno diffuse o dialetti specifici per i quali ha meno dati di addestramento.
-*   **Non è "comprensione umana":** L'IA rileva la lingua basandosi su modelli e statistiche, non sulla comprensione del significato come farebbe un essere umano.
+### Limiti da considerare
 
-### Buone pratiche
+*   **Non è sempre 100% accurato**: Specialmente con testi brevi, ambigui o con molte parole straniere.
+*   **Non "capisce" il contesto culturale**: L'IA si basa sul modello linguistico, non sulla comprensione profonda delle sfumature culturali o regionali.
+*   **Difficoltà con dialetti o lingue meno diffuse**: L'IA è addestrata su grandi quantità di testo, ma se una lingua o un dialetto è poco rappresentato, l'accuratezza diminuisce.
 
-1.  **Sii specifico nel prompt:**
-    *   Indica chiaramente il formato di output desiderato (nome completo, codice ISO, ecc.).
-    *   Specifica cosa fare in caso di testi misti (es. "lingua principale" o "elenca tutte").
-    *(Riferimento: `../data/openai-cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents.ipynb::chunk26` - enforce strict guidelines)*
+### Buone pratiche per i copywriter e content strategist
 
-2.  **Fornisci esempi (Few-shot prompting):**
-    *   Se l'IA fatica con un tipo specifico di testo, puoi includere nel prompt alcuni esempi di input e l'output corretto che ti aspetti. Questo "addestra" l'IA sul momento.
-    *(Riferimento: `../data/openai-cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents.ipynb::chunk26` - includes few-shot examples)*
+1.  **Sii sempre specifico nel prompt**: Chiedi esattamente ciò che vuoi (es. "solo il codice ISO 639-1"). Questo riduce le risposte non pertinenti.
+2.  **Testa il tuo prompt**: Prima di usarlo su larga scala, prova il prompt con diversi tipi di testo (brevi, lunghi, misti, in lingue diverse) per capire come si comporta l'IA.
+3.  **Non dare per scontato**: Per contenuti critici, controlla sempre i risultati, soprattutto se l'IA ha segnalato incertezza o se il testo era particolarmente complesso.
+4.  **Fornisci esempi (few-shot)**: Se hai testi molto specifici o con ambiguità ricorrenti, puoi includere nel prompt 1-2 esempi di testo con la lingua corretta. Questo "insegna" all'IA come vuoi che risponda.
+5.  **Integra con altri strumenti**: Per volumi molto grandi o esigenze di alta precisione, considera di affiancare l'IA a strumenti di rilevamento lingua più specifici o a una revisione umana.
 
-3.  **Chiedi un livello di "sicurezza" (se disponibile):**
-    *   Per decisioni critiche, alcuni strumenti IA possono indicare quanto sono "sicuri" della loro risposta. Se disponibile, chiedi all'IA di fornire un punteggio di confidenza. Questo ti aiuta a capire quando potresti aver bisogno di una verifica manuale.
-    *(Riferimento: `../data/openai-cookbook/examples/Using_logprobs.ipynb::chunk1` - concetto di confidence score)*
+*(Fonte: ../data/openai-cookbook/examples/Using_logprobs.ipynb::chunk1, ../data/openai-cookbook/examples/partners/temporal_agents_with_knowledge_graphs/temporal_agents.ipynb::chunk26, ../data/openai-cookbook/examples/o1/Using_chained_calls_for_o1_structured_outputs.ipynb::chunk2)*
 
-4.  **Testa e itera:**
-    *   Prova il tuo prompt con diversi tipi di testo che potresti incontrare. Se l'IA non risponde come previsto, modifica il prompt per renderlo più chiaro o aggiungi esempi.
+---
 
 ## Fonti
 
@@ -467,170 +437,132 @@ Testo:
 
 ## Prompt engineering per cross-tabular analysis
 
-# Analisi Dati Tabellari con l'IA: Trovare Insight per Contenuti e Campagne
-
-Questa sezione ti guiderà su come usare l'Intelligenza Artificiale per analizzare tabelle di dati, scoprendo trend, anomalie e suggerimenti utili per le tue strategie di contenuto e campagne.
+Ecco la sezione del manuale sull'uso dell'IA per l'analisi cross-tabulare, pensata per copywriter e content strategist.
 
 ---
 
-### Obiettivo
+# Analisi Cross-Tabulare con l'IA: Scopri i Dati Nascosti
 
-Usare l'IA per interpretare rapidamente dati tabellari complessi, identificare pattern, outlier e ricevere suggerimenti azionabili per ottimizzare le performance di contenuti e campagne.
+L'analisi cross-tabulare ti aiuta a incrociare dati diversi per trovare relazioni e insight. L'IA può semplificare enormemente questo processo, trasformando tabelle complesse in risposte chiare e azioni concrete.
 
----
+## Obiettivo
+Usare l'IA per analizzare tabelle di dati, identificare trend, anomalie e ottenere suggerimenti pratici per migliorare le tue strategie di contenuto e marketing.
 
-### Quando serve (Esempio: keyword x canale x conversioni)
+## Quando serve (keyword x canale x conversioni)
 
-Immagina di avere una tabella con i risultati delle tue campagne digitali: quali keyword funzionano meglio su quale canale, o quali tipi di contenuto generano più conversioni. L'IA può aiutarti a:
+Immagina di avere un foglio Excel con dati sulle performance delle tue campagne. L'analisi cross-tabulare con l'IA è il tuo superpotere quando devi:
 
-*   **Valutare le performance:** Hai lanciato un test A/B su due versioni di una landing page o due modelli di annunci? L'IA può analizzare i tassi di conversione e dirti quale ha performato meglio e se la differenza è significativa.
-    *   *Esempio pratico da agenzia:* Stai confrontando due modelli di annunci (Controllo vs. Modello X) per un cliente. Hai dati su utenti assegnati, conversioni e tassi di conversione. L'IA può aiutarti a capire se il Modello X è un vincitore statisticamente significativo.
-    *   Fonte: `../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb::chunk5`
-*   **Identificare trend e pattern:** Scoprire quali combinazioni di keyword e canali portano i migliori risultati, o quali tipi di contenuto risuonano di più con specifici segmenti di pubblico.
-*   **Rilevare anomalie:** Notare cali improvvisi nelle conversioni o picchi inaspettati che potrebbero indicare problemi o opportunità.
-*   **Ottenere suggerimenti:** Ricevere idee su come migliorare i tuoi contenuti o la strategia di distribuzione basandosi sui dati.
+*   **Capire cosa funziona meglio:** Quali keyword generano più conversioni su Google Ads rispetto a Facebook?
+*   **Ottimizzare i canali:** Quali canali portano più lead qualificati per un certo tipo di contenuto (es. guide, post blog, video)?
+*   **Identificare problemi o opportunità:** C'è un canale che ha un costo per acquisizione troppo alto per una specifica keyword? O un contenuto che performa benissimo su un canale e potresti replicare altrove?
+*   **Valutare l'efficacia delle tue strategie:** Le tue nuove headline o call-to-action hanno migliorato il tasso di conversione su un segmento specifico di pubblico?
 
----
+In pratica, ogni volta che hai dati in tabella e vuoi farli "parlare" per prendere decisioni migliori.
 
-### Come descrivere la tabella al modello
+## Come descrivere la tabella al modello
 
-Per ottenere il meglio dall'IA, devi descrivere la tua tabella in modo chiaro e completo.
+L'IA non è un mago, ma un assistente molto intelligente. Per farla lavorare al meglio, devi darle i dati in modo chiaro.
 
-1.  **Fornisci la tabella:** Incolla i dati direttamente nel prompt. Puoi usare un formato Markdown per chiarezza.
-2.  **Spiega le colonne:** Descrivi brevemente cosa rappresenta ogni colonna. Questo aiuta l'IA a capire il contesto.
-3.  **Indica l'obiettivo:** Dì all'IA cosa vuoi scoprire o analizzare.
+1.  **Copia e Incolla:** Il modo più semplice è copiare l'intera tabella (o una sua parte significativa) direttamente nel prompt.
+2.  **Descrivi le Colonne:** Se la tabella è molto grande o complessa, puoi prima descrivere le colonne principali e il loro significato.
+    *   Esempio: "Ho una tabella con le seguenti colonne: 'Keyword', 'Canale', 'Impression', 'Clic', 'Conversioni', 'Costo per Conversione'."
+3.  **Indica l'Obiettivo:** Spiega chiaramente cosa vuoi scoprire.
 
 **Esempio di descrizione:**
 
-"Ecco una tabella che mostra i risultati di un test A/B per due modelli di annunci (Controllo e Modello X) su una piattaforma di pagamento. Voglio capire quale modello ha performato meglio e perché."
+"Ho una tabella che mostra i risultati di un A/B test per due modelli di copy (Controllo e Modello X). Le colonne sono:
+*   `Group`: Il nome del gruppo (Controllo o Modello X).
+*   `Users Assigned`: Numero di utenti assegnati a quel gruppo.
+*   `Conversions`: Numero di conversioni ottenute.
+*   `Conversion Rate`: Tasso di conversione.
+*   `p-value`: Valore statistico per la significatività.
+*   `Stat. Significant?`: Indica se il risultato è statisticamente significativo.
+*   `Winner?`: Indica se il modello è il vincitore.
+*   `Type I Error Guarded?`: Indica se il rischio di falso positivo è controllato.
+*   `Type II Error Guarded?`: Indica se la dimensione del campione è sufficiente per rilevare un effetto reale.
 
-```markdown
+Ecco la tabella:"
+```
 | Group                      | Users Assigned | Conversions | Conversion Rate | p-value | Stat. Significant? | Winner? | Type I Error Guarded? | Type II Error Guarded? |
 |----------------------------|----------------|-------------|-----------------|---------|--------------------|---------|-----------------------|------------------------|
 | Control (Current Model)    | 1500           | 15          | 1.0%            | --      | Reference          | No      | Yes                   | Yes                    |
 | Model X (Variant)          | 1500           | 30          | 2.0%            | 0.012   | Yes                | Yes     | Yes                   | Yes                    |
 ```
+*Fonte: ../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb::chunk5*
 
-*   **Users Assigned:** Numero di utenti assegnati casualmente a ciascun gruppo.
-*   **Conversions:** Quanti utenti hanno completato l'azione desiderata (es. pagato via Stripe).
-*   **Conversion Rate:** Tasso di conversione (Conversioni / Utenti Assegnati).
-*   **p-value:** Valore statistico che indica se la differenza è probabilmente non casuale.
-*   **Stat. Significant?:** Indica se il p-value è inferiore alla soglia di significatività (es. 0.05).
-*   **Winner?:** Indica se il Modello X è il vincitore.
-*   **Type I Error Guarded?:** Indica se il rischio di falso positivo è sotto controllo.
-*   **Type II Error Guarded?:** Indica se la dimensione del campione è sufficiente a rilevare un effetto reale.
+## Prompt template (pattern, outlier, azioni)
 
-Fonte: `../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb::chunk5`
+Una volta che l'IA ha la tua tabella, puoi farle domande specifiche.
 
----
+### Per trovare pattern (modelli ricorrenti)
 
-### Prompt template (pattern, outlier, azioni)
+*   "Analizza la tabella seguente: [incolla tabella]. Quali sono i pattern più evidenti tra le colonne 'Keyword', 'Canale' e 'Conversioni'? C'è una combinazione che performa meglio?"
+*   "Basandoti su questi dati, quali tipi di contenuti (se presenti in tabella) sembrano generare più engagement su Instagram rispetto a LinkedIn?"
+*   "C'è una correlazione tra il 'Costo per Clic' e il 'Tasso di Conversione' per le keyword a coda lunga?"
 
-Ecco un template che puoi adattare per analizzare i tuoi dati tabellari.
+### Per identificare outlier (dati anomali)
 
-**Prompt generico:**
+*   "Nella tabella [incolla tabella], ci sono valori anomali o inaspettati nella colonna 'Costo per Acquisizione'? Se sì, quali sono e per quali keyword/canali?"
+*   "Identifica eventuali performance eccezionalmente alte o basse nella colonna 'Tasso di Conversione' e suggerisci possibili ragioni."
+*   "C'è qualche riga che si discosta significativamente dalla media per 'Clic' e 'Impression'?"
+*   *Riferimento implicito all'identificazione di problemi:* L'IA può aiutare a "trovare rapidamente esempi di fallimenti nella consegna" o "identificare il problema esatto nei dati".
+    *Fonte: ../data/openai-cookbook/examples/Semantic_text_search_using_embeddings.ipynb::chunk1, ../data/openai-cookbook/examples/o1/Using_reasoning_for_data_validation.ipynb::chunk3*
 
-```
-Analizza la seguente tabella di dati.
-[INCOLLA QUI LA TUA TABELLA IN FORMATO MARKDOWN]
+### Per suggerire azioni concrete
 
-[INCOLLA QUI LA DESCRIZIONE DELLE COLONNE E IL CONTESTO, COME NELL'ESEMPIO PRECEDENTE]
+*   "Basandoti sull'analisi di questa tabella [incolla tabella], suggerisci 3 azioni concrete che potremmo intraprendere per migliorare il tasso di conversione complessivo."
+*   "Quali modifiche al copy o alla strategia di targeting suggeriresti per i canali con il 'Costo per Lead' più alto?"
+*   "Se l'obiettivo è aumentare le conversioni del 20%, quali keyword o canali dovremmo prioritizzare e perché?"
+*   "Data la performance del 'Modello X' rispetto al 'Controllo' (vedi tabella sopra), quale azione dovremmo intraprendere per la nostra prossima campagna?"
 
-Basandoti su questi dati:
-1.  Quali sono i principali pattern o trend che emergono?
-2.  Ci sono anomalie o dati che si discostano significativamente dalla norma?
-3.  Quali azioni concrete potrei intraprendere per migliorare le performance, basandomi su queste osservazioni?
-4.  Quali sono le conclusioni chiave che dovrei comunicare al mio team o al cliente?
-```
+## Esempio con tabella piccola (da agenzia)
 
----
-
-### Esempio con tabella piccola
-
-Usiamo l'esempio del test A/B per i modelli di annunci.
+**Scenario:** La tua agenzia ha condotto un A/B test per due versioni di un copy pubblicitario (Controllo vs. Modello X) su una landing page, per vedere quale genera più iscrizioni alla newsletter.
 
 **Il tuo prompt:**
 
-```
-Analizza la seguente tabella di dati che mostra i risultati di un test A/B per due modelli di annunci (Controllo e Modello X) su una piattaforma di pagamento.
+"Ho i risultati di un A/B test per due varianti di copy. Analizza questa tabella e dimmi quale copy ha performato meglio e perché. Suggerisci un'azione basata su questi dati.
 
+Ecco la tabella:
+```
 | Group                      | Users Assigned | Conversions | Conversion Rate | p-value | Stat. Significant? | Winner? | Type I Error Guarded? | Type II Error Guarded? |
-|----------------------------|----------------|-------------|-----------------|---------|--------------------|---------|--------------------|------------------------|
-| Control (Current Model)    | 1500           | 15          | 1.0%            | --      | Reference          | No      | Yes                | Yes                    |
-| Model X (Variant)          | 1500           | 30          | 2.0%            | 0.012   | Yes                | Yes     | Yes                | Yes                    |
-
-- **Users Assigned:** Numero di utenti assegnati casualmente a ciascun gruppo.
-- **Conversions:** Quanti utenti hanno completato l'azione desiderata (es. pagato via Stripe).
-- **Conversion Rate:** Tasso di conversione (Conversioni / Utenti Assegnati).
-- **p-value:** Valore statistico che indica se la differenza è probabilmente non casuale.
-- **Stat. Significant?:** Indica se il p-value è inferiore alla soglia di significatività (es. 0.05).
-- **Winner?:** Indica se il Modello X è il vincitore.
-- **Type I Error Guarded?:** Indica se il rischio di falso positivo è sotto controllo.
-- **Type II Error Guarded?:** Indica se la dimensione del campione è sufficiente a rilevare un effetto reale.
-
-Basandoti su questi dati:
-1.  Quali sono i principali pattern o trend che emergono?
-2.  Ci sono anomalie o dati che si discostano significativamente dalla norma?
-3.  Quali azioni concrete potrei intraprendere per migliorare le performance, basandomi su queste osservazioni?
-4.  Quali sono le conclusioni chiave che dovrei comunicare al mio team o al cliente?
+|----------------------------|----------------|-------------|-----------------|---------|--------------------|---------|-----------------------|------------------------|
+| Control (Current Model)    | 1500           | 15          | 1.0%            | --      | Reference          | No      | Yes                   | Yes                    |
+| Model X (Variant)          | 1500           | 30          | 2.0%            | 0.012   | Yes                | Yes     | Yes                   | Yes                    |
 ```
+*Fonte: ../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb::chunk5*
 
-**Risposta (ipotetica) dell'IA:**
+**Risposta attesa dall'IA (parafrasata):**
 
-```
-Ecco l'analisi dei dati forniti:
+"Il 'Modello X' ha performato meglio. Ha raddoppiato il tasso di conversione (2.0% vs 1.0%) rispetto al 'Controllo', con lo stesso numero di utenti. Il 'p-value' di 0.012 indica che questa differenza è statisticamente significativa, quindi è molto improbabile che sia dovuta al caso.
 
-1.  **Pattern o trend principali:**
-    *   Il "Modello X (Variant)" ha un tasso di conversione doppio (2.0%) rispetto al "Control (Current Model)" (1.0%).
-    *   La differenza nel tasso di conversione è statisticamente significativa (p-value = 0.012), il che significa che è improbabile che sia dovuta al caso.
-    *   Il Modello X è stato identificato come il "Winner".
-    *   Entrambi i test sono stati condotti con attenzione agli errori di Tipo I (falsi positivi) e Tipo II (falsi negativi), garantendo l'affidabilità dei risultati.
+**Azione suggerita:** Dovresti implementare il 'Modello X' come copy standard per la tua landing page, poiché ha dimostrato di essere significativamente più efficace nel generare conversioni."
 
-2.  **Anomalie o dati che si discostano:**
-    *   Non ci sono anomalie evidenti o dati che si discostano dalla norma, ma piuttosto una chiara differenza di performance tra i due gruppi, che è l'obiettivo del test A/B.
+## Limiti e buone pratiche
 
-3.  **Azioni concrete suggerite:**
-    *   **Implementare il Modello X:** Dato che il Modello X è un vincitore statisticamente significativo e ha raddoppiato il tasso di conversione, dovrebbe essere implementato come nuovo standard.
-    *   **Analizzare le differenze:** Studiare cosa rende il Modello X più efficace (es. copy, visual, CTA) per replicare questi elementi in future campagne.
-    *   **Test continui:** Continuare a testare nuove varianti per cercare ulteriori miglioramenti, usando il Modello X come nuovo "controllo".
+### Limiti
 
-4.  **Conclusioni chiave da comunicare:**
-    *   Abbiamo identificato un nuovo modello di annuncio (Modello X) che raddoppia il tasso di conversione rispetto al modello attuale.
-    *   I risultati sono statisticamente significativi e affidabili.
-    *   Raccomandiamo l'implementazione immediata del Modello X per migliorare le performance complessive.
-```
-Fonte: `../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb::chunk5` (per la tabella e le descrizioni)
+*   **Qualità dei dati:** L'IA è brava solo quanto i dati che le dai. Se la tua tabella contiene errori o dati incompleti, anche l'analisi dell'IA sarà imprecisa.
+*   **Complessità eccessiva:** Per tabelle estremamente grandi o con relazioni molto complesse tra centinaia di colonne, l'IA potrebbe faticare a dare insight profondi senza una guida molto specifica.
+*   **"Allucinazioni":** A volte l'IA può "inventare" interpretazioni o conclusioni che non sono supportate dai dati. Verifica sempre le sue affermazioni.
+*   **Mancanza di contesto:** L'IA non conosce il tuo business, i tuoi clienti o le condizioni di mercato. Le sue raccomandazioni sono basate solo sui dati forniti.
+
+### Buone pratiche
+
+*   **Sii specifico:** Più la tua domanda è chiara e dettagliata, migliore sarà la risposta. Non chiedere solo "cosa vedi?", ma "quali keyword hanno il CPA più basso su Google Ads?"
+*   **Fornisci contesto:** Se ci sono fattori esterni importanti (es. un lancio di prodotto recente, una festività), menzionali nel prompt.
+*   **Verifica sempre:** Le analisi dell'IA sono un ottimo punto di partenza, ma non sostituire mai il tuo giudizio professionale. Controlla i numeri e le conclusioni.
+*   **Itera:** Se la prima risposta non è soddisfacente, riformula la domanda o aggiungi più dettagli. Pensa a una conversazione.
+*   **Chiedi spiegazioni:** Se l'IA ti dà un'azione, chiedile "Perché lo suggerisci?" o "Su quali dati specifici ti basi?".
+*   **Attenzione alla precisione:** L'IA può generare "alta precisione/recall per l'identificazione dei problemi" e "buona accuratezza nel individuare il problema esatto nei dati", ma questo dipende dalla qualità del prompt e dei dati.
+    *Fonte: ../data/openai-cookbook/examples/o1/Using_reasoning_for_data_validation.ipynb::chunk3*
 
 ---
 
-### Limiti e buone pratiche
-
-L'IA è un potente alleato, ma ha i suoi limiti.
-
-**Limiti:**
-
-*   **Non è un esperto di business:** L'IA non conosce il contesto specifico della tua agenzia o del tuo cliente. Le sue raccomandazioni sono basate solo sui dati forniti.
-*   **Complessità statistica:** Sebbene possa interpretare valori come il "p-value", l'IA non è un sostituto per un'analisi statistica approfondita da parte di un esperto, specialmente per set di dati molto grandi o complessi.
-*   **Qualità dei dati:** "Garbage in, garbage out." Se i dati che fornisci sono errati o incompleti, anche l'analisi dell'IA lo sarà.
-    *   L'IA può aiutare a identificare problemi nei dati (come menzionato in `../data/openai-cookbook/examples/o1/Using_reasoning_for_data_validation.ipynb::chunk3`), ma la responsabilità della pulizia iniziale è tua.
-*   **Interpretazione:** L'IA può presentare i fatti, ma l'interpretazione strategica e la decisione finale spettano sempre a te.
-
-**Buone pratiche:**
-
-*   **Sii specifico:** Più dettagli fornisci sul contesto e sui tuoi obiettivi, migliore sarà l'analisi dell'IA.
-*   **Verifica sempre:** Le risposte dell'IA sono un ottimo punto di partenza, ma verifica sempre le conclusioni e i suggerimenti con la tua conoscenza del settore e del cliente.
-*   **Formato chiaro:** Usa formati leggibili come Markdown per le tabelle.
-*   **Itera:** Se la prima risposta non è soddisfacente, riformula il prompt, aggiungi più contesto o chiedi all'IA di approfondire aspetti specifici.
-*   **Pensa in modo critico:** Non accettare ciecamente ogni suggerimento. Usa l'IA come un "secondo cervello" per stimolare la tua analisi, non per sostituirla.
-
----
-
-### Fonti
+## Fonti
 
 *   `../data/openai-cookbook/examples/completions_usage_api.ipynb`
 *   `../data/openai-cookbook/examples/o1/Using_reasoning_for_data_validation.ipynb`
 *   `../data/openai-cookbook/examples/stripe_model_eval/selecting_a_model_based_on_stripe_conversion.ipynb`
-*   `../data/openai-cookbook/examples/vector_databases/kusto/Getting_started_with_kusto_and_openai_embeddings.ipynb`
 *   `../data/openai-cookbook/examples/Semantic_text_search_using_embeddings.ipynb`
-*   `../data/openai-cookbook/examples/agents_sdk/multi-agent-portfolio-collaboration/prompts/code_interpreter.md`
 

@@ -25,7 +25,7 @@ def main():
 
     write_section_files(sections, output_dir)
     write_readme(sections, output_dir)
-    write_summary(sections, output_dir)
+    write_summary(output_dir)
     write_book_toml("Manuale d’Uso dell’IA Generativa", "Masolini Pietro", output_dir)
 
     if args.full:

@@ -80,23 +80,39 @@ def write_readme(sections: Dict[str, str], output_dir: Path):
     )
 
 
-def write_summary(sections: Dict[str, str], output_dir: Path):
+def write_summary(output_dir: Path):
     """
-    Scrive il file SUMMARY.md per mdBook. NECESSARIO PER USARE mdBook.
-
+    Genera automaticamente SUMMARY.md leggendo i file .md nella cartella.
+    Usa i primi 3-4 parole del file come titolo, o il nome file se non trova titolo.
+    
     Args:
-        sections (Dict[str, str]): Dizionario contenente le sezioni del manuale. La chiave è il nome del file, il valore il titolo.
-        output_dir (Path): Cartella di output dove salvare il file.
+        output_dir(Path): Cartella di output dove salvare il file.
     """
-    lines = ["# Summary\n", "- [Manuale d’Uso](README.md)\n"]
-
-    for i, key in enumerate(sections.keys(), start=1):
-        title = sections[key]  # titolo della sezione
-        fname = f"{i:02d}-{key}.md"
-        lines.append(f"- [{title}]({fname})")
-
+    summary_lines = ["# Summary\n", "- [Manuale d’Uso](README.md)\n"]
+    
+    # Ordina i file per numero iniziale (01-, 02-, etc.)
+    md_files = sorted(output_dir.glob("*.md"))
+    
+    for md_file in md_files:
+        if md_file.name in ["README.md", "SUMMARY.md"]:
+            continue  # saltali
+        
+        # Leggi le prime righe del file per trovare un titolo
+        with md_file.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if line.startswith("#"):  # trova il primo titolo Markdown
+                    title = line.lstrip("# ").strip()
+                    break
+            else:
+                title = md_file.stem  # fallback: nome del file senza estensione
+        
+        summary_lines.append(f"- [{title}]({md_file.name})")
+    
+    # Scrivi SUMMARY.md
     summary_path = output_dir / "SUMMARY.md"
-    summary_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    summary_path.write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
+    print(f"SUMMARY.md generato in {summary_path}")
 
 def write_book_toml(title: str, author: str, output_dir: Path, build_dir: str = "html"):
     """
