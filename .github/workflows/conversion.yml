@@ -12,10 +12,14 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     env:
-      OUTPUT_DIR: /home/runner/work/edu_digital/edu_digital/code/data/output
+      OUTPUT_DIR: code/data/output
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Generate timestamp
+        id: timestamp
+        run: echo "TIMESTAMP=$(date +%Y%m%d%H%M%S)" >> $GITHUB_OUTPUT
 
       - name: Install Pandoc, LaTeX, and fonts
         run: |
@@ -49,37 +53,37 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: html-doc
-          path: $OUTPUT_DIR/html/manuale_completo.html
+          path: ${{ env.OUTPUT_DIR }}/html/manuale_completo.html
 
       - name: Upload LaTeX
         uses: actions/upload-artifact@v6
         with:
           name: latex-doc
-          path: $OUTPUT_DIR/latex/manuale_completo.tex
+          path: ${{ env.OUTPUT_DIR }}/latex/manuale_completo.tex
 
       - name: Upload PDF
         uses: actions/upload-artifact@v6
         with:
           name: pdf-doc
-          path: $OUTPUT_DIR/pdf/manuale_completo.pdf
+          path: ${{ env.OUTPUT_DIR }}/pdf/manuale_completo.pdf
 
       - name: Upload EPUB
         uses: actions/upload-artifact@v6
         with:
           name: epub-doc
-          path: $OUTPUT_DIR/epub/manuale_completo.epub
+          path: ${{ env.OUTPUT_DIR }}/epub/manuale_completo.epub
 
       - name: Create Release and upload all documentation
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: docs-$(date +%Y%m%d%H%M%S)
-          name: Documentation Release $(date +%Y%m%d%H%M%S)
+          tag_name: docs-${{ steps.timestamp.outputs.TIMESTAMP }}
+          name: Documentation Release ${{ steps.timestamp.outputs.TIMESTAMP }}
           body: "Automated release of HTML, LaTeX, PDF, EPUB, and Markdown documentation."
           files: |
-            $OUTPUT_DIR/manuale_completo.md
-            $OUTPUT_DIR/html/manuale_completo.html
-            $OUTPUT_DIR/latex/manuale_completo.tex
-            $OUTPUT_DIR/pdf/manuale_completo.pdf
-            $OUTPUT_DIR/epub/manuale_completo.epub
+            ${{ env.OUTPUT_DIR }}/manuale_completo.md
+            ${{ env.OUTPUT_DIR }}/html/manuale_completo.html
+            ${{ env.OUTPUT_DIR }}/latex/manuale_completo.tex
+            ${{ env.OUTPUT_DIR }}/pdf/manuale_completo.pdf
+            ${{ env.OUTPUT_DIR }}/epub/manuale_completo.epub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
