@@ -14,11 +14,6 @@ Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 ## Next steps:
 
  - [ ] (Crea manuale)[https://github.com/roccobalocco/MD_Doc_Gen] integralo ed eseguilo per avere il manuale del manuale ><
- - [ ] Aggiungi al grafo:
-    * [ ] Human in the loop su fonti scelte
-    * [ ] altro...
- - [ ] Imposta la possibilità di ottenere output multipli sfruttando Pandoc! (base di partenza? Markdown ovviamente)
- - [ ] Scorpora metadati e mettili in YML
 
 ## Strumenti utiizzati:
 - (Google AI Studio)[https://aistudio.google.com] per creare il progetto e la sua API key
