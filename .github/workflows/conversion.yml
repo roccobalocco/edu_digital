@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-docs:
@@ -68,3 +68,18 @@ jobs:
         with:
           name: epub-doc
           path: $OUTPUT_DIR/epub/manuale_completo.epub
+
+      - name: Create Release and upload all documentation
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: docs-$(date +%Y%m%d%H%M%S)
+          name: Documentation Release $(date +%Y%m%d%H%M%S)
+          body: "Automated release of HTML, LaTeX, PDF, EPUB, and Markdown documentation."
+          files: |
+            $OUTPUT_DIR/manuale_completo.md
+            $OUTPUT_DIR/html/manuale_completo.html
+            $OUTPUT_DIR/latex/manuale_completo.tex
+            $OUTPUT_DIR/pdf/manuale_completo.pdf
+            $OUTPUT_DIR/epub/manuale_completo.epub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
