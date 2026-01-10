@@ -12,7 +12,7 @@ jobs:
   build-docs:
     runs-on: ubuntu-latest
     env:
-      OUTPUT_DIR: edu_digital/code/data/output
+      OUTPUT_DIR: /home/runner/work/edu_digital/edu_digital/code/data/output
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -37,6 +37,11 @@ jobs:
           mkdir -p $OUTPUT_DIR/pdf
           pandoc $OUTPUT_DIR/manuale_completo.md -s -o $OUTPUT_DIR/pdf/manuale_completo.pdf
 
+      - name: Generate EPUB
+        run: |
+          mkdir -p $OUTPUT_DIR/epub
+          pandoc $OUTPUT_DIR/manuale_completo.md -s -o $OUTPUT_DIR/epub/manuale_completo.epub
+
       - name: Upload HTML
         uses: actions/upload-artifact@v6
         with:
@@ -54,3 +59,9 @@ jobs:
         with:
           name: pdf-doc
           path: $OUTPUT_DIR/pdf/manuale_completo.pdf
+
+      - name: Upload EPUB
+        uses: actions/upload-artifact@v6
+        with:
+          name: epub-doc
+          path: $OUTPUT_DIR/epub/manuale_completo.epub
