@@ -33,13 +33,13 @@ jobs:
         run: |
           pwd
           ls -la
-          cd ./edu_digital/code/data/output
+          cd /home/runner/work/edu_digital/edu_digital/code/data/output
           mdbook build -d html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # upload della cartella HTML generata
-          path: ./edu_digital/code/data/output/html
+          path: /home/runner/work/edu_digital/edu_digital/code/data/output
 
   deploy:
     environment:
