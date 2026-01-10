@@ -2,6 +2,10 @@
 
 Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 
+## Pagina dedicata:
+
+(Github Page)[https://roccobalocco.github.io/edu_digital/]
+
 ## Comandi:
 
 - `python run.py`, preferisce il riutilizzo dell'indice e crea il manuale
