@@ -1,0 +1,958 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Sous-Chef AI},
+  pdfauthor={Nome Cognome matricola studente},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Sous-Chef AI}
+\author{Nome Cognome matricola studente}
+\date{a.a. 2025/2026}
+
+\begin{document}
+\maketitle
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={project-logo}]{C:/Users/pietro/edu_digital/assets/image-20260111125853833.png}}
+
+\section{Sous-Chef AI}\label{sous-chef-ai}
+
+Sistema automatizzato per la ricerca, la costruzione, la revisione ed il
+rilascio di manuali d\textquotesingle uso.
+
+\begin{quote}
+Sous-Chef AI: il tuo brigadiere digitale, tu sei lo Chef!
+\end{quote}
+
+\subsection{Introduzione}\label{introduzione}
+
+Il progetto ha due soggetti principali:
+
+\begin{itemize}
+\item
+  Il \textbf{sistema}, ovvero il generatore di manuali
+\item
+  Il \textbf{manuale}, ovvero l\textquotesingle output del sistema
+\end{itemize}
+
+Il \textbf{sistema} mira a semplificare il processo di realizzazione di
+manuali fornendo all\textquotesingle utenza:
+
+\begin{itemize}
+\item
+  \emph{Ricerca automatizzata} all\textquotesingle interno delle fonti
+  indicate
+\item
+  \emph{Traduzione e adattamento} del contenuto rispetto al pubblico di
+  riferimento
+\item
+  \emph{Processo di revisione c}he permette la modifica del contenuto
+  fornito o la sua completa riscrittura, specificando un prompt
+  aggiuntivo
+\item
+  \emph{Pubblicazione automatica} su
+  \href{https://roccobalocco.github.io/edu_digital/}{GitHubPages} di
+  tutti i file generati dal sistema
+\item
+  \emph{Creazione del \textbf{manuale}}, composto da più sezioni
+  generate e revisionate singolarmente, in vari formati (\emph{tex},
+  \emph{html}, \emph{pdf}, \emph{epub}, \emph{md})
+\end{itemize}
+
+Il \textbf{manuale}, tramite linguaggio non tecnico e coerente con il
+contesto aziendale, mira a spiegare e comprendere:
+
+\begin{itemize}
+\item
+  \emph{Come utilizzare l\textquotesingle IA}
+  all\textquotesingle interno dell\textquotesingle azienda
+\item
+  \emph{Come adattare istruzioni operative} ai diversi casi
+  d\textquotesingle uso
+\item
+  \emph{Esempi pratici} contestualizzati
+\item
+  \emph{Best practices e limiti} dell\textquotesingle IA
+\end{itemize}
+
+Le tecnologie adottate sono le seguenti:
+
+\begin{itemize}
+\item
+  \emph{Python 3.12.1} come linguaggio di programmazione
+\item
+  \emph{LangGraph} per modellare il flusso di generazione del contenuto
+\item
+  \emph{LangChain} come framework di orchestrazione
+\item
+  \emph{Google Gemini} per i modelli generativo
+\item
+  \emph{Vector store} basato su \emph{FAISS} e embedding semantici
+\item
+  \emph{GitHub Actions} per automatizzare:
+
+  \begin{itemize}
+  \item
+    La fase di \emph{pubblicazione} dei file generati su \emph{GitHub
+    Pages}
+  \item
+    La fase di \emph{generazione} in diversi formati utilizzando
+    \emph{Pandoc}
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{Ideazione }{Ideazione }}\label{ideazione}
+
+\subsubsection{Tema}\label{tema}
+
+Il \textbf{sistema} è stato progettato per essere quanto più generale
+possibile, infatti le tematiche che esso ricerca sono elencate
+all\textquotesingle interno di \texttt{prompts.py}, alla voce
+\texttt{TOPIC\_SPECS}.
+
+L\textquotesingle utenza può modellare le tematiche, e la loro
+composizione, utilizzando il seguente schema:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"topic\_title"}\ErrorTok{:} \FunctionTok{\{}
+    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Title to include"}\FunctionTok{,}
+    \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"Query for LLM"}\FunctionTok{,}
+    \DataTypeTok{"deliverable\_sections"}\FunctionTok{:} \OtherTok{[}
+        \StringTok{"Section1"}\OtherTok{,}
+        \StringTok{"Section2"}\OtherTok{,}
+        \StringTok{"Example1"}\OtherTok{,}
+        \StringTok{"Example2"}\OtherTok{,}
+        \StringTok{"Pros/Cons"}\OtherTok{,}
+    \OtherTok{]}
+\FunctionTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Il processo di selezione dei documenti rilevanti è
+anch\textquotesingle esso personalizzabile tramite la voce
+\texttt{TOPIC\_SELECTOR\_SYSTEM}, all\textquotesingle interno di
+\texttt{prompts.py}, il quale rappresenta il prompt di sistema
+utilizzato per filtrare gli estratti ottenuti dalle fonti mediante
+FAISS.
+
+I temi principali su cui il l\textquotesingle{}\textbf{utente
+utilizzatore} si concentra diventano quindi:
+
+\begin{itemize}
+\item
+  \emph{Una efficace scrittura dei prompt} , sia in fase di estrazione
+  che di selezione
+\item
+  \emph{Il controllo e la revisione dei contenuti generati}, che
+  consente un ulteriore fine tuning mediante prompt aggiuntivi
+\end{itemize}
+
+Mentre il \textbf{sistema} concentra l\textquotesingle attenzione su tre
+aspetti principali:
+
+\begin{itemize}
+\item
+  \emph{Automazione della produzione dei contenuti}, che velocizza la
+  creazione del manuale e riduce il carico cognitivo dell'utente nella
+  fase di ricerca.
+\item
+  \emph{Revisione umana,} necessaria per assicurare accuratezza,
+  coerenza e aderenza alle specifiche editoriali.
+\item
+  \emph{Adattamento dei contenuti}, che consente di personalizzare il
+  manuale in base ai feedback e alle esigenze specifiche di ciascun
+  argomento.
+\end{itemize}
+
+Anche se la generazione dei contenuti risulta essere automatica, essa
+\emph{richiede un intervento attivo da parte
+dell\textquotesingle utenza} per adattare i temi alle specifiche
+necessità del manuale. Ogni sezione, e quindi ogni "\emph{topic}", deve
+essere sottoposta ad una revisione rigida e rigorosa, garantendo così la
+coerenza e la qualità del sistema di conoscenze generato.
+
+L\textquotesingle{}\textbf{utente} non deve più concentrarsi sulla
+ricerca del contenuto perfetto, ma solo sulla valutazione e
+sull\textquotesingle adattamento dei materiali proposti, dedicando più
+tempo alla revisione e agli aspetti più importanti del processo, ovvero
+seguire le specifiche richieste editoriali.
+
+Il \textbf{manuale} invece si concentra su contenuti concreti e
+fruibili, pensati per guidare i destinatari nell'uso dell'IA in contesti
+reali.
+
+I temi principali che il manuale affronta sono:
+
+\begin{itemize}
+\item
+  \emph{Introduzione all'uso dell'IA in azienda}, fornendo una
+  panoramica chiara del ruolo dell'intelligenza artificiale nel lavoro
+  quotidiano di copywriter e content strategist, spiegandone i vantaggi
+  ed i limiti
+\item
+  \emph{Istruzioni operative per casi d'uso specifici}, ogni sezione
+  guida l'utente nella costruzione e nell'uso di prompt per attività
+  come:
+
+  \begin{itemize}
+  \item
+    \ul{Text generation}, creazione di contenuti testuali per post
+    social, newsletter o articoli
+  \item
+    \ul{Language detection}, identificazione automatica della lingua dei
+    contenuti
+  \item
+    \ul{Cross-tabular analysis}, analisi di tabelle e dati testuali per
+    insight strategici
+  \end{itemize}
+\item
+  \emph{Esempi pratici contestualizzati}, gli esempi sono selezionati
+  dal repository OpenAI Cookbook, tradotti e adattati al contesto
+  aziendale.
+\item
+  \emph{Best practices e limiti d'uso}, include linee guida per evitare
+  errori comuni nell'uso dell'IA generativa, gestione dei bias, verifica
+  dei contenuti generati e suggerimenti per l'integrazione dei
+  risultati.
+\end{itemize}
+
+In sintesi, mentre il \textbf{sistema} si concentra sull'automazione, la
+selezione e la generazione dei contenuti, il \textbf{manuale} offre una
+guida pratica e contestualizzata che consente all'utente di applicare
+efficacemente l'IA, mantenendo il controllo creativo e strategico sui
+contenuti prodotti.
+
+\subsubsection{Destinatari}\label{destinatari}
+
+\textbf{Sous-Chef AI} ha lo scopo di supportare il creatore del manuale,
+semplificando e automatizzando gran parte del flusso editoriale. Grazie
+agli strumenti utilizzati, il creatore può indicizzare, selezionare,
+adattare e revisionare contenuti a partire dal repository OpenAI
+Cookbook, riducendo il carico cognitivo e concentrandosi sul controllo
+qualitativo dei materiali.
+
+Il \textbf{manuale} é pensato per copywriter e content strategist
+all\textquotesingle interno di una agenzia di comunicazione digitale.
+Esso fornisce linee guida pratiche, esempi contestualizzati e buone
+pratiche nell\textquotesingle uso dell\textquotesingle IA generativa,
+utilizzando un linguaggio accessibile e quanto più lontano dal tecnico.
+
+\paragraph{Personas}\label{personas}
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={image-20260111154757334}]{C:/Users/pietro/edu_digital/assets/image-20260111154757334.png}}
+
+\textbf{Scenario d\textquotesingle uso}: deve preparare un calendario
+editoriale e utilizza il manuale per capire come generare contenuti
+coerenti e adatti al tono aziendale.
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={}]{C:/Users/pietro/edu_digital/assets/image-20260111153938613.png}}
+
+\textbf{Scenario d\textquotesingle uso}: deve identificare delle best
+practices per generare testi coerenti e personalizzati, consultando il
+manuale per selezionare/creare prompt efficaci e comprendere i limiti
+degli strumenti AI.
+
+\pandocbounded{\includegraphics[keepaspectratio,alt={}]{C:/Users/pietro/edu_digital/assets/image-20260111154509526.png}}
+
+\textbf{Scenario d\textquotesingle uso}: usa il manuale per definire
+standard condivisi, monitorare le pratiche del team e introdurre nuovi
+strumenti in modo controllato.
+
+\subsubsection{Requisiti di
+accettazione}\label{requisiti-di-accettazione}
+
+Per raggiungere efficacemente i rispettivi destinatari, il
+\textbf{manuale} e il \textbf{sistema}, devono soddisfare una serie di
+richieste, le quali spaziano su diverse aree.
+
+\paragraph{Requisiti funzionali}\label{requisiti-funzionali}
+
+\begin{itemize}
+\item
+  \emph{Completezza dei contenuti}, il manuale deve includere istruzioni
+  operative, esempi e linee guida sui limiti d\textquotesingle uso,
+  coprendo almeno i casi d\textquotesingle uso selezionati
+\item
+  \emph{Chiarezza e comprensibilità}, il linguaggio deve essere fruibile
+  da personale non tecnico e deve rimanere coerente con il contesto
+  aziendale
+\item
+  \emph{Modularità}, ogni sezione deve risultare indipendente e
+  integrabile senza compromettere la coerenza complessiva
+\item
+  \emph{Manutenibilità}, il sistema deve consentire la generazione di
+  nuove versioni del manuale con facilità, sfruttando il flusso
+  automatizzato
+\item
+  \emph{Validazione umana}, tutte le sezioni devono passare attraverso
+  un processo di revisione editoriale, atto a garantire accuratezza,
+  coerenza e aderenza alle specifiche
+\item
+  \emph{mdBook}, per pubblicare richiede
+
+  \begin{itemize}
+  \item
+    un file \texttt{book.toml} dove indicare il titolo,
+    l\textquotesingle autore, la fonte del libro e la cartella di output
+  \item
+    un file \texttt{SUMMARY.md} dove indicare l\textquotesingle indice
+    del libro
+  \end{itemize}
+\end{itemize}
+
+\paragraph{Modelli di fruizione}\label{modelli-di-fruizione}
+
+\begin{itemize}
+\item
+  \emph{Lettura modulare}, i destinatari possono accedere direttamente
+  alle sezioni pertinenti ai loro compiti, senza dover leggere
+  l\textquotesingle intero manuale
+\item
+  \emph{Accesso multi canale/formato}, il manuale deve essere
+  disponibili nel maggior numero di formati
+\end{itemize}
+
+\paragraph{Innovazione}\label{innovazione}
+
+\begin{itemize}
+\item
+  \emph{Human in the loop}, combinazione di generazione automatica con
+  revisione umana per massimizzare efficienza e qualità
+\item
+  \emph{Personalizzazione}, possibilità, per l\textquotesingle utenza
+  del sistema, di adattare prompt e sezioni ai casi
+  d\textquotesingle uso specifici, creando manuali su misura
+\item
+  \emph{Automazione del flusso editoriale}, gestione automatica di
+  indicizzazione, selezione e pubblicazione dei contenuti, riducendo in
+  questo modo il carico operativo
+\item
+  \emph{Flessibilità nei canali di distribuzione}, generazione di output
+  multi formato compatibili con web, intranet, stampa e multi
+  dispositivo, semplificandone la diffusione
+\end{itemize}
+
+\subsubsection{Canali di distribuzione}\label{canali-di-distribuzione}
+
+Il \textbf{manuale} d'uso generato da \textbf{Sous-Chef AI} è pensato
+per essere fruibile su più canali, in base alle esigenze dei
+destinatari.
+
+\paragraph{Canali principali:}\label{canali-principali}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Canale & Descrizione & Formati & Note \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Web/Intranet} & Manuale accessibile via intranet, portale
+aziendale o link pubblico & HTML, PDF, md (per mdBook) & Navigazione
+modulare con link interni e indici interattivi, ricerca integrata
+(mdBook) \\
+\textbf{Social} & Sintesi o estratti mirati per formazione rapida & PDF,
+snippet & Contenuti ridotti per fruizione veloce, non completo \\
+\textbf{Repository/Marketplace} & Condivisione con altri team o agenzie
+& Markdown, TeX & Versione ``template'' riutilizzabile per progetti
+futuri \\
+\end{longtable}
+}
+
+\paragraph{Formati:}\label{formati}
+
+Il \textbf{manuale} risulta disponibile nei seguenti formati per
+garantire massima flessibilità:
+
+\begin{itemize}
+\item
+  \textbf{\href{https://github.com/roccobalocco/edu_digital/releases/download/docs-20260110175016/manuale_completo.md}{Markdown}}:
+  formato sorgente, sia via moduli sia monolitico, facilmente
+  aggiornabile e riutilizzabile.
+\item
+  \textbf{\href{https://github.com/roccobalocco/edu_digital/releases/download/docs-20260110175016/manuale_completo.html}{HTML}
+  / \href{https://roccobalocco.github.io/edu_digital/}{mdBook}}:
+  fruizione online con navigazione interattiva.
+\item
+  \textbf{\href{https://github.com/roccobalocco/edu_digital/releases/download/docs-20260110175016/manuale_completo.pdf}{PDF}}:
+  stampa e distribuzione offline, con layout coerente e professionale.
+\item
+  \textbf{\href{https://github.com/roccobalocco/edu_digital/releases/download/docs-20260110175016/manuale_completo.epub}{ePub}}:
+  lettura su dispositivi mobili e reader digitali.
+\item
+  \textbf{\href{https://github.com/roccobalocco/edu_digital/releases/download/docs-20260110175016/manuale_completo.tex}{Tex
+  / LaTeX}}: generazione di versioni professionali tipograficamente
+  accurate.
+\end{itemize}
+
+\paragraph{Identità visuale}\label{identituxe0-visuale}
+
+Il \textbf{manuale} si concentra sulla leggibilità e sulla facilità di
+gestione nel tempo; per questo motivo non contiene alcuna
+personalizzazione visuale.
+
+La responsabilità di definire l'identità visiva è lasciata agli
+utilizzatori del \textbf{sistema}. In futuro sarà possibile esportare i
+contenuti applicando stili, template, layout e altre personalizzazioni
+grazie a Pandoc.
+
+Il formato Markdown garantisce una base solida e coerente per la
+formattazione, che può poi essere adattata liberamente dall'utente.
+
+\paragraph{Tradizione vs Innovazione}\label{tradizione-vs-innovazione}
+
+Il \textbf{manuale} mantiene coerenza con modelli consolidati di
+documentazione digitale (ad esempio guide operative, manuali tecnici in
+md/pdf/html). Allo stesso tempo il \textbf{sistema} introduce elementi
+innovativi, come workflow automatizzati, human-in-the-loop e
+personalizzazione dei contenuti, per offrire una fruizione più dinamica
+e modulare.
+
+\subsection{Processo di Produzione}\label{processo-di-produzione}
+
+Il processo di produzione del \textbf{manuale} combina l'acquisizione
+dei contenuti con la loro gestione strutturata, garantendo coerenza,
+tracciabilità e aggiornabilità.
+
+Il \textbf{sistema} è progettato per utilizzare qualsiasi fonte in
+formato Jupyter Notebook (\texttt{.ipynb}). Per cambiare la fonte, basta
+modificare il percorso della variabile di ambiente
+\texttt{COOKBOOK\_PATH}. Per il primo manuale, il percorso era impostato
+sul repository OpenAI Cookbook, ma può essere adattato a qualsiasi altra
+raccolta di notebook.
+
+Per quanto riguarda il \textbf{manuale}, le fonti attraversano tre fasi
+principali di trasformazione:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Inizialmente sono \emph{file di OpenAI Cookbook}, disponibili in
+  formato \texttt{.ipynb}
+\item
+  Successivamente divengono \emph{contenuti generati automaticamente},
+  selezionati e adattati tramite LLM in sezioni coerenti con il contesto
+  aziendale
+\item
+  Infine, grazie ad una fase di lavoro manuale, necessario in alcuni
+  casi per traduzione, revisione o adattamento dei contenuti, arrivano
+  ad essere \emph{sezioni del manuale}
+\end{enumerate}
+
+Il flusso di gestione documentale segue queste fasi principali:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Indicizzazione e raccolta dei contenuti}, le fonti vengono
+  organizzate in un vector store (FAISS) per un recupero rapido e mirato
+\item
+  \emph{Selezione dei documenti rilevanti}, tramite prompt guidati e
+  criteri definiti dall'utente
+\item
+  \emph{Adattamento e generazione delle sezioni}, trasformazione dei
+  contenuti in sezioni Markdown coerenti e leggibili
+\item
+  \emph{Revisione editoriale}, modifica, approvazione o rigenerazione
+  delle sezioni basata su feedback dell'utente
+\item
+  \emph{Commit e versionamento}, le sezioni approvate vengono salvate
+  tramite git una volta fatto il commit
+\item
+  \emph{Pubblicazione e esportazione}, tramite GitHub Actions, il
+  contenuto viene distribuito su GitHub Pages e reso disponibile in
+  diversi formati (HTML, PDF, ePub, TeX, Markdown)
+\end{enumerate}
+
+Il \textbf{sistema} ed il \textbf{manuale} possono vivere nello stesso
+ambiente, pertanto il versionamento ricade sullo stesso \emph{git},
+oltre che al tag applicato dalla GitHub Action che provvede al rilascio.
+
+Il seguente diagramma mostra graficamente come si articola il flusso di
+produzione, di gestione e di pubblicazione dei contenuti:
+
+\includegraphics[width=4.59375in,height=\textheight,keepaspectratio,alt={}]{17681502761611.png}
+
+\subsubsection{Tecnologie adottate}\label{tecnologie-adottate}
+
+Il progetto integra diverse tecnologie, ciascuna con un ruolo specifico
+nelle fasi di produzione del manuale, al fine di garantire efficienza,
+coerenza e qualità dei contenuti.
+
+\begin{itemize}
+\item
+  \emph{Python 3.12.1}, linguaggio di programmazione principale per lo
+  sviluppo del sistema
+\item
+  \emph{LangGraph}, utilizzato per modellare il flusso di generazione
+  dei contenuti (indicizzazione, recupero, selezione, adattamento e
+  revisione). Contribuisce a rendere il processo \emph{modulare,
+  tracciabile e ripetibile}, riducendo errori e ridondanze nella
+  produzione
+\item
+  \emph{LangChain}, framework di orchestrazione dei LLM. Coordina
+  l'interazione tra il sistema di gestione dei documenti e il modello
+  generativo, supportando l'automazione delle fasi di selezione e
+  adattamento dei contenuti
+\item
+  \emph{Google} \emph{Gemini}, modello generativo impiegato per la
+  trasformazione dei contenuti selezionati in sezioni leggibili e
+  coerenti con il contesto aziendale
+
+  \begin{itemize}
+  \item
+    \texttt{env.GEMINI\_MODEL}, utilizzato per la generazione dei testi
+    (\ul{gemini-2.5-flash})
+  \item
+    \texttt{env.GEMINI\_EMBED\_MODEL}, utilizzato per creare embedding
+    semantici delle fonti (t\ul{ext-embedding-004})
+  \end{itemize}
+
+  Contribuisce a \emph{velocizzare la produzione}, mantenendo un
+  linguaggio non tecnico e adatto all'utenza
+\item
+  \emph{Vector store con FAISS ed embedding semantici}, permette
+  l'indicizzazione delle fonti e il recupero rapido dei documenti più
+  rilevanti. Prova a garantire che i contenuti generati siano
+  \emph{accurati e contestualizzati}
+\item
+  \emph{GitHub Actions}, automatizzano le fasi di commit, pubblicazione
+  e generazione del manuale in diversi formati (HTML, PDF, ePub, TeX,
+  Markdown) mediante i seguenti workflow:
+
+  \begin{itemize}
+  \item
+    \href{https://github.com/roccobalocco/edu_digital/blob/docs-20260110175016/.github/workflows/conversion.yml}{conversion.yml},
+    workflow che converte il manuale nei formati di destinazione,
+    utilizzando \ul{Pandoc}, per poi crearne un rilascio su \ul{GitHub}
+  \item
+    \href{https://github.com/roccobalocco/edu_digital/blob/docs-20260110175016/.github/workflows/mdbook.yml}{mdbook.yml},
+    workflow che aggiorna la GitHub Page legata al repository
+  \end{itemize}
+
+  Contribuiscono a rendere il flusso \emph{efficiente, ripetibile e
+  facilmente aggiornabile}, supportando la distribuzione multi-canale
+  dei contenuti
+\end{itemize}
+
+\subsubsection{Esecuzione del flusso}\label{esecuzione-del-flusso}
+
+\href{https://github.com/roccobalocco/edu_digital}{Repository}.
+
+Per eseguire il progetto si deve:
+
+\begin{itemize}
+\item
+  \emph{copiare ed adattare il file} \texttt{.env.example} in
+  \texttt{.env}, mettendo la propria chiave API ed il proprio percorso
+  al suo interno
+\item
+  \emph{installare tutte le dipendenze} elencate in
+  \texttt{requirements.txt}
+\item
+  \emph{avere un documentale} (in questo caso il OpenAI Cookbook)
+  all\textquotesingle interno del percorso specificato
+\item
+  \emph{eseguire il comando} \texttt{python\ run.py} con
+  l\textquotesingle opzione \texttt{-\/-full} per avere un file
+  comprensivo di tutte le sezioni
+\end{itemize}
+
+\subsubsection{Utilizzo di IA
+generativa}\label{utilizzo-di-ia-generativa}
+
+L' IA generativa è stata integrata in più fasi del flusso di gestione
+documentale, con l'obiettivo di automatizzare, accelerare e rendere
+scalabile la produzione del manuale, mantenendo elevati standard di
+qualità.
+
+\paragraph{Fasi in cui l'IA è stata
+applicata}\label{fasi-in-cui-lia-uxe8-stata-applicata}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Selezione dei documenti rilevanti}
+
+  \begin{itemize}
+  \item
+    Viene utilizzato un modello di linguaggio per analizzare gli
+    estratti provenienti dal vector store (FAISS) e identificare i
+    contenuti più pertinenti per ciascun topic
+  \item
+    Obiettivo: \ul{ridurre il tempo che l'utente impiegherebbe a leggere
+    e filtrare} manualmente centinaia di notebook o estratti
+  \end{itemize}
+\item
+  \emph{Adattamento e generazione delle sezioni}
+
+  \begin{itemize}
+  \item
+    L'IA genera sezioni del manuale in linguaggio coerente e non
+    tecnico, adattando i contenuti selezionati al contesto aziendale
+  \item
+    Obiettivo: \ul{produrre rapidamente contenuti} leggibili, coerenti e
+    pronti per la revisione.
+  \end{itemize}
+\item
+  \emph{Rigenerazione basata su feedback}
+
+  \begin{itemize}
+  \item
+    Durante la fase di revisione, l'utente può fornire indicazioni
+    aggiuntive (prompt) che vengono utilizzate dal modello per
+    migliorare o riformulare il contenuto
+  \item
+    Obiettivo: \ul{integrare il cosiddetto human-in-the-loop,}
+    combinando automazione e intervento umano per assicurare accuratezza
+    e aderenza alle specifiche
+  \end{itemize}
+\end{enumerate}
+
+\paragraph{Approccio di prompt
+engineering}\label{approccio-di-prompt-engineering}
+
+I prompt sono suddivisi in due macro categorie:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Prompt di selezione} (\texttt{TOPIC\_SELECTOR\_SYSTEM}): guidano
+  l'IA nell'identificazione degli estratti più pertinenti.
+\item
+  \emph{Prompt di generazione/adattamento} (\texttt{ADAPT\_SYSTEM}):
+  definiscono struttura, stile e contenuti delle sezioni del manuale.
+\end{enumerate}
+
+Tutti i prompt sono personalizzabili dall'utente utilizzatore del
+sistema, consentendo un fine-tuning continuo in base ai feedback
+editoriali.
+
+\paragraph{Validazione e controllo
+qualità}\label{validazione-e-controllo-qualituxe0}
+
+Tutti gli output generati dall'IA passano attraverso una fase di
+revisione umana. L'utente può approvare, modificare o rigenerare ogni
+sezione, garantendo:
+
+\begin{itemize}
+\item
+  \emph{Coerenza} tra i materiali
+\item
+  \emph{Accuratezza} delle informazioni
+\item
+  \emph{Aderenza} al contesto aziendale e alle specifiche richieste
+\end{itemize}
+
+\paragraph{Contributo dell'IA}\label{contributo-dellia}
+
+\subparagraph{Riduzione dei tempi}\label{riduzione-dei-tempi}
+
+La selezione automatica dei contenuti e la generazione delle sezioni
+riducono drasticamente il lavoro manuale.
+
+\subparagraph{Miglioramento della
+qualità}\label{miglioramento-della-qualituxe0}
+
+L'IA fornisce una base coerente e leggibile, su cui la revisione umana
+può concentrarsi sul fine-tuning e sugli aspetti strategici.
+
+\subparagraph{Scalabilità}\label{scalabilituxe0}
+
+Il sistema può elaborare grandi volumi di contenuti in tempi contenuti,
+adattandosi facilmente a nuovi dataset o fonti.
+
+\paragraph{Limiti e intervento umano}\label{limiti-e-intervento-umano}
+
+L'IA non è in grado di garantire completezza o correttezza totale delle
+informazioni. La revisione umana rimane essenziale per:
+
+\begin{itemize}
+\item
+  \emph{Contestualizzare} i contenuti al target aziendale
+\item
+  \emph{Adattare} esempi pratici
+\item
+  \emph{Validare} coerenza e accuratezza
+\end{itemize}
+
+\begin{itemize}
+\item
+  L'approccio \emph{human-in-the-loop} assicura un equilibrio tra
+  automazione e controllo editoriale.
+\end{itemize}
+
+\subsection{Valutazione dei risultati
+raggiunti}\label{valutazione-dei-risultati-raggiunti}
+
+\subsubsection{Valutazione del flusso di
+produzione}\label{valutazione-del-flusso-di-produzione}
+
+Il flusso di produzione implementato con \textbf{Sous-Chef AI} ha
+permesso di ottenere benefici misurabili nelle diverse fasi del ciclo
+documentale:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Riduzione dei tempi di gestione documentale} grazie alla
+  selezione automatica dei documenti tramite FAISS e la generazione di
+  sezioni con Google Gemini
+\item
+  \emph{Riduzione degli errori}, la struttura modulare, il versionamento
+  e la revisione guidata dall'utente limitano gli errori di coerenza e
+  di contenuto, assicurando che ogni sezione sia correttamente
+  contestualizzata
+\item
+  \emph{Miglioramento della qualità dei documenti}, l'uso combinato di
+  LLM e revisione umana dovrebbe garantire testi leggibili e coerenti
+  con il contesto aziendale
+\item
+  \emph{Miglioramento del livello di accettazione della tecnologia}, la
+  possibilità di personalizzare i prompt e gestire i contenuti secondo
+  le proprie esigenze dovrebbe rendere il sistema più intuitivo e
+  facilmente adottabile
+\item
+  \emph{Raggiungimento di nuovi canali di distribuzione}, l'esportazione
+  automatica dei contenuti, unita alla pubblicazione su GitHub Pages, ha
+  permesso di raggiungere facilmente più canali
+\item
+  \emph{Soddisfacimento di nuovi scenari d'uso}, il sistema supporta
+  scenari non previsti inizialmente, come l'adattamento rapido di
+  contenuti a nuovi dataset o l'integrazione di fonti alternative,
+  grazie alla flessibilità della pipeline
+\end{enumerate}
+
+\subsubsection{Confronto con lo stato
+dell\textquotesingle arte}\label{confronto-con-lo-stato-dellarte}
+
+\paragraph{ASIS (flusso tradizionale)}\label{asis-flusso-tradizionale}
+
+Raccolta manuale dei contenuti, selezione e revisione esclusivamente
+umane, trasformazione dei formati effettuata singolarmente.
+
+\subparagraph{\texorpdfstring{Problemi principali
+}{Problemi principali }}\label{problemi-principali}
+
+\begin{itemize}
+\item
+  \emph{Tempi lunghi}
+\item
+  \emph{Alto rischio di incoerenza tra sezioni}
+\item
+  \emph{Limitata scalabilità}
+\item
+  \emph{Difficoltà nel mantenere aggiornamenti frequenti}
+\end{itemize}
+
+\paragraph{TOBE (Sous-Chef AI)}\label{tobe-sous-chef-ai}
+
+Pipeline automatizzata per selezione, adattamento e pubblicazione, con
+revisione umana integrata.
+
+\subparagraph{Vantaggi rilevanti}\label{vantaggi-rilevanti}
+
+\begin{itemize}
+\item
+  \emph{Riduzione dei tempi nelle fasi di ricerca e generazione}
+\item
+  \emph{Maggiore coerenza}
+\item
+  \emph{Modularità del contenuto}
+\item
+  \emph{Possibilità di pubblicare su più formati e canali}
+\end{itemize}
+
+\subsubsection{Limiti emersi}\label{limiti-emersi}
+
+Sono stati identificati i seguenti Limiti:
+
+\begin{itemize}
+\item
+  \emph{Accesso limitato ad alcune tecnologie}, alcuni LLM o embedding
+  più avanzati potrebbero non essere disponibili o richiedere costi
+  aggiuntivi, che potrebbero risultare insostenibili
+\item
+  \emph{Automazione parziale dei formati}, la trasformazione completa in
+  alcuni formati (es. TeX complesso o PDF con layout avanzato) può
+  richiedere intervento manuale
+\item
+  Poco controllo sul layout, al momento non esiste un modo per gestire
+  il layout del prodotto finale, se non intervenendo manualmente sul
+  processo di conversione/generazione
+\item
+  \emph{Integrazione di fonti eterogenee}, il sistema è utilizzabile
+  solo per fonti notebook \texttt{.ipynb}; formati diversi necessitano
+  di adattamento preliminare
+\end{itemize}
+
+Gli ultimi due punti sono facilmente risolvibili
+all\textquotesingle interno di eventuali nuove versioni di
+\textbf{Sous-Chef AI}.
+
+\subsection{Conclusioni}\label{conclusioni}
+
+L'implementazione del \textbf{sistema} ha permesso di raggiungere gli
+obiettivi principali definiti dai casi d'uso:
+
+\begin{itemize}
+\item
+  \emph{Produzione rapida e modulare} di contenuti coerenti
+\item
+  \emph{Riduzione dei tempi} e degli errori nella gestione documentale
+\item
+  \emph{Maggiore scalabilità} e possibilità di raggiungere più canali di
+  distribuzione
+\end{itemize}
+
+I risultati più soddisfacenti riguardano efficienza e modularità della
+produzione, grazie all\textquotesingle IA generativa e alla gestione
+automatizzata dei contenuti.
+
+Le principali limitazioni restano legate alla alla gestione di fonti non
+standard e alle trasformazioni avanzate di formato.
+
+Tuttavia, il prototipo (interpretabile come un Proof of Concept)
+realizzato dimostra chiaramente la fattibilità dell'approccio ed offre
+un'ottima base per futuri miglioramenti e ampliamenti della pipeline
+editoriale.
+
+\subsection{Bibliografia, sitografia e strumenti
+utilizzati}\label{bibliografia-sitografia-e-strumenti-utilizzati}
+
+\begin{itemize}
+\item
+  \href{https://chatgpt.com/}{ChatGPT} e
+  \href{https://claude.ai/}{Claude} come supporto nella stesura del
+  codice e nella validazione di questo report
+\item
+  Know-how ottenuto implementando
+  \href{https://www.softeam.it/prodotti/sofia/}{SofIA} (LangGraph,
+  embedding, Python, CD/CI, etc...)
+\item
+  \href{https://github.com/features/codespaces}{GitHub Codespaces} per
+  lo sviluppo in cloud
+\item
+  \href{https://app.creately.com/}{Creately} per la creazione delle
+  personas cards
+\item
+  \href{github.com/roccobalocco/edu_digital/}{GitHub} per il repository
+\item
+  \href{https://sora.chatgpt.com}{Sora} per il logo del progetto
+\end{itemize}
+
+\end{document}
