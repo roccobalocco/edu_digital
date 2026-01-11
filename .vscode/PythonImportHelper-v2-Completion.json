@@ -1,0 +1,745 @@
+[
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Dict",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "StateGraph",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "END",
+        "importPath": "langgraph.graph",
+        "description": "langgraph.graph",
+        "isExtraImport": true,
+        "detail": "langgraph.graph",
+        "documentation": {}
+    },
+    {
+        "label": "CompiledStateGraph",
+        "importPath": "langgraph.graph.state",
+        "description": "langgraph.graph.state",
+        "isExtraImport": true,
+        "detail": "langgraph.graph.state",
+        "documentation": {}
+    },
+    {
+        "label": "ChatGoogleGenerativeAI",
+        "importPath": "langchain_google_genai",
+        "description": "langchain_google_genai",
+        "isExtraImport": true,
+        "detail": "langchain_google_genai",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleGenerativeAIEmbeddings",
+        "importPath": "langchain_google_genai",
+        "description": "langchain_google_genai",
+        "isExtraImport": true,
+        "detail": "langchain_google_genai",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "langchain_core.documents",
+        "description": "langchain_core.documents",
+        "isExtraImport": true,
+        "detail": "langchain_core.documents",
+        "documentation": {}
+    },
+    {
+        "label": "Document",
+        "importPath": "langchain_core.documents",
+        "description": "langchain_core.documents",
+        "isExtraImport": true,
+        "detail": "langchain_core.documents",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_str",
+        "importPath": "helper",
+        "description": "helper",
+        "isExtraImport": true,
+        "detail": "helper",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "build_chunks",
+        "importPath": "ingest",
+        "description": "ingest",
+        "isExtraImport": true,
+        "detail": "ingest",
+        "documentation": {}
+    },
+    {
+        "label": "save_manifest",
+        "importPath": "ingest",
+        "description": "ingest",
+        "isExtraImport": true,
+        "detail": "ingest",
+        "documentation": {}
+    },
+    {
+        "label": "DocChunk",
+        "importPath": "ingest",
+        "description": "ingest",
+        "isExtraImport": true,
+        "detail": "ingest",
+        "documentation": {}
+    },
+    {
+        "label": "build_or_load_vectorstore",
+        "importPath": "retriever",
+        "description": "retriever",
+        "isExtraImport": true,
+        "detail": "retriever",
+        "documentation": {}
+    },
+    {
+        "label": "retrieve",
+        "importPath": "retriever",
+        "description": "retriever",
+        "isExtraImport": true,
+        "detail": "retriever",
+        "documentation": {}
+    },
+    {
+        "label": "TOPIC_SPECS",
+        "importPath": "prompts",
+        "description": "prompts",
+        "isExtraImport": true,
+        "detail": "prompts",
+        "documentation": {}
+    },
+    {
+        "label": "TOPIC_SELECTOR_SYSTEM",
+        "importPath": "prompts",
+        "description": "prompts",
+        "isExtraImport": true,
+        "detail": "prompts",
+        "documentation": {}
+    },
+    {
+        "label": "ADAPT_SYSTEM",
+        "importPath": "prompts",
+        "description": "prompts",
+        "isExtraImport": true,
+        "detail": "prompts",
+        "documentation": {}
+    },
+    {
+        "label": "TOPIC_SPECS",
+        "importPath": "prompts",
+        "description": "prompts",
+        "isExtraImport": true,
+        "detail": "prompts",
+        "documentation": {}
+    },
+    {
+        "label": "uuid",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "uuid",
+        "description": "uuid",
+        "detail": "uuid",
+        "documentation": {}
+    },
+    {
+        "label": "nbformat",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "nbformat",
+        "description": "nbformat",
+        "detail": "nbformat",
+        "documentation": {}
+    },
+    {
+        "label": "FAISS",
+        "importPath": "langchain_community.vectorstores",
+        "description": "langchain_community.vectorstores",
+        "isExtraImport": true,
+        "detail": "langchain_community.vectorstores",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "build_graph",
+        "importPath": "graph",
+        "description": "graph",
+        "isExtraImport": true,
+        "detail": "graph",
+        "documentation": {}
+    },
+    {
+        "label": "State",
+        "importPath": "graph",
+        "description": "graph",
+        "isExtraImport": true,
+        "detail": "graph",
+        "documentation": {}
+    },
+    {
+        "label": "write_section_files",
+        "importPath": "manual",
+        "description": "manual",
+        "isExtraImport": true,
+        "detail": "manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_readme",
+        "importPath": "manual",
+        "description": "manual",
+        "isExtraImport": true,
+        "detail": "manual",
+        "documentation": {}
+    },
+    {
+        "label": "assemble_full_manual",
+        "importPath": "manual",
+        "description": "manual",
+        "isExtraImport": true,
+        "detail": "manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_summary",
+        "importPath": "manual",
+        "description": "manual",
+        "isExtraImport": true,
+        "detail": "manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_book_toml",
+        "importPath": "manual",
+        "description": "manual",
+        "isExtraImport": true,
+        "detail": "manual",
+        "documentation": {}
+    },
+    {
+        "label": "Settings",
+        "kind": 6,
+        "importPath": "code.src.config",
+        "description": "code.src.config",
+        "peekOfCode": "class Settings:\n    '''\n    Classe che descrive le impostazioni di configurazione per lo script.\n    Args:\n        cookbook_path(str): Percorso alla cartella contenente il cookbook di OpenAI.\n        index_path(str): Percorso alla cartella dove verrà salvato l'indice delle fonti.\n        output_path(str): Percorso del file di output per il manuale generato.\n        gemini_model(str): Nome del modello Gemini da utilizzare.\n        embed_model(str): Nome del modello di embedding da utilizzare.\n        force_reindex(str): Flag per forzare la reindicizzazione delle fonti.",
+        "detail": "code.src.config",
+        "documentation": {}
+    },
+    {
+        "label": "State",
+        "kind": 6,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "class State:\n    '''\n    Classe che descrive lo stato del grafo.\n    Args:\n        settings(Settings): Impostazioni di configurazione.\n        vectorstore(Any | None): Vectorstore per il recupero dei documenti.\n        retrieved(Dict[str, List[Document]] | None): Documenti recuperati per ogni argomento.\n        selected(Dict[str, List[Dict[str, Any]]] | None): Documenti selezionati per ogni argomento.\n        manual_sections(Dict[str, str] | None): Sezioni del manuale generate per ogni argomento.\n        approved_sections(Dict[str, str] | None): Sezioni del manuale approvate per ogni argomento.",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "node_index",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def node_index(state: State) -> State:\n    '''\n    Nodo per l'indicizzazione delle fonti.\n    Args:\n        state(State): Stato corrente del grafo.\n    Returns:\n        State: Stato aggiornato con il vectorstore indicizzato.\n    '''\n    chunks = build_chunks(state.settings.cookbook_path)\n    save_manifest(chunks, str(Path(state.settings.index_path) / \"manifest.json\"))",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "node_retrieve",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def node_retrieve(state: State) -> State:\n    '''\n    Nodo per il recupero dei documenti rilevanti.\n    Args:\n        state(State): Stato corrente del grafo.\n    Returns:\n        State: Stato aggiornato con i documenti recuperati.\n    '''\n    assert state.vectorstore is not None\n    retrieved = {}",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "node_select",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def node_select(state: State) -> State:\n    '''\n    Nodo per la selezione dei documenti più rilevanti.\n    Args:\n        state(State): Stato corrente del grafo.\n    Returns:\n        State: Stato aggiornato con i documenti selezionati.    \n    '''\n    assert state.retrieved is not None\n    llm = ChatGoogleGenerativeAI(",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "node_adapt",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def node_adapt(state: State) -> State:\n    '''\n    Nodo per l'adattamento e la generazione delle sezioni del manuale.\n    Args:\n        state(State): Stato corrente del grafo.\n    Returns:\n        State: Stato aggiornato con le sezioni del manuale generate.    \n    '''\n    assert state.selected is not None\n    llm = ChatGoogleGenerativeAI(",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "node_review",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def node_review(state: State) -> State:\n    '''\n    Nodo per la revisione e l'approvazione delle sezioni del manuale.\n    Args:\n        state(State): Stato corrente del grafo.\n    Returns:\n        State: Stato aggiornato con le sezioni del manuale approvate.\n    '''\n    assert state.manual_sections is not None\n    assert state.selected is not None",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "build_graph",
+        "kind": 2,
+        "importPath": "code.src.graph",
+        "description": "code.src.graph",
+        "peekOfCode": "def build_graph() -> CompiledStateGraph[State, None, State, State]:\n    '''\n    Costruisce e restituisce il grafo di elaborazione.\n    Returns:\n        StateGraph: Grafo di elaborazione configurato.\n    '''\n    g = StateGraph(State)\n    g.add_node(\"index\", node_index)\n    g.add_node(\"retrieve\", node_retrieve)\n    g.add_node(\"select\", node_select)",
+        "detail": "code.src.graph",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_str",
+        "kind": 2,
+        "importPath": "code.src.helper",
+        "description": "code.src.helper",
+        "peekOfCode": "def ensure_str(content: Any) -> str:\n    if isinstance(content, str):\n        return content\n    if isinstance(content, list):\n        return \"\\n\".join(\n            json.dumps(x, ensure_ascii=False, indent=2) if isinstance(x, dict) else str(x)\n            for x in content\n        )\n    return str(content)",
+        "detail": "code.src.helper",
+        "documentation": {}
+    },
+    {
+        "label": "DocChunk",
+        "kind": 6,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "class DocChunk:\n    '''\n    Classe che rappresenta un chunk del documento.\n    '''\n    id: str\n    path: str\n    content: str\ndef iter_source_files(cookbook_path: str) -> Iterable[Path]:\n    '''\n    Itera sui file sorgente nella cartella del cookbook.",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "iter_source_files",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def iter_source_files(cookbook_path: str) -> Iterable[Path]:\n    '''\n    Itera sui file sorgente nella cartella del cookbook.\n    Args:\n        cookbook_path(str): Percorso alla cartella del cookbook.\n    Returns:\n        Iterable[Path]: Iteratore sui percorsi dei file sorgente.\n    '''\n    root = Path(cookbook_path)\n    for p in root.rglob(\"*\"):",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "add_missing_cell_ids",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def add_missing_cell_ids(nb:Any):\n    for cell in nb.cells:\n        if 'id' not in cell:\n            cell['id'] = str(uuid.uuid4())\n    return nb\ndef ipynb_to_markdown_text(p: Path) -> str:\n    '''\n    Converte un file .ipynb in testo markdown.\n    Args:\n        p(Path): Percorso al file .ipynb.",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "ipynb_to_markdown_text",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def ipynb_to_markdown_text(p: Path) -> str:\n    '''\n    Converte un file .ipynb in testo markdown.\n    Args:\n        p(Path): Percorso al file .ipynb.\n    Returns:\n        str: Testo markdown estratto dal notebook.\n    '''\n    nb = nbformat.read(p, as_version=4)  # legge senza validare\n    parts = []",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "read_file_text",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def read_file_text(p: Path) -> str:\n    '''\n    Legge il testo da un file, supportando .md e .ipynb.\n    Args:\n        p(Path): Percorso al file.\n    Returns:\n        str: Testo letto dal file.\n    '''\n    if p.suffix.lower() == \".md\":\n        return p.read_text(encoding=\"utf-8\", errors=\"ignore\")",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "chunk_text",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def chunk_text(text: str, max_chars: int = 1800, overlap: int = 200) -> List[str]:\n    '''\n    Divide il testo in chunk di dimensione massima specificata, con sovrapposizione.\n    Args:\n        text(str): Testo da dividere in chunk.\n        max_chars(int): Numero massimo di caratteri per chunk.\n        overlap(int): Numero di caratteri di sovrapposizione tra chunk.\n    Returns:\n        List[str]: Lista di chunk di testo.\n    '''",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "build_chunks",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def build_chunks(cookbook_path: str) -> List[DocChunk]:\n    '''\n    Costruisce i chunk dei documenti dalla cartella del cookbook.\n    Args:\n        cookbook_path(str): Percorso alla cartella del cookbook.\n    Returns:\n        List[DocChunk]: Lista di chunk dei documenti.\n    '''\n    chunks: List[DocChunk] = []\n    for p in iter_source_files(cookbook_path):",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "save_manifest",
+        "kind": 2,
+        "importPath": "code.src.ingest",
+        "description": "code.src.ingest",
+        "peekOfCode": "def save_manifest(chunks: List[DocChunk], out_path: str) -> None:\n    '''\n    Salva il manifesto dei chunk in un file JSON.\n    Args:\n        chunks(List[DocChunk]): Lista di chunk dei documenti.\n        out_path(str): Percorso del file di output per il manifesto.\n    Returns:\n        None\n    '''\n    data = [{\"id\": c.id, \"path\": c.path, \"content\": c.content} for c in chunks]",
+        "detail": "code.src.ingest",
+        "documentation": {}
+    },
+    {
+        "label": "assemble_manual",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def assemble_manual(sections: dict) -> str:\n    '''\n    Assembla il manuale completo in formato markdown.\n    Args:\n        sections(dict): Dizionario contenente le sezioni del manuale.\n    Returns:\n        str: Testo completo del manuale in formato markdown.\n    '''\n    parts = []\n    parts.append(\"# Manuale d’Uso dell’IA (Bozza automatizzata)\\n\")",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_section_files",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def write_section_files(sections: Dict[str, str], output_dir: Path):\n    '''\n    Scrive i file markdown per ogni sezione del manuale.\n    Args:\n        sections(Dict[str, str]): Dizionario contenente le sezioni del manuale.\n        output_dir(Path): Cartella di output dove salvare i file.\n    '''\n    output_dir.mkdir(parents=True, exist_ok=True)\n    for i, (key, content) in enumerate(sections.items(), start=1):\n        spec = TOPIC_SPECS[key]",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_readme",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def write_readme(sections: Dict[str, str], output_dir: Path):\n    '''\n    Scrive il file README.md con l'indice delle sezioni del manuale.\n    Args:\n        sections(Dict[str, str]): Dizionario contenente le sezioni del manuale.\n        output_dir(Path): Cartella di output dove salvare il file.\n    '''\n    lines = [\n        \"# Manuale d’Uso dell’IA Generativa\\n\",\n        \"Manuale prodotto tramite workflow editoriale automatizzato con revisione umana.\\n\",",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_summary",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def write_summary(output_dir: Path):\n    \"\"\"\n    Genera automaticamente SUMMARY.md leggendo i file .md nella cartella.\n    Usa i primi 3-4 parole del file come titolo, o il nome file se non trova titolo.\n    Args:\n        output_dir(Path): Cartella di output dove salvare il file.\n    \"\"\"\n    summary_lines = [\"# Summary\\n\", \"- [Manuale d’Uso](README.md)\\n\"]\n    # Ordina i file per numero iniziale (01-, 02-, etc.)\n    md_files = sorted(output_dir.glob(\"*.md\"))",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "write_book_toml",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def write_book_toml(title: str, author: str, output_dir: Path, build_dir: str = \"html\"):\n    \"\"\"\n    Scrive il file book.toml per mdBook. NECESSARIO PER USARE mdBook.\n    Args:\n        title (str): Titolo del libro.\n        author (str): Nome dell'autore.\n        output_dir (Path): Cartella di output dove salvare il file.\n        build_dir (str, optional): Cartella dove mdBook genera il sito HTML. Default: \"html\".\n    \"\"\"\n    toml_content = f\"\"\"",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "assemble_full_manual",
+        "kind": 2,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "def assemble_full_manual(sections: Dict[str, str]) -> str:\n    '''\n    Assembla il manuale completo in formato markdown.\n    Args:\n        sections(Dict[str, str]): Dizionario contenente le sezioni del manuale.\n    Returns:\n        str: Testo completo del manuale in formato markdown.\n    '''\n    parts = [\"# Manuale d’Uso dell’IA Generativa\\n\"]\n    for key, content in sections.items():",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "title",
+        "kind": 5,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "title = \"{title}\"\nauthor = \"{author}\"\nsrc = \".\"\n[build]\nbuild-dir = \"{build_dir}\"\n\"\"\"\n    book_toml_path = output_dir / \"book.toml\"\n    book_toml_path.write_text(toml_content.strip() + \"\\n\", encoding=\"utf-8\")\ndef assemble_full_manual(sections: Dict[str, str]) -> str:\n    '''",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "author",
+        "kind": 5,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "author = \"{author}\"\nsrc = \".\"\n[build]\nbuild-dir = \"{build_dir}\"\n\"\"\"\n    book_toml_path = output_dir / \"book.toml\"\n    book_toml_path.write_text(toml_content.strip() + \"\\n\", encoding=\"utf-8\")\ndef assemble_full_manual(sections: Dict[str, str]) -> str:\n    '''\n    Assembla il manuale completo in formato markdown.",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "src",
+        "kind": 5,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "src = \".\"\n[build]\nbuild-dir = \"{build_dir}\"\n\"\"\"\n    book_toml_path = output_dir / \"book.toml\"\n    book_toml_path.write_text(toml_content.strip() + \"\\n\", encoding=\"utf-8\")\ndef assemble_full_manual(sections: Dict[str, str]) -> str:\n    '''\n    Assembla il manuale completo in formato markdown.\n    Args:",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "build-dir",
+        "kind": 5,
+        "importPath": "code.src.manual",
+        "description": "code.src.manual",
+        "peekOfCode": "build-dir = \"{build_dir}\"\n\"\"\"\n    book_toml_path = output_dir / \"book.toml\"\n    book_toml_path.write_text(toml_content.strip() + \"\\n\", encoding=\"utf-8\")\ndef assemble_full_manual(sections: Dict[str, str]) -> str:\n    '''\n    Assembla il manuale completo in formato markdown.\n    Args:\n        sections(Dict[str, str]): Dizionario contenente le sezioni del manuale.\n    Returns:",
+        "detail": "code.src.manual",
+        "documentation": {}
+    },
+    {
+        "label": "MANUAL_STYLE_GUIDE",
+        "kind": 5,
+        "importPath": "code.src.prompts",
+        "description": "code.src.prompts",
+        "peekOfCode": "MANUAL_STYLE_GUIDE = \"\"\"\nSei un content strategist senior in un'agenzia di comunicazione digitale.\nObiettivo: creare un manuale d'uso dell'IA per copywriter e content strategist.\nStile:\n- linguaggio non tecnico, concreto, orientato al lavoro quotidiano\n- frasi brevi, punti elenco quando utile\n- evita gergo da sviluppo (API, token, embeddings) se non indispensabile\n- evidenzia: obiettivo, quando usarlo, come usarlo, esempi, limiti, buone pratiche\n- se trovi concetti tecnici nel testo sorgente, riscrivi in modo semplice\nOutput: Markdown pulito, modulare, con sezioni coerenti.",
+        "detail": "code.src.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "TOPIC_SPECS",
+        "kind": 5,
+        "importPath": "code.src.prompts",
+        "description": "code.src.prompts",
+        "peekOfCode": "TOPIC_SPECS = {\n    \"text_generation\": {\n        \"title\": \"Prompt engineering per generazione di testi\",\n        \"query\": \"prompting guide text generation writing style constraints examples\",\n        \"deliverable_sections\": [\n            \"Cos'è e quando usarlo\",\n            \"Checklist prompt (ruolo, contesto, vincoli, formato)\",\n            \"Esempi per social/newsletter/sito\",\n            \"Errori comuni\",\n            \"Limiti e buone pratiche\",",
+        "detail": "code.src.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "TOPIC_SELECTOR_SYSTEM",
+        "kind": 5,
+        "importPath": "code.src.prompts",
+        "description": "code.src.prompts",
+        "peekOfCode": "TOPIC_SELECTOR_SYSTEM = \"\"\"\nSei un assistente che deve selezionare, da una lista di estratti, quelli più rilevanti\nper un manuale aziendale su prompt engineering.\nScegli solo estratti utili e pratici; scarta parti irrilevanti.\nRestituisci JSON con:\n- selected: [{id, reason}]\n- rejected: [{id, reason}]\n\"\"\"\nADAPT_SYSTEM = MANUAL_STYLE_GUIDE + \"\"\"\nRegola importante: mantieni riferimenti alla fonte (path file + titolo se presente).",
+        "detail": "code.src.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "ADAPT_SYSTEM",
+        "kind": 5,
+        "importPath": "code.src.prompts",
+        "description": "code.src.prompts",
+        "peekOfCode": "ADAPT_SYSTEM = MANUAL_STYLE_GUIDE + \"\"\"\nRegola importante: mantieni riferimenti alla fonte (path file + titolo se presente).\nNon inventare contenuti; se manca un pezzo, segnalalo come 'Da integrare' senza inventare.\n\"\"\"",
+        "detail": "code.src.prompts",
+        "documentation": {}
+    },
+    {
+        "label": "build_or_load_vectorstore",
+        "kind": 2,
+        "importPath": "code.src.retriever",
+        "description": "code.src.retriever",
+        "peekOfCode": "def build_or_load_vectorstore(\n    *,\n    chunks: List[DocChunk],\n    index_path: str,\n    embed_model: str,\n    force_reindex: bool = False,\n) -> FAISS:\n    '''\n    Costruisce o carica un vectorstore FAISS dai chunk dei documenti.\n    Args:",
+        "detail": "code.src.retriever",
+        "documentation": {}
+    },
+    {
+        "label": "retrieve",
+        "kind": 2,
+        "importPath": "code.src.retriever",
+        "description": "code.src.retriever",
+        "peekOfCode": "def retrieve(vs: FAISS, query: str, k: int = 12) -> List[Document]:\n    '''\n    Recupera i documenti rilevanti dal vectorstore per una query data.\n    Args:\n        vs(FAISS): Vectorstore FAISS.\n        query(str): Query di ricerca.\n        k(int): Numero di documenti da recuperare.\n    Returns:\n        List[Document]: Lista di documenti recuperati.\n    '''",
+        "detail": "code.src.retriever",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "code.src.run",
+        "description": "code.src.run",
+        "peekOfCode": "def main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\"--reindex\", action=\"store_true\")\n    parser.add_argument(\"--full\", action=\"store_true\", help=\"Genera anche il manuale completo\")\n    args = parser.parse_args()\n    settings = Settings()\n    if args.reindex:\n        settings.force_reindex = True\n    app = build_graph()\n    state = State(settings=settings)",
+        "detail": "code.src.run",
+        "documentation": {}
+    }
+]
