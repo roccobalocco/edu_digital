@@ -1,10 +1,10 @@
 ---
 title: Sous-Chef AI
-author: Nome Cognome matricola studente
+author: Pietro Masolini 30613A
 date:  a.a. 2025/2026
 institute: Università degli Studi di Milano
 course: Editoria Digitale
-version: 1
+version: 1.1
 kind: Report
 ---
 
@@ -13,7 +13,7 @@ kind: Report
 # Sous-Chef AI​
 Sistema automatizzato per la ricerca, la costruzione, la revisione ed il rilascio di manuali d'uso.
 
-> Sous-Chef AI: il tuo brigadiere digitale, tu sei lo Chef!
+> Sous-Chef AI, dove lo Chef sei tu!
 
 ## Introduzione
 
@@ -24,11 +24,11 @@ Il progetto ha due soggetti principali:
 
 Il **sistema** mira a semplificare il processo di realizzazione di manuali fornendo all'utenza:
 
-- *Ricerca automatizzata* all'interno delle fonti indicate
-- *Traduzione e adattamento* del contenuto rispetto al pubblico di riferimento
-- *Processo di revisione c*he permette la modifica del contenuto fornito o la sua completa riscrittura, specificando un prompt aggiuntivo
-- *Pubblicazione automatica* su [GitHubPages](https://roccobalocco.github.io/edu_digital/) di tutti i file generati dal sistema
-- *Creazione del **manuale***, composto da più sezioni generate e revisionate singolarmente, in vari formati (*tex*, *html*, *pdf*, *epub*, *md*)
+- *Ricerca automatizzata* all'interno del documentale
+- *Traduzione e adattamento* del contenuto seguendo le indicazioni dell'utente
+- *Processo di revisione c*he permette la modifica del contenuto o la sua completa riscrittura, specificando un prompt aggiuntivo
+- *Pubblicazione automatica* su [GitHubPages](https://roccobalocco.github.io/edu_digital/) di tutti i file legati al manuale
+- *Creazione del manuale*, composto da più sezioni generate e revisionate singolarmente, in vari formati
 
 Il **manuale**, tramite linguaggio non tecnico e coerente con il contesto aziendale, mira a spiegare e comprendere:
 
@@ -37,24 +37,11 @@ Il **manuale**, tramite linguaggio non tecnico e coerente con il contesto aziend
 - *Esempi pratici* contestualizzati
 - *Best practices e limiti* dell'IA
 
-Le tecnologie adottate sono le seguenti:
-
-- *Python 3.12.1* come linguaggio di programmazione
-- *LangGraph* per modellare il flusso di generazione del contenuto
-- *LangChain* come framework di orchestrazione
-- *Google Gemini* per i modelli generativo
-- *Vector store* basato su *FAISS* e embedding semantici
-- *GitHub Actions* per automatizzare:
-  - La fase di *pubblicazione* dei file generati su *GitHub Pages*
-  - La fase di *generazione* in diversi formati utilizzando *Pandoc*
-
 ## Ideazione 
 
 ### Tema
 
-Il **sistema** è stato progettato per essere quanto più generale possibile, infatti le tematiche che esso ricerca sono elencate all'interno di `prompts.py`, alla voce `TOPIC_SPECS`. 
-
-L'utenza può modellare le tematiche, e la loro composizione, utilizzando il seguente schema:
+Il **sistema** è stato progettato per essere quanto più generale possibile, per questo le tematiche che ricerca sono elencate alla voce `TOPIC_SPECS`. L'utenza può modellare le tematiche, utilizzando il seguente schema:
 
 ```json
 "topic_title": {
@@ -70,7 +57,7 @@ L'utenza può modellare le tematiche, e la loro composizione, utilizzando il seg
 }
 ```
 
-Il processo di selezione dei documenti rilevanti è anch'esso personalizzabile tramite la voce `TOPIC_SELECTOR_SYSTEM`, all'interno di `prompts.py`, il quale rappresenta il prompt di sistema utilizzato per filtrare gli estratti ottenuti dalle fonti mediante FAISS.
+Anche il processo di selezione dei documenti particolarmente rilevanti è personalizzabile tramite la voce `TOPIC_SELECTOR_SYSTEM`, la quale rappresenta il prompt di sistema utilizzato selezionare i documenti migliori mediante FAISS.
 
 I temi principali su cui il l'**utente utilizzatore** si concentra diventano quindi:
 
@@ -83,29 +70,29 @@ Mentre il **sistema** concentra l'attenzione su tre aspetti principali:
 - *Revisione umana,* necessaria per assicurare accuratezza, coerenza e aderenza alle specifiche editoriali.
 - *Adattamento dei contenuti*, che consente di personalizzare il manuale in base ai feedback e alle esigenze specifiche di ciascun argomento.
 
-Anche se la generazione dei contenuti risulta essere automatica, essa *richiede un intervento attivo da parte dell'utenza* per adattare i temi alle specifiche necessità del manuale. Ogni sezione, e quindi ogni "*topic*", deve essere sottoposta ad una revisione rigida e rigorosa, garantendo così la coerenza e la qualità del sistema di conoscenze generato.
+La generazione dei contenuti *richiede un intervento attivo da parte dell'utenza* per adattare i temi alle specifiche necessità del manuale. Ogni sezione deve essere sottoposta ad una revisione rigida e rigorosa, che garantisce la coerenza e la qualità dei contenuti.
 
-L'**utente** non deve più concentrarsi sulla ricerca del contenuto perfetto, ma solo sulla valutazione e sull'adattamento dei materiali proposti, dedicando più tempo alla revisione e agli aspetti più importanti del processo, ovvero seguire le specifiche richieste editoriali. 
+L'**utente** può dunque concentrarsi minormente sulla ricerca del contenuto, dedicando più tempo alla revisione e alle specifiche richieste editoriali. 
 
 Il **manuale** invece si concentra su contenuti concreti e fruibili, pensati per guidare i destinatari nell’uso dell’IA in contesti reali. 
 
-I temi principali che il manuale affronta sono:
+I temi principali che questo ultimo affronta sono:
 
-- *Introduzione all’uso dell’IA in azienda*, fornendo una panoramica chiara del ruolo dell’intelligenza artificiale nel lavoro quotidiano di copywriter e content strategist, spiegandone i vantaggi ed i limiti
-- *Istruzioni operative per casi d’uso specifici*, ogni sezione guida l’utente nella costruzione e nell’uso di prompt per attività come:
-  - <u>Text generation</u>, creazione di contenuti testuali per post social, newsletter o articoli
-  - <u>Language detection</u>, identificazione automatica della lingua dei contenuti
-  - <u>Cross-tabular analysis</u>, analisi di tabelle e dati testuali per insight strategici
-- *Esempi pratici contestualizzati*, gli esempi sono selezionati dal repository OpenAI Cookbook, tradotti e adattati al contesto aziendale.
-- *Best practices e limiti d’uso*, include linee guida per evitare errori comuni nell’uso dell’IA generativa, gestione dei bias, verifica dei contenuti generati e suggerimenti per l’integrazione dei risultati.
+- *Introduzione all’uso dell’IA in contesti lavorativi*, con un inquadramento pratico del ruolo dell’intelligenza artificiale nelle attività quotidiane di copywriter e content strategist, evidenziandone potenzialità, limiti operativi e necessità di supervisione umana
+- *Istruzioni operative per casi d’uso specifici*, con sezioni dedicate alla costruzione e all’utilizzo di prompt efficaci per attività quali:
+  - <u>Text generation</u>, per la creazione di contenuti testuali destinati a post, newsletter o articoli
+  - <u>Language detection</u>, per l'identificazione automatica della lingua dei contenuti
+  - <u>Cross-tabular analysis</u>, per l'analisi di tabelle e dati testuali finalizzata ad individuare pattern, anomalie e insight
+- *Esempi pratici contestualizzati*, selezionati dal repository OpenAI Cookbook e adattati a scenari realistici di agenzia e azienda
+- *Best practices e limiti d’uso*, con indicazioni per evitare errori comuni nell’utilizzo degli LLM, migliorare i prompt, verificare gli output e integrare i risultati
 
 In sintesi, mentre il **sistema** si concentra sull’automazione, la selezione e la generazione dei contenuti, il **manuale** offre una guida pratica e contestualizzata che consente all’utente di applicare efficacemente l’IA, mantenendo il controllo creativo e strategico sui contenuti prodotti.
 
 ### Destinatari
 
-**Sous-Chef AI** ha lo scopo di supportare il creatore del manuale, semplificando e automatizzando gran parte del flusso editoriale. Grazie agli strumenti utilizzati, il creatore può indicizzare, selezionare, adattare e revisionare contenuti a partire dal repository OpenAI Cookbook, riducendo il carico cognitivo e concentrandosi sul controllo qualitativo dei materiali.
+**Sous-Chef AI** ha lo scopo di supportare il creatore del manuale, semplificando e automatizzando gran parte del flusso editoriale. L'utente può quindi indicizzare, selezionare, adattare e revisionare contenuti a partire dall'OpenAI Cookbook concentrandosi sul controllo qualitativo.
 
-Il **manuale** é pensato per copywriter e content strategist all'interno di una agenzia di comunicazione digitale. Esso fornisce linee guida pratiche, esempi contestualizzati e buone pratiche nell'uso dell'IA generativa, utilizzando un linguaggio accessibile e quanto più lontano dal tecnico.
+In questo caso il **manuale** é pensato per copywriter e content strategist all'interno di una agenzia di comunicazione digitale. Esso fornisce linee guida pratiche, esempi contestualizzati e buone pratiche nell'uso dell'IA generativa, utilizzando un linguaggio accessibile e colloquiale.
 
 #### Personas
 
@@ -129,19 +116,18 @@ Per raggiungere efficacemente i rispettivi destinatari, il **manuale** e il **si
 
 - *Completezza dei contenuti*, il manuale deve includere istruzioni operative, esempi e linee guida sui limiti d'uso, coprendo almeno i casi d'uso selezionati
 - *Chiarezza e comprensibilità*, il linguaggio deve essere fruibile da personale non tecnico e deve rimanere coerente con il contesto aziendale
-- *Modularità*, ogni sezione deve risultare indipendente e integrabile senza compromettere la coerenza complessiva 
-- *Manutenibilità*, il sistema deve consentire la generazione di nuove versioni del manuale con facilità, sfruttando il flusso automatizzato
+- *Modularità*, ogni sezione deve risultare indipendente e integrabile senza compromettere la coerenza complessiva
 - *Validazione umana*, tutte le sezioni devono passare attraverso un processo di revisione editoriale, atto a garantire accuratezza, coerenza e aderenza alle specifiche
-- *mdBook*, per pubblicare richiede
-  - un file `book.toml` dove indicare il titolo, l'autore, la fonte del libro e la cartella di output
-  - un file `SUMMARY.md` dove indicare l'indice del libro
+- *Per utilizzare mdBook* è richiesto
+  - un file `book.toml` dove definire metadati e configurazioni essenziali (eg: directory di output) 
+  - un file `SUMMARY.md` dove definire la struttura e la navigazione del contenuto
 
 #### Modelli di fruizione
 
-- *Lettura modulare*, i destinatari possono accedere direttamente alle sezioni pertinenti ai loro compiti, senza dover leggere l'intero manuale
-- *Accesso multi canale/formato*, il manuale deve essere disponibili nel maggior numero di formati
+- *Non lineare e modulare*, i destinatari possono accedere direttamente alle sezioni di cui hanno bisogno, senza dover leggere l’intero manuale
+- *Accesso multicanale*, il manuale è disponibile in diversi formati digitali, i quali supportano dispositivi e contesti differenti
 
-#### Innovazione
+#### Aspetti innovazione
 
 - *Human in the loop*, combinazione di generazione automatica con revisione umana per massimizzare efficienza e qualità
 - *Personalizzazione*, possibilità, per l'utenza del sistema, di adattare prompt e sezioni ai casi d'uso specifici, creando manuali su misura
@@ -149,8 +135,6 @@ Per raggiungere efficacemente i rispettivi destinatari, il **manuale** e il **si
 - *Flessibilità nei canali di distribuzione*, generazione di output multi formato compatibili con web, intranet, stampa e multi dispositivo, semplificandone la diffusione 
 
 ### Canali di distribuzione
-Il **manuale** d’uso generato da **Sous-Chef AI** è pensato per essere fruibile su più canali, in base alle esigenze dei destinatari.
-
 #### Canali principali:
 
 | Canale                     | Descrizione                                                  | Formati                    | Note                                                         |
@@ -171,38 +155,34 @@ Il **manuale** risulta disponibile nei seguenti formati per garantire massima fl
 
 #### Identità visuale
 
-Il **manuale** si concentra sulla leggibilità e sulla facilità di gestione nel tempo; per questo motivo non contiene alcuna personalizzazione visuale.
+Il **manuale** si concentra sulla leggibilità e sulla facilità di gestione nel tempo. Il formato Markdown garantisce una base solida e coerente per la formattazione, che può poi essere adattata liberamente dall’utente.
 
-La responsabilità di definire l’identità visiva è lasciata agli utilizzatori del **sistema**. In futuro sarà possibile esportare i contenuti applicando stili, template, layout e altre personalizzazioni grazie a Pandoc.
-
-Il formato Markdown garantisce una base solida e coerente per la formattazione, che può poi essere adattata liberamente dall’utente.
+La responsabilità di definire l’identità visiva è lasciata agli utilizzatori del **sistema**. In futuro potrebbe essere possibile esportare i contenuti applicando stili, template, layout e altre personalizzazioni anche grazie a Pandoc.
 
 #### Tradizione vs Innovazione
 
-Il **manuale** mantiene coerenza con modelli consolidati di documentazione digitale (ad esempio guide operative, manuali tecnici in md/pdf/html). Allo stesso tempo il **sistema** introduce elementi innovativi, come workflow automatizzati, human-in-the-loop e personalizzazione dei contenuti, per offrire una fruizione più dinamica e modulare.
+Il **manuale** mantiene coerenza con modelli consolidati di documentazione digitale (ad esempio guide operative, manuali tecnici in md/pdf/html). Allo stesso tempo il **sistema** introduce elementi innovativi, come workflow automatizzati, human-in-the-loop e personalizzazione dei contenuti, per offrire una fruizione dinamica.
 
 ## Processo di Produzione
 
-Il processo di produzione del **manuale** combina l’acquisizione dei contenuti con la loro gestione strutturata, garantendo coerenza, tracciabilità e aggiornabilità. 
+Il processo di produzione del **manuale** combina l’acquisizione dei contenuti con la loro gestione, garantendo coerenza, tracciabilità e aggiornabilità. 
 
-Il **sistema** è progettato per utilizzare qualsiasi fonte in formato Jupyter Notebook (`.ipynb`). Per cambiare la fonte, basta modificare il percorso della variabile di ambiente `COOKBOOK_PATH`. Per il primo manuale, il percorso era impostato sul repository OpenAI Cookbook, ma può essere adattato a qualsiasi altra raccolta di notebook.
+Il **sistema** è progettato per utilizzare fonti in formato Jupyter Notebook (`.ipynb`). Per cambiare documentale è necessario modificare il percorso della variabile di ambiente `COOKBOOK_PATH`. In base ai requisiti progettuali, per questo manuale il percorso è impostato sul repository OpenAI Cookbook.
 
-Per quanto riguarda il **manuale**, le fonti attraversano tre fasi principali di trasformazione:
+Le fonti attraversano tre fasi principali di trasformazione:
 
-1. Inizialmente sono *file di OpenAI Cookbook*, disponibili in formato `.ipynb`
-2. Successivamente divengono *contenuti generati automaticamente*, selezionati e adattati tramite LLM in sezioni coerenti con il contesto aziendale
-3. Infine, grazie ad una fase di lavoro manuale, necessario in alcuni casi per traduzione, revisione o adattamento dei contenuti, arrivano ad essere *sezioni del manuale*
+1. Inizialmente sono *file* in formato `.ipynb`
+2. Successivamente ne vengono selezionati e adattati alcuni tramite l'uso di  un LLM
+3. Infine, grazie ad una fase di revisione manuale, arrivano ad essere *sezioni del manuale*
 
 Il flusso di gestione documentale segue queste fasi principali:
 
-1. *Indicizzazione e raccolta dei contenuti*, le fonti vengono organizzate in un vector store (FAISS) per un recupero rapido e mirato
+1. *Indicizzazione e raccolta dei contenuti*, le fonti vengono organizzate in un vector store per un recupero rapido e mirato
 2. *Selezione dei documenti rilevanti*, tramite prompt guidati e criteri definiti dall’utente
-3. *Adattamento e generazione delle sezioni*, trasformazione dei contenuti in sezioni Markdown coerenti e leggibili
+3. *Adattamento e generazione delle sezioni*, trasformazione dei contenuti in sezioni Markdown
 4. *Revisione editoriale*, modifica, approvazione o rigenerazione delle sezioni basata su feedback dell’utente
 5. *Commit e versionamento*, le sezioni approvate vengono salvate tramite git una volta fatto il commit
 6. *Pubblicazione e esportazione*, tramite GitHub Actions, il contenuto viene distribuito su GitHub Pages e reso disponibile in diversi formati (HTML, PDF, ePub, TeX, Markdown)
-
-Il **sistema** ed il **manuale** possono vivere nello stesso ambiente, pertanto il versionamento ricade sullo stesso *git*, oltre che al tag applicato dalla GitHub Action che provvede al rilascio.
 
 Il seguente diagramma mostra graficamente come si articola il flusso di produzione, di gestione e di pubblicazione dei contenuti:
 
@@ -259,18 +239,16 @@ Il progetto integra diverse tecnologie, ciascuna con un ruolo specifico nelle fa
 
 ### Esecuzione del flusso
 
-[Repository](https://github.com/roccobalocco/edu_digital).
-
-Per eseguire il progetto si deve:
+Per eseguire il progetto, disponibile nel seguente [repository](https://github.com/roccobalocco/edu_digital),  è necessario:
 
 - *copiare ed adattare il file*  `.env.example` in `.env`, mettendo la propria chiave API ed il proprio percorso al suo interno
-- *installare tutte le dipendenze* elencate in `requirements.txt`
--  *avere un documentale* (in questo caso il OpenAI Cookbook) all'interno del percorso specificato
+- *installare tutte le dipendenze* elencate in `requirements.txt` tramite il comando `pip install -r requirements.txt` 
+-  *avere un documentale di file* `.ipynb` all'interno del percorso specificato nelle variabili di ambiente
 - *eseguire il comando* `python run.py` con l'opzione `--full` per avere un file comprensivo di tutte le sezioni 
 
 ### Utilizzo di IA generativa
 
-L’ IA generativa è stata integrata in più fasi del flusso di gestione documentale, con l’obiettivo di automatizzare, accelerare e rendere scalabile la produzione del manuale, mantenendo elevati standard di qualità.
+L’IA generativa è stata integrata in varie fasi del flusso di gestione documentale, con l’obiettivo di automatizzare, accelerare la produzione del manuale.
 
 #### Fasi in cui l’IA è stata applicata
 
@@ -286,12 +264,12 @@ L’ IA generativa è stata integrata in più fasi del flusso di gestione docume
 
 #### Approccio di prompt engineering
 
-I prompt sono suddivisi in due macro categorie:
+I prompt sono suddivisi in due macro-categorie:
 
-1. *Prompt di selezione* (`TOPIC_SELECTOR_SYSTEM`): guidano l’IA nell’identificazione degli estratti più pertinenti.
-2. *Prompt di generazione/adattamento* (`ADAPT_SYSTEM`): definiscono struttura, stile e contenuti delle sezioni del manuale.
+1. *Prompt di selezione* (`TOPIC_SELECTOR_SYSTEM`), utilizzati per guidare l’IA nell’identificazione degli estratti più pertinenti
+2. *Prompt di generazione/adattamento* (`ADAPT_SYSTEM`), impiegati per rielaborare i contenuti selezionati, definendone la struttura, lo stile ed il livello di dettaglio, in coerenza con gli obiettivi ed il contesto dato dall'utente
 
-Tutti i prompt sono personalizzabili dall’utente utilizzatore del sistema, consentendo un fine-tuning continuo in base ai feedback editoriali.
+L’intero processo è concepito secondo un approccio human-in-the-loop, non solo la fase di revisione, i prompt sono configurabili e modificabili dall’utente del **sistema**, consentendo un fine-tuning continuo basato su feedback editoriali e garantendo il controllo umano sulle decisioni critiche che riguardano il flusso di produzione.
 
 #### Validazione e controllo qualità
 
@@ -311,9 +289,9 @@ La selezione automatica dei contenuti e la generazione delle sezioni riducono dr
 
 L’IA fornisce una base coerente e leggibile, su cui la revisione umana può concentrarsi sul fine-tuning e sugli aspetti strategici.
 
-##### Scalabilità
+##### Manutenibilità
 
-Il sistema può elaborare grandi volumi di contenuti in tempi contenuti, adattandosi facilmente a nuovi dataset o fonti.
+L’utilizzo dell’IA facilita l’aggiornamento del manuale in caso di variazioni delle fonti. Il **sistema** consente di rielaborare rapidamente le sezioni interessate e di analizzare le modifiche introdotte nei contenuti sorgente.
 
 #### Limiti e intervento umano
 
@@ -323,21 +301,20 @@ L’IA non è in grado di garantire completezza o correttezza totale delle infor
 - *Adattare* esempi pratici
 - *Validare* coerenza e accuratezza
 
-- L’approccio *human-in-the-loop* assicura un equilibrio tra automazione e controllo editoriale.
 
 ## Valutazione dei risultati raggiunti
 
 
 ### Valutazione del flusso di produzione
 
-Il flusso di produzione implementato con **Sous-Chef AI** ha permesso di ottenere benefici misurabili nelle diverse fasi del ciclo documentale:
+Il flusso di produzione implementato in **Sous-Chef AI** ha permesso di ottenere benefici in diverse fasi:
 
 1. *Riduzione dei tempi di gestione documentale* grazie alla selezione automatica dei documenti tramite FAISS e la generazione di sezioni con Google Gemini
-2. *Riduzione degli errori*, la struttura modulare, il versionamento e la revisione guidata dall’utente limitano gli errori di coerenza e di contenuto, assicurando che ogni sezione sia correttamente contestualizzata
-3. *Miglioramento della qualità dei documenti*, l’uso combinato di LLM e revisione umana dovrebbe garantire testi leggibili e coerenti con il contesto aziendale
-4. *Miglioramento del livello di accettazione della tecnologia*, la possibilità di personalizzare i prompt e gestire i contenuti secondo le proprie esigenze dovrebbe rendere il sistema più intuitivo e facilmente adottabile
-5. *Raggiungimento di nuovi canali di distribuzione*, l’esportazione automatica dei contenuti, unita alla pubblicazione su GitHub Pages, ha permesso di raggiungere facilmente più canali
-6. *Soddisfacimento di nuovi scenari d’uso*, il sistema supporta scenari non previsti inizialmente, come l’adattamento rapido di contenuti a nuovi dataset o l’integrazione di fonti alternative, grazie alla flessibilità della pipeline
+2. *Riduzione degli errori*, la struttura modulare, il versionamento e la revisione guidata dall’utente limitano gli errori di coerenza e di contenuto
+3. *Miglioramento della qualità dei documenti*, l’uso combinato di LLM e revisione umana dovrebbe garantire testi coerenti con il contesto aziendale
+4. *Miglioramento del livello di accettazione della tecnologia grazie alla possibilità di personalizzare i prompt e gestire i contenuti secondo le proprie esigenze
+5. *Raggiungimento di nuovi canali di distribuzione*, l’esportazione automatica dei contenuti, unita alla pubblicazione su GitHub Pages, ha permesso di raggiungere facilmente più canali di distribuzione
+6. *Soddisfacimento di nuovi scenari d’uso*, il sistema supporta scenari non previsti inizialmente, come l’adattamento rapido a nuovi contenuti
 
 ### Confronto con lo stato dell'arte
 
@@ -359,34 +336,32 @@ Pipeline automatizzata per selezione, adattamento e pubblicazione, con revisione
 ##### Vantaggi rilevanti
 
 - *Riduzione dei tempi nelle fasi di ricerca e generazione*
-- *Maggiore coerenza* 
+- *Facilità di aggiornamento*
 - *Modularità del contenuto*
-- *Possibilità di pubblicare su più formati e canali*
+- *Possibilità di pubblicare in più formati e canali in automatico*
 
 ### Limiti emersi
 
-Sono stati identificati i seguenti Limiti:
-
-- *Accesso limitato ad alcune tecnologie*, alcuni LLM o embedding più avanzati potrebbero non essere disponibili o richiedere costi aggiuntivi, che potrebbero risultare insostenibili
+- *Accesso limitato ad alcune tecnologie*, alcuni LLM o embedding più avanzati potrebbero non essere disponibili o richiedere costi aggiuntivi
 - *Automazione parziale dei formati*, la trasformazione completa in alcuni formati (es. TeX complesso o PDF con layout avanzato) può richiedere intervento manuale
-- Poco controllo sul layout, al momento non esiste un modo per gestire il layout del prodotto finale, se non intervenendo manualmente sul processo di conversione/generazione
+- *Poco controllo sul layout*, al momento non esiste un modo per gestire il layout del prodotto finale, se non intervenendo manualmente sul processo di conversione/generazione
 - *Integrazione di fonti eterogenee*, il sistema è utilizzabile solo per fonti notebook `.ipynb`; formati diversi necessitano di adattamento preliminare
 
-Gli ultimi due punti sono facilmente risolvibili all'interno di eventuali nuove versioni di **Sous-Chef AI**.
+Gli ultimi due punti sono facilmente risolvibili all'interno di eventuali future versioni di **Sous-Chef AI**.
 
 ## Conclusioni
 
-L’implementazione del **sistema** ha permesso di raggiungere gli obiettivi principali definiti dai casi d’uso:
+L’implementazione del **sistema** ha permesso di raggiungere i seguenti obiettivi:
 
-- *Produzione rapida e modulare* di contenuti coerenti
-- *Riduzione dei tempi* e degli errori nella gestione documentale
-- *Maggiore scalabilità* e possibilità di raggiungere più canali di distribuzione
+- *Produzione rapida e modulare* di contenuti
+- *Riduzione dei tempi* nella gestione documentale
+- *Possibilità di raggiungere più canali* di distribuzione
 
-I risultati più soddisfacenti riguardano efficienza e modularità della produzione, grazie all'IA generativa e alla gestione automatizzata dei contenuti.
+I risultati più soddisfacenti riguardano l'efficienza della produzione, grazie all'IA generativa e alla gestione automatizzata dei contenuti.
 
 Le principali limitazioni restano legate alla alla gestione di fonti non standard e alle trasformazioni avanzate di formato. 
 
-Tuttavia, il prototipo (interpretabile come un Proof of Concept) realizzato dimostra chiaramente la fattibilità dell’approccio ed offre un’ottima base per futuri miglioramenti e ampliamenti della pipeline editoriale.
+Tuttavia, il prototipo realizzato (interpretabile come un Proof of Concept), dimostra chiaramente la fattibilità ed offre un’ottima base per futuri ampliamenti della pipeline editoriale.
 
 ## Bibliografia, sitografia e strumenti utilizzati
 
