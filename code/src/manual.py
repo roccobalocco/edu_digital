@@ -37,6 +37,7 @@ def assemble_manual(sections: dict) -> str:
 def write_section_files(sections: Dict[str, str], output_dir: Path):
     '''
     Scrive i file markdown per ogni sezione del manuale.
+    Inoltre cancella i file review.
 
     Args:
         sections(Dict[str, str]): Dizionario contenente le sezioni del manuale.
@@ -53,6 +54,12 @@ def write_section_files(sections: Dict[str, str], output_dir: Path):
             f"# {spec['title']}\n\n{content}\n",
             encoding="utf-8",
         )
+        
+    for p in output_dir.glob("review_*.md"):
+        try:
+            p.unlink()
+        except OSError:
+            print(f"Impossibile cancellare {p}")
 
 
 def write_readme(sections: Dict[str, str], output_dir: Path):

@@ -1,259 +1,187 @@
 # Prompt engineering per generazione di testi
 
-# Manuale d'Uso dell'IA per Copywriter e Content Strategist
+# Manuale d'Uso dell'IA per Copywriter e Content Strategist: Prompt Engineering per Generazione di Testi
 
-## Prompt Engineering per la Generazione di Testi
-
-### 1. Cos'è e quando usarlo
-
-**Obiettivo:** Capire come "parlare" all'IA per ottenere i testi che desideri.
-
-Immagina di dare istruzioni a un nuovo stagista molto bravo, ma che non conosce il tuo brand. Il "prompt" è esattamente questo: l'insieme di istruzioni che dai all'Intelligenza Artificiale per fargli creare un testo. Più le istruzioni sono chiare e complete, migliore sarà il risultato.
-
-**Quando usarlo:**
-Ogni volta che vuoi che l'IA scriva qualcosa per te. Che sia un post per i social, una bozza di newsletter, un titolo per un articolo del blog o una descrizione prodotto.
-
-**Come usarlo:**
-Ci sono due modi principali per dare istruzioni:
-
-1.  **Istruzione Diretta:** Dici all'IA esattamente cosa vuoi che faccia. Ad esempio: "Scrivi un post su X". Puoi mettere le istruzioni all'inizio, alla fine o in entrambi i punti del tuo messaggio. Sii dettagliato: non aver paura di scrivere un paragrafo intero per descrivere l'output desiderato.
-    *   *Esempio semplice:*
-        ```
-        Estrai il nome dell'autore dalla citazione seguente.
-
-        “Alcuni umani teorizzano che le specie intelligenti si estinguano prima di poter espandersi nello spazio. Se hanno ragione, allora il silenzio del cielo notturno è il silenzio del cimitero.”
-        ― Ted Chiang, Exhalation
-        ```
-        *Output:* Ted Chiang
-        (Fonte: `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1`)
-
-2.  **Completamento:** Inizi tu una frase o un modello di testo, e l'IA cerca di completarlo nel modo più logico. Questo richiede più sperimentazione e l'IA potrebbe non sapere dove fermarsi, quindi potresti dover "tagliare" il testo extra.
-    *   *Esempio semplice:*
-        ```
-        “Alcuni umani teorizzano che le specie intelligenti si estinguano p
-        ```
-        L'IA cercherà di completare la frase.
-        (Fonte: `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1`)
-
-Le IA più recenti sono molto brave a seguire le istruzioni e a presentare il testo in modo ordinato, specialmente se sei preciso.
-(Fonte: `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
+Questa sezione ti guiderà nell'arte di "parlare" all'Intelligenza Artificiale per ottenere i testi che desideri, in modo efficace e mirato al tuo lavoro quotidiano in agenzia.
 
 ---
 
-### 2. Checklist Prompt (Ruolo, Contesto, Vincoli, Formato)
+## 1. Cos'è e quando usarlo
 
-**Obiettivo:** Creare prompt efficaci e strutturati per ottenere risultati migliori e più pertinenti.
+### Cos'è il Prompt Engineering?
+Immagina di avere un assistente molto intelligente ma che ha bisogno di istruzioni precise. Il "Prompt Engineering" è proprio questo: l'arte di dare istruzioni chiare, dettagliate e ben strutturate all'IA per farle generare il testo che hai in mente. Non è programmazione, ma piuttosto una conversazione guidata per ottenere il massimo dall'IA.
 
-Pensa al tuo prompt come a un brief creativo. Deve contenere tutte le informazioni essenziali.
+### Quando usarlo?
+Usa il prompt engineering ogni volta che vuoi che l'IA ti aiuti a:
+*   **Generare bozze rapide**: Per post social, titoli, descrizioni prodotto, email, newsletter.
+*   **Brainstorming**: Per idee su argomenti, slogan, angolazioni narrative.
+*   **Riformulare testi**: Per adattare un contenuto a un pubblico diverso o a un tono specifico.
+*   **Riassumere informazioni**: Per condensare articoli lunghi in punti chiave.
+*   **Creare varianti**: Per testare diverse versioni di un messaggio pubblicitario.
 
-Ecco una checklist per costruire un prompt completo:
-
-*   **1. Ruolo:** Assegna un ruolo all'IA. Questo la aiuta a capire la prospettiva e il tono.
-    *   *Esempio:* "Sei un copywriter esperto in marketing digitale per il settore food."
-    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - concetto di "system prompt" e sezioni)
-
-*   **2. Contesto:** Fornisci tutte le informazioni di base necessarie.
-    *   **Chi è il brand?** (Nome, settore, valori, mission)
-    *   **Chi è il pubblico target?** (Età, interessi, problemi, desideri)
-    *   **Qual è l'obiettivo del testo?** (Informare, vendere, intrattenere, generare lead)
-    *   **Qual è il prodotto/servizio?** (Nome, caratteristiche principali, benefici unici)
-    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - "Organizing your prompt makes it easier for the model to understand context")
-
-*   **3. Vincoli e Requisiti:** Sii specifico su cosa includere e cosa evitare.
-    *   **Lunghezza:** "Massimo 150 parole", "3 paragrafi", "non più di 280 caratteri".
-        (Fonte: `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
-    *   **Tono di voce:** "Amichevole e informale", "professionale e autorevole", "ironico", "entusiasta".
-    *   **Parole chiave:** "Includi le parole chiave 'sostenibilità', 'innovazione', 'qualità artigianale'".
-    *   **Call to Action (CTA):** "Includi una CTA chiara: 'Scopri di più sul nostro sito'".
-    *   **Esclusioni:** "Non usare gergo tecnico", "Evita frasi come 'clicca qui'".
-    *   **Lingua:** "Scrivi in italiano", "Assicurati che l'output sia in italiano".
-        (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-    *   **Varietà:** Se dai esempi, chiedi all'IA di non ripeterli alla lettera ma di usarli come ispirazione per creare frasi nuove e varie.
-        (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-
-*   **4. Formato dell'Output:** Specifica come vuoi che sia strutturato il testo.
-    *   "Formato Markdown (con titoli e liste puntate)."
-        (Fonte: `../data/openai-cookbook/examples/Optimize_Prompts.ipynb::chunk8`)
-    *   "Lista puntata", "paragrafi separati", "tabella", "solo il testo del post senza introduzioni".
-    *   "Usa sezioni chiare e intitolate per organizzare le informazioni."
-        (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-
-*   **5. Esempi (se utili):** Se hai un esempio di testo che ti piace o un modello da seguire, includilo. L'IA tende a seguire molto da vicino gli esempi forniti.
-    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-
-*   **6. Chiarezza e Precisione:**
-    *   Usa frasi brevi e chiare.
-    *   Preferisci elenchi puntati ai paragrafi lunghi per le istruzioni.
-    *   Evita ambiguità: istruzioni confuse portano a risultati scadenti.
-    *   Usa il maiuscolo per enfatizzare le regole più importanti.
-    *   Trasforma regole non testuali in testo (es. invece di "SE X > 3 ALLORA ESCALATE", scrivi "SE CI SONO PIÙ DI TRE FALLIMENTI ALLORA ESCALATE").
-    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+In pratica, ogni volta che hai un'idea per un testo e vuoi accelerare il processo di scrittura, esplorare diverse opzioni o superare il blocco dello scrittore, il prompt engineering è il tuo alleato.
 
 ---
 
-### 3. Esempi Pratici per Social, Newsletter, Sito
+## 2. Checklist per un Prompt Efficace
 
-**Obiettivo:** Vedere come applicare la checklist a scenari reali di agenzia.
+Un buon prompt è come un briefing ben fatto. Deve contenere tutte le informazioni necessarie affinché l'IA capisca cosa vuoi. Ecco gli elementi chiave da includere:
 
-#### Esempio 1: Post per Social Media (Instagram)
+### A. Ruolo (Chi deve essere l'IA?)
+Dai all'IA una "personalità" o un ruolo specifico. Questo la aiuta a calarsi nella parte e a produrre un testo più coerente.
+*   **Obiettivo**: Far sì che l'IA adotti il tono e lo stile appropriato.
+*   **Come usarlo**: Inizia il prompt specificando il ruolo.
+*   **Esempio**:
+    *   `Sei un copywriter esperto di marketing digitale specializzato in sostenibilità.`
+    *   `Agisci come un social media manager giovane e dinamico.`
+    *   `Sei un esperto di SEO e devi ottimizzare un testo.`
 
-**Scenario:** Lanciare un nuovo gusto di gelato artigianale "Pistacchio Salato" per un brand che punta su ingredienti di qualità e innovazione.
+### B. Contesto (Di cosa stiamo parlando?)
+Fornisci all'IA tutte le informazioni di base sul compito.
+*   **Obiettivo**: Dare all'IA il quadro completo per generare un testo pertinente.
+*   **Come usarlo**: Spiega l'argomento, il pubblico, l'obiettivo del testo e dove verrà pubblicato.
+*   **Esempio**:
+    *   `Devi scrivere un post per Instagram. Il nostro brand è "BioDelizie", un'azienda che vende prodotti alimentari biologici e a km zero. Il post deve promuovere il lancio del nostro nuovo caffè 100% arabica biologico.`
+    *   `Il pubblico a cui ci rivolgiamo sono giovani professionisti tra i 25 e i 40 anni, attenti alla salute e all'ambiente.`
+    *   `L'obiettivo è generare interesse e portare traffico alla pagina prodotto sul nostro sito.`
 
-```
-**Ruolo:** Sei un social media copywriter esperto per brand food.
+### C. Vincoli (Cosa deve o non deve fare?)
+Qui definisci le regole e i limiti per l'IA. Più sei specifico, migliore sarà il risultato.
+*   **Obiettivo**: Controllare la lunghezza, il tono, le parole chiave e altri requisiti specifici.
+*   **Come usarlo**: Usa elenchi puntati o frasi chiare per specificare ogni vincolo.
+*   **Esempio**:
+    *   `Il testo deve essere di massimo 150 parole.`
+    *   `Il tono deve essere entusiasta, amichevole e leggermente informale.`
+    *   `Includi le parole chiave "caffè biologico", "aroma intenso", "sostenibile".`
+    *   `Non usare gergo tecnico o frasi troppo complesse.`
+    *   `Aggiungi una call to action chiara: "Scopri di più sul nostro sito!"`
+    *   `Evita ripetizioni di frasi o concetti.` (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+    *   `Se non hai abbastanza informazioni per completare il compito, chiedimi chiarimenti.` (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
 
-**Contesto:**
-- **Brand:** Gelateria "Dolce Tentazione".
-- **Prodotto:** Nuovo gelato "Pistacchio Salato".
-- **Valori:** Qualità artigianale, ingredienti selezionati, innovazione nei gusti.
-- **Target:** Giovani adulti (25-40 anni), amanti del buon cibo, curiosi di nuove esperienze gustative.
-- **Obiettivo:** Creare hype per il lancio, invitare a provare il nuovo gusto.
-
-**Vincoli e Requisiti:**
-- **Lunghezza:** Massimo 180 caratteri per il testo principale.
-- **Tono di voce:** Entusiasta, goloso, un po' audace.
-- **Parole chiave:** "Pistacchio Salato", "Gelato Artigianale", "Novità".
-- **Emoji:** Includi 2-3 emoji pertinenti.
-- **Hashtag:** Suggerisci 3-5 hashtag popolari e di nicchia.
-- **Call to Action:** "Vieni a provarlo!" o simile.
-
-**Formato dell'Output:**
-- Testo del post.
-- Elenco puntato degli hashtag.
-```
-(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
-
-#### Esempio 2: Oggetto e Anteprima per Newsletter
-
-**Scenario:** Promuovere un webinar gratuito su "Strategie SEO per E-commerce" per un'agenzia di marketing digitale.
-
-```
-**Ruolo:** Sei un email marketing specialist per un'agenzia di comunicazione digitale.
-
-**Contesto:**
-- **Brand:** "Digital Boost Agency".
-- **Evento:** Webinar gratuito "Strategie SEO per E-commerce".
-- **Valori:** Competenza, utilità, risultati concreti.
-- **Target:** Proprietari di e-commerce, marketing manager, professionisti del digitale.
-- **Obiettivo:** Massimizzare le iscrizioni al webinar.
-
-**Vincoli e Requisiti:**
-- **Lunghezza Oggetto:** Massimo 50 caratteri.
-- **Lunghezza Anteprima:** Massimo 80 caratteri.
-- **Tono di voce:** Professionale, informativo, persuasivo.
-- **Urgenza/Beneficio:** Sottolinea il valore del webinar e l'opportunità.
-- **Emoji:** Non usare emoji nell'oggetto o nell'anteprima.
-
-**Formato dell'Output:**
-- Oggetto: [Testo]
-- Anteprima: [Testo]
-```
-(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
-
-#### Esempio 3: Descrizione Prodotto per Sito E-commerce
-
-**Scenario:** Scrivere una descrizione per un paio di scarpe da running ecologiche.
-
-```
-**Ruolo:** Sei un copywriter e-commerce specializzato in prodotti sostenibili.
-
-**Contesto:**
-- **Brand:** "GreenStride".
-- **Prodotto:** Scarpe da running modello "EcoRunner".
-- **Caratteristiche:** Realizzate con materiali riciclati, suola ammortizzata, leggere, traspiranti.
-- **Benefici:** Comfort, performance, rispetto per l'ambiente, stile moderno.
-- **Target:** Atleti e appassionati di running attenti all'ambiente e alla sostenibilità.
-- **Obiettivo:** Convincere all'acquisto evidenziando i benefici e i valori etici.
-
-**Vincoli e Requisiti:**
-- **Lunghezza:** Circa 200 parole, suddivise in 3-4 paragrafi.
-- **Tono di voce:** Ispirazionale, tecnico ma accessibile, orientato ai valori.
-- **Parole chiave:** "Scarpe running ecologiche", "materiali riciclati", "sostenibilità", "performance".
-- **Struttura:** Introduzione accattivante, dettagli sui materiali/tecnologia, benefici per l'utente, conclusione con invito all'azione implicito.
-
-**Formato dell'Output:**
-- Testo descrittivo in paragrafi.
-```
-(Fonte: Basato sui principi di `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per istruzioni dettagliate e `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9` per la specificità delle regole.)
+### D. Formato (Come deve essere il risultato?)
+Indica all'IA come vuoi che sia strutturato il testo finale.
+*   **Obiettivo**: Ottenere un output già pronto per l'uso o facile da modificare.
+*   **Come usarlo**: Specifica il tipo di formato desiderato.
+*   **Esempio**:
+    *   `Il testo deve essere formattato come un post Instagram, con emoji pertinenti e almeno 5 hashtag.`
+    *   `Presenta il contenuto come un elenco puntato.`
+    *   `Fornisci il testo in formato Markdown.` (Fonte: `../data/openai-cookbook/examples/Optimize_Prompts.ipynb::chunk8`)
+    *   `Includi un titolo accattivante e una breve descrizione.`
 
 ---
 
-### 4. Errori Comuni
+## 3. Esempi Pratici "da Agenzia"
 
-**Obiettivo:** Imparare dagli errori più frequenti per migliorare i tuoi prompt.
+Ecco alcuni esempi di prompt completi, basati sulla checklist, per diversi scenari lavorativi.
 
-Anche le IA più avanzate possono dare risultati deludenti se le istruzioni non sono chiare. Ecco gli errori più comuni da evitare:
+### Esempio 1: Post per Social Media (Instagram)
 
-*   **1. Istruzioni Vaghi o Ambigue:**
-    *   **Errore:** "Scrivi qualcosa sul nostro nuovo prodotto."
-    *   **Perché è un errore:** L'IA non sa cosa scrivere, per chi, con quale obiettivo o tono.
-    *   **Soluzione:** Sii sempre specifico. Chi, cosa, quando, dove, perché e come.
-    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1` - "Be precise: Ambiguity or conflicting instructions = degraded performance")
+```
+Sei un social media manager esperto per brand di prodotti biologici.
 
-*   **2. Troppi Vincoli o Vincoli Contraddittori:**
-    *   **Errore:** "Scrivi un post divertente, ma molto formale, di massimo 10 parole, che spieghi in dettaglio un concetto complesso."
-    *   **Perché è un errore:** L'IA si trova in un vicolo cieco. Un tono divertente e formale sono difficili da conciliare, e 10 parole non bastano per un concetto complesso.
-    *   **Soluzione:** Rivedi i tuoi vincoli. Assicurati che siano realistici e non si contraddicano. Se chiedi un comportamento specifico ("devi sempre fare X"), aggiungi una via d'uscita ("se non hai abbastanza informazioni, chiedi all'utente").
-    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+Devi creare un post per Instagram per "BioDelizie", che promuove il lancio del nostro nuovo caffè 100% arabica biologico.
+Il pubblico sono giovani professionisti attenti alla salute e all'ambiente.
+L'obiettivo è generare interesse e portare traffico alla pagina prodotto.
 
-*   **3. Mancanza di Esempi o Istruzioni per la Varietà:**
-    *   **Errore:** Fornire all'IA una lista di frasi di esempio senza istruzioni aggiuntive.
-    *   **Perché è un errore:** L'IA potrebbe usare quelle frasi alla lettera, rendendo il testo ripetitivo e "robotico".
-    *   **Soluzione:** Se usi esempi, istruisci l'IA a "usare queste frasi come ispirazione, ma variarle per evitare ripetizioni".
-    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+Vincoli:
+- Lunghezza massima: 120 parole.
+- Tono: entusiasta, amichevole, leggermente informale.
+- Includi le parole chiave: "caffè biologico", "aroma intenso", "sostenibile", "energia naturale".
+- Non usare gergo tecnico.
+- Includi una call to action chiara: "Link in bio per scoprire di più!".
+- Evita ripetizioni.
 
-*   **4. Non Specificare il Formato o la Lunghezza:**
-    *   **Errore:** "Scrivi un testo per il blog."
-    *   **Perché è un errore:** L'IA potrebbe produrre un testo troppo lungo, troppo corto, senza titoli, o con una formattazione indesiderata (es. spiegazioni extra sul perché ha scritto così).
-    *   **Soluzione:** Specifica sempre il formato (es. "in Markdown, con un titolo H1 e 3 paragrafi") e la lunghezza ("circa 300 parole").
-    *   (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`, `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
+Formato:
+- Post Instagram completo di testo, emoji pertinenti e 5-7 hashtag.
+```
+(Fonte: `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md::chunk1` per l'idea di istruzioni dettagliate)
 
-*   **5. Non Organizzare il Prompt:**
-    *   **Errore:** Scrivere tutte le istruzioni in un unico, lungo paragrafo.
-    *   **Perché è un errore:** Rende difficile per l'IA (e per te) identificare le diverse parti delle istruzioni e seguirle.
-    *   **Soluzione:** Usa sezioni chiare e intitolate (come in questa guida: Ruolo, Contesto, Vincoli, Formato) e elenchi puntati. Questo aiuta l'IA a elaborare meglio le informazioni.
-    *   (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+### Esempio 2: Oggetto e Anteprima per Newsletter
 
----
+```
+Sei un copywriter specializzato in email marketing per il settore e-commerce.
 
-### 5. Limiti e Buone Pratiche
+Devi scrivere l'oggetto e il testo di anteprima (preheader) per una newsletter che annuncia una vendita flash del 30% su tutti i prodotti per la casa di "DesignSmart", un brand di arredamento moderno e minimalista.
+Il pubblico sono clienti già iscritti, interessati a offerte e novità.
+L'obiettivo è massimizzare il tasso di apertura della newsletter.
 
-**Obiettivo:** Gestire le aspettative sull'IA e adottare strategie per massimizzare i risultati.
+Vincoli:
+- Oggetto: massimo 60 caratteri, deve creare urgenza e curiosità.
+- Anteprima: massimo 100 caratteri, deve rafforzare l'offerta e invitare all'apertura.
+- Tono: diretto, accattivante, orientato all'azione.
+- Includi la percentuale di sconto e la categoria di prodotti.
 
-L'IA è uno strumento potente, ma ha i suoi limiti. Conoscendoli e adottando buone pratiche, puoi usarla al meglio.
+Formato:
+- Presenta l'oggetto e l'anteprima separatamente, con etichette chiare.
+```
 
-#### Limiti
+### Esempio 3: Descrizione Prodotto per Sito Web
 
-*   **1. Non è un Essere Umano:** L'IA non "capisce" nel senso umano. Segue schemi e probabilità. Non ha intuizione, emozioni o esperienza di vita.
-*   **2. Può "Allucinare":** A volte, l'IA può inventare fatti, citazioni o informazioni che sembrano plausibili ma non sono vere. Questo è particolarmente vero se non ha abbastanza dati o se le istruzioni sono ambigue.
-    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
-*   **3. Sensibilità alla Lunghezza:** I prompt molto lunghi possono confondere l'IA o farle perdere il contesto iniziale. Anche se non c'è un limite fisso universale, è bene essere concisi pur essendo completi.
-    (Fonte: `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0` - concetto di limite di token, generalizzato per LLMs)
-*   **4. Ripetizioni:** Senza istruzioni specifiche, l'IA può cadere in schemi ripetitivi o frasi generiche.
-    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
-*   **5. Dipendenza dal Contesto del Prompt:** In alcuni contesti (es. trascrizione audio), l'IA potrebbe seguire più lo "stile" del prompt che le istruzioni dirette contenute in esso. Per la generazione di testo, le istruzioni dirette sono solitamente ben seguite, ma è un promemoria dell'importanza del *come* si formula il prompt.
-    (Fonte: `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb::chunk0`, adattato per il contesto di generazione testo)
+```
+Sei un copywriter SEO-oriented per un e-commerce di abbigliamento sportivo.
 
-#### Buone Pratiche
+Devi scrivere una descrizione prodotto per il nostro nuovo "Leggings Performance Pro", un leggings da allenamento ad alta compressione, traspirante e con tasca porta-telefono.
+Il pubblico sono atlete e appassionate di fitness che cercano qualità e funzionalità.
+L'obiettivo è informare, convincere all'acquisto e migliorare il posizionamento SEO.
 
-*   **1. Iterare Senza Sosta:** Il primo prompt raramente è quello perfetto. Modifica piccole parole, cambia l'ordine delle istruzioni, aggiungi o togli dettagli. Ogni piccola modifica può fare una grande differenza nel risultato.
-    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-*   **2. Dai Esempi:** Se hai un'idea precisa di stile, tono o struttura, fornire uno o più esempi all'IA è uno dei modi più efficaci per guidarla.
-    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-*   **3. Sii Preciso e Chiaro:** La chiarezza è fondamentale. Evita ambiguità. Se un'istruzione può essere interpretata in più modi, l'IA potrebbe scegliere quello sbagliato.
-    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-*   **4. Controlla Sempre l'Output:** L'IA è un assistente, non un sostituto. Rileggi sempre il testo generato, verifica i fatti, adatta il tono e assicurati che sia in linea con il brand e gli obiettivi. Non pubblicare mai un testo generato dall'IA senza revisione.
-*   **5. Struttura il Tuo Prompt:** Usa sezioni chiare, elenchi puntati e, se necessario, il maiuscolo per enfatizzare le regole chiave. Un prompt ben organizzato è più facile da capire per l'IA e da modificare per te.
-    (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
-*   **6. Chiedi Chiarimenti:** Se l'IA non ha abbastanza informazioni per eseguire un compito, istruiscila a "chiedere all'utente le informazioni mancanti" piuttosto che inventare.
-    (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+Vincoli:
+- Lunghezza: 200-250 parole.
+- Tono: professionale, motivante, focalizzato sui benefici.
+- Includi le parole chiave: "leggings sportivo", "alta compressione", "traspirante", "tasca telefono", "allenamento", "performance".
+- Evidenzia 3-4 benefici principali in un elenco puntato.
+- Non usare linguaggio troppo tecnico o gergale.
+
+Formato:
+- Titolo H2 per il nome del prodotto.
+- Paragrafo introduttivo.
+- Elenco puntato dei benefici.
+- Paragrafo conclusivo con call to action implicita (es. "Aggiungi al carrello").
+```
 
 ---
 
-### Fonti
+## 4. Errori Comuni nel Prompt Engineering
+
+Anche con le migliori intenzioni, è facile cadere in alcune trappole. Conoscerle ti aiuterà a evitarle:
+
+*   **Istruzioni Vaghe**: Chiedere "Scrivi qualcosa sul caffè" è troppo generico. L'IA non sa cosa vuoi esattamente.
+*   **Mancanza di Contesto**: Non specificare il pubblico, il brand o l'obiettivo del testo porta a risposte generiche e poco utili.
+*   **Troppe Richieste in un Colpo Solo**: Se il compito è complesso, spezzalo in più prompt. Chiedere all'IA di scrivere un intero piano editoriale in un solo prompt è meno efficace che chiederle prima le idee per i temi, poi i titoli, poi le bozze.
+*   **Non Specificare il Formato**: Se vuoi un elenco puntato e non lo chiedi, potresti ricevere un blocco di testo difficile da leggere.
+*   **Non Iterare**: La prima risposta dell'IA è un punto di partenza. Non aver paura di chiedere modifiche o miglioramenti. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Istruzioni Contraddittorie o Ambiguë**: Se le tue istruzioni si scontrano tra loro (es. "sii formale ma anche divertente"), l'IA farà fatica a capire la direzione e il risultato sarà scadente. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Richiedere un Comportamento "Assoluto"**: Evita frasi come "devi sempre fare X". A volte è meglio aggiungere una clausola come "se non hai abbastanza informazioni, chiedi all'utente". (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+
+---
+
+## 5. Limiti e Buone Pratiche
+
+L'IA è uno strumento potente, ma ha i suoi limiti. Usarla al meglio significa conoscerli e adottare strategie intelligenti.
+
+### Limiti dell'IA nella Generazione di Testi
+*   **"Allucinazioni"**: L'IA può inventare fatti, dati o citazioni che sembrano plausibili ma sono completamente falsi. **Verifica sempre ogni informazione!** (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+*   **Creatività Limitata**: L'IA rielabora schemi e informazioni esistenti. Non ha vera intuizione o creatività umana. Può sorprenderti, ma non avrà mai un'idea completamente originale nel senso umano del termine.
+*   **Ripetitività**: A volte l'IA può usare frasi simili o ripetere concetti, rendendo il testo un po' "robotico". (Fonte: `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb::chunk9`)
+*   **Mancanza di Sensibilità Umana**: Tono, ironia, sarcasmo e sfumature culturali possono essere difficili da cogliere per l'IA, portando a testi che suonano un po' piatti o inappropriati.
+*   **Dipendenza dalle Istruzioni**: La qualità dell'output dipende direttamente dalla qualità del tuo prompt. "Garbage in, garbage out" vale anche qui.
+
+### Buone Pratiche per Massimizzare i Risultati
+*   **Sii Specifico e Chiaro**: Non lasciare spazio a interpretazioni. Ogni dettaglio conta. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Usa Esempi**: Se hai uno stile o un formato molto specifico in mente, includi un piccolo esempio nel prompt. L'IA è molto brava a seguire modelli. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Itera e Affina**: Considera la prima risposta dell'IA come una bozza. Chiedi modifiche, aggiustamenti, tagli o espansioni. È un processo collaborativo. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Dividi Compiti Complessi**: Per lavori grandi (es. un intero articolo), chiedi prima la struttura, poi i paragrafi uno alla volta, poi la revisione del tono.
+*   **Verifica Sempre**: Fatti, dati, nomi, coerenza del brand e tono di voce. L'IA è un assistente, non un sostituto del tuo giudizio professionale.
+*   **Dai un Ruolo all'IA**: Come visto nella checklist, questo aiuta a focalizzare la risposta.
+*   **Struttura il Tuo Prompt**: Usa sezioni chiare (come quelle di questa guida) per organizzare le tue istruzioni. Questo rende il prompt più leggibile per te e per l'IA. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Enfatizza le Regole Chiave**: Puoi usare il maiuscolo per evidenziare le istruzioni più importanti. (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Chiedi Varietà**: Se noti che l'IA tende a ripetersi, aggiungi una regola come "Varia il linguaggio e le espressioni per evitare ripetizioni". (Fonte: `../data/openai-cookbook/examples/Realtime_prompting_guide.ipynb::chunk1`)
+*   **Controlla la Lunghezza**: Specifica sempre un limite di parole o caratteri se è importante per la piattaforma di destinazione. (Fonte: `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb::chunk1`)
+
+---
+
+## Fonti
 
 *   `../data/openai-cookbook/articles/how_to_work_with_large_language_models.md`
-*   `../data/openai-cookbook/examples/Whisper_prompting_guide.ipynb`
 *   `../data/openai-cookbook/examples/gpt4-1_prompting_guide.ipynb`
 *   `../data/openai-cookbook/examples/Optimize_Prompts.ipynb`
 *   `../data/openai-cookbook/examples/gpt-5/gpt-5-2_prompting_guide.ipynb`
