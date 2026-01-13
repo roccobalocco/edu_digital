@@ -27,3 +27,12 @@ Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 - [Github Codespaces](https://github.com/features/codespaces) – per lo sviluppo in cloud
 - [OpenAI Cookbook](https://github.com/openai/openai-cookbook/tree/main) – git clone del repo per ottenere le fonti
 - [FAISS](https://faiss.ai) – per cercare le similarità
+
+<hr/>
+
+## Comandi di trasformazione `report.md`
+
+- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.pdf --lua-filter=html-img-to-md.lua --toc` per generare il file pdf
+- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.html --lua-filter=html-img-to-md.lua --toc` per generare il file html
+- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.epub --lua-filter=html-img-to-md.lua --toc` per generare il file epub
+- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.tex --lua-filter=html-img-to-md.lua --toc` per generare il file tex

@@ -29,12 +29,12 @@ jobs:
       - name: Generate HTML
         run: |
           mkdir -p $OUTPUT_DIR/html
-          pandoc $OUTPUT_DIR/manuale_completo.md -s -o $OUTPUT_DIR/html/manuale_completo.html
+          pandoc -f markdown-implicit_figures -s $OUTPUT_DIR/manuale_completo.md -o $OUTPUT_DIR/html/manuale_completo.html --toc
 
       - name: Generate LaTeX
         run: |
           mkdir -p $OUTPUT_DIR/latex
-          pandoc $OUTPUT_DIR/manuale_completo.md -s -o $OUTPUT_DIR/latex/manuale_completo.tex
+          pandoc -f markdown-implicit_figures -s $OUTPUT_DIR/manuale_completo.md -o $OUTPUT_DIR/latex/manuale_completo.tex --toc
 
       - name: Generate PDF (Unicode support)
         run: |
@@ -42,12 +42,14 @@ jobs:
           pandoc $OUTPUT_DIR/manuale_completo.md -s \
             -o $OUTPUT_DIR/pdf/manuale_completo.pdf \
             --pdf-engine=xelatex \
+            -f markdown-implicit_figures \
+            --toc \
             -V mainfont="Noto Serif CJK SC"
 
       - name: Generate EPUB
         run: |
           mkdir -p $OUTPUT_DIR/epub
-          pandoc $OUTPUT_DIR/manuale_completo.md -s -o $OUTPUT_DIR/epub/manuale_completo.epub
+          pandoc -f markdown-implicit_figures -s $OUTPUT_DIR/manuale_completo.md -o $OUTPUT_DIR/epub/manuale_completo.epub --toc
 
       - name: Upload HTML
         uses: actions/upload-artifact@v6

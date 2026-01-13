@@ -4,13 +4,14 @@ author: Pietro Masolini 30613A
 date:  a.a. 2025/2026
 institute: Università degli Studi di Milano
 course: Editoria Digitale
-version: 1.1
+version: 1.2
 kind: Report
 ---
 
-<img src="./assets/image-20260111125853833.png" alt="project-logo" width="600"/>
+<img src="./assets/logo.png" alt="project-logo" width="600"/>
 
-# Sous-Chef AI​
+# Sous-Chef AI
+
 Sistema automatizzato per la ricerca, la costruzione, la revisione ed il rilascio di manuali d'uso.
 
 > Sous-Chef AI, dove lo Chef sei tu!
@@ -96,15 +97,15 @@ In questo caso il **manuale** é pensato per copywriter e content strategist all
 
 #### Personas
 
-<img src="./assets/image-20260111154757334.png" alt="image-20260111154757334" style="zoom:90%;" />
+<img src="./assets/alice.png" alt="alice-personas" style="zoom:90%;" />
 
 **Scenario d'uso**: deve preparare un calendario editoriale e utilizza il manuale per capire come generare contenuti coerenti e adatti al tono aziendale.
 
-![image-20260111153938613](./assets/image-20260111153938613.png)
+![marco-personas](./assets/marco.png)
 
 **Scenario d'uso**: deve identificare delle best practices per generare testi coerenti e personalizzati, consultando il manuale per selezionare/creare prompt efficaci e comprendere i limiti degli strumenti AI.
 
-![image-20260111154509526](./assets/image-20260111154509526.png)
+![giulia-personas](./assets/giulia.png)
 
 **Scenario d'uso**:  usa il manuale per definire standard condivisi, monitorare le pratiche del team e introdurre nuovi strumenti in modo controllato.
 
@@ -135,6 +136,7 @@ Per raggiungere efficacemente i rispettivi destinatari, il **manuale** e il **si
 - *Flessibilità nei canali di distribuzione*, generazione di output multi formato compatibili con web, intranet, stampa e multi dispositivo, semplificandone la diffusione 
 
 ### Canali di distribuzione
+
 #### Canali principali:
 
 | Canale                     | Descrizione                                                  | Formati                    | Note                                                         |
@@ -243,7 +245,7 @@ Per eseguire il progetto, disponibile nel seguente [repository](https://github.c
 
 - *copiare ed adattare il file*  `.env.example` in `.env`, mettendo la propria chiave API ed il proprio percorso al suo interno
 - *installare tutte le dipendenze* elencate in `requirements.txt` tramite il comando `pip install -r requirements.txt` 
--  *avere un documentale di file* `.ipynb` all'interno del percorso specificato nelle variabili di ambiente
+- *avere un documentale di file* `.ipynb` all'interno del percorso specificato nelle variabili di ambiente
 - *eseguire il comando* `python run.py` con l'opzione `--full` per avere un file comprensivo di tutte le sezioni 
 
 ### Utilizzo di IA generativa
@@ -266,8 +268,43 @@ L’IA generativa è stata integrata in varie fasi del flusso di gestione docume
 
 I prompt sono suddivisi in due macro-categorie:
 
-1. *Prompt di selezione* (`TOPIC_SELECTOR_SYSTEM`), utilizzati per guidare l’IA nell’identificazione degli estratti più pertinenti
-2. *Prompt di generazione/adattamento* (`ADAPT_SYSTEM`), impiegati per rielaborare i contenuti selezionati, definendone la struttura, lo stile ed il livello di dettaglio, in coerenza con gli obiettivi ed il contesto dato dall'utente
+1. *Prompt di selezione* (`TOPIC_SELECTOR_SYSTEM`), utilizzati per guidare l’IA nell’identificazione degli estratti più pertinenti.
+   Snippet di prompt:
+
+   ```python
+   TOPIC_SELECTOR_SYSTEM = """
+   Sei un assistente che deve selezionare, da una lista di estratti, quelli più rilevanti
+   per un manuale aziendale su prompt engineering.
+   Scegli solo estratti utili e pratici; scarta parti irrilevanti.
+   Restituisci JSON con:
+   - selected: [{id, reason}]
+   - rejected: [{id, reason}]
+   """
+   ```
+
+2. *Prompt di generazione/adattamento* (`ADAPT_SYSTEM`), impiegati per rielaborare i contenuti selezionati, definendone la struttura, lo stile ed il livello di dettaglio, in coerenza con gli obiettivi ed il contesto dato dall'utente.
+   Snippet di prompt:
+
+   ```python
+   MANUAL_STYLE_GUIDE = """
+   Sei un content strategist senior in un'agenzia di comunicazione digitale.
+   Obiettivo: creare un manuale d'uso dell'IA per copywriter e content strategist.
+   Stile:
+   - linguaggio non tecnico, concreto, orientato al lavoro quotidiano
+   - frasi brevi, punti elenco quando utile
+   - evita gergo da sviluppo (API, token, embeddings) se non indispensabile
+   - evidenzia: obiettivo, quando usarlo, come usarlo, esempi, limiti, buone pratiche
+   - se trovi concetti tecnici nel testo sorgente, riscrivi in modo semplice
+   Output: Markdown pulito, modulare, con sezioni coerenti.
+   """
+   
+   ADAPT_SYSTEM = MANUAL_STYLE_GUIDE + """
+   Regola importante: mantieni riferimenti alla fonte (path file + titolo se presente).
+   Non inventare contenuti; se manca un pezzo, segnalalo come 'Da integrare' senza inventare.
+   """
+   ```
+
+   
 
 L’intero processo è concepito secondo un approccio human-in-the-loop, non solo la fase di revisione, i prompt sono configurabili e modificabili dall’utente del **sistema**, consentendo un fine-tuning continuo basato su feedback editoriali e garantendo il controllo umano sulle decisioni critiche che riguardano il flusso di produzione.
 
@@ -344,7 +381,19 @@ Pipeline automatizzata per selezione, adattamento e pubblicazione, con revisione
 
 - *Accesso limitato ad alcune tecnologie*, alcuni LLM o embedding più avanzati potrebbero non essere disponibili o richiedere costi aggiuntivi
 - *Automazione parziale dei formati*, la trasformazione completa in alcuni formati (es. TeX complesso o PDF con layout avanzato) può richiedere intervento manuale
-- *Poco controllo sul layout*, al momento non esiste un modo per gestire il layout del prodotto finale, se non intervenendo manualmente sul processo di conversione/generazione
+- *Poco controllo sul layout*, non esiste, al momento, un modo per gestire questo aspetto del prodotto finale, se non intervenendo manualmente sul processo di conversione/generazione. Di seguito alcuni esempi di questo nei vari formati:
+  - Visualizzazione tramite <u>mdBook</u>:
+
+    <img src="./assets/mdBook.png" alt="mdBook" style="zoom: 80%;" />
+  - Visualizzazione <u>pdf</u>:
+  
+    <img src="./assets/pdf.png" alt="pdf"  />
+  - Visualizzazione <u>html</u>:
+  
+    ![html](./assets/html.png)
+  - Visualizzazione <u>tex</u>:
+  
+    ![tex](./assets/tex.png)
 - *Integrazione di fonti eterogenee*, il sistema è utilizzabile solo per fonti notebook `.ipynb`; formati diversi necessitano di adattamento preliminare
 
 Gli ultimi due punti sono facilmente risolvibili all'interno di eventuali future versioni di **Sous-Chef AI**.
