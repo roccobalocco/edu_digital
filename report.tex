@@ -396,8 +396,8 @@ richieste, le quali spaziano su diverse aree.
   formati digitali, i quali supportano dispositivi e contesti differenti
 \end{itemize}
 
-\hypertarget{aspetti-innovazione}{%
-\paragraph{Aspetti innovazione}\label{aspetti-innovazione}}
+\hypertarget{aspetti-innovativi}{%
+\paragraph{Aspetti innovativi}\label{aspetti-innovativi}}
 
 \begin{itemize}
 \tightlist
@@ -560,32 +560,6 @@ Il flusso di gestione documentale segue queste fasi principali:
 
 Il seguente diagramma mostra graficamente come si articola il flusso di
 produzione, di gestione e di pubblicazione dei contenuti:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{graph TB}
-
-\NormalTok{  subgraph LG[LangGraph – Flusso di generazione]}
-\NormalTok{    A[Indicizzazione delle fonti] {-}{-}\textgreater{} B[Recupero documenti rilevanti]}
-\NormalTok{    B {-}{-}\textgreater{} C[Selezione documenti]}
-\NormalTok{    C {-}{-}\textgreater{} D[Adattamento e generazione sezioni]}
-\NormalTok{    D {-}{-}\textgreater{} R[Revisione editoriale]}
-\NormalTok{  end}
-
-\NormalTok{  R {-}{-}\textgreater{}|Modifica manuale| R}
-\NormalTok{  R {-}{-}\textgreater{}|Approvazione| S[Sezione approvata]}
-\NormalTok{  R {-}{-}\textgreater{}|Feedback editoriale| D}
-
-\NormalTok{  subgraph SYS[Sistema di gestione manuale]}
-\NormalTok{    S {-}{-}\textgreater{} G[Commit del materiale]}
-\NormalTok{  end}
-
-\NormalTok{  subgraph CI[GitHub Actions – Pubblicazione]}
-\NormalTok{    G {-}{-}\textgreater{} P[Pubblicazione su GitHub Pages]}
-\NormalTok{    P {-}{-}\textgreater{} M[Generazione manuale\textbackslash{}nHTML · PDF · EPUB · TeX · MD]}
-\NormalTok{  end}
-\end{Highlighting}
-\end{Shaded}
 
 \hypertarget{tecnologie-adottate}{%
 \subsubsection{Tecnologie adottate}\label{tecnologie-adottate}}
@@ -878,9 +852,9 @@ permesso di ottenere benefici in diverse fasi:
   LLM e revisione umana dovrebbe garantire testi coerenti con il
   contesto aziendale
 \item
-  *Miglioramento del livello di accettazione della tecnologia grazie
-  alla possibilità di personalizzare i prompt e gestire i contenuti
-  secondo le proprie esigenze
+  \emph{Miglioramento del livello di accettazione della tecnologia}
+  grazie alla possibilità di personalizzare i prompt e gestire i
+  contenuti secondo le proprie esigenze
 \item
   \emph{Raggiungimento di nuovi canali di distribuzione}, l'esportazione
   automatica dei contenuti, unita alla pubblicazione su GitHub Pages, ha

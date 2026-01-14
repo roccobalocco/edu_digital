@@ -45,7 +45,10 @@ numpy==2.4.0
 orjson==3.11.5
 ormsgpack==1.12.1
 packaging==25.0
+pandoc==2.4
 platformdirs==4.5.1
+plumbum==1.10.0
+ply==3.11
 propcache==0.4.1
 pyasn1==0.6.1
 pyasn1_modules==0.4.2

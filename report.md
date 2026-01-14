@@ -128,7 +128,7 @@ Per raggiungere efficacemente i rispettivi destinatari, il **manuale** e il **si
 - *Non lineare e modulare*, i destinatari possono accedere direttamente alle sezioni di cui hanno bisogno, senza dover leggere l’intero manuale
 - *Accesso multicanale*, il manuale è disponibile in diversi formati digitali, i quali supportano dispositivi e contesti differenti
 
-#### Aspetti innovazione
+#### Aspetti innovativi
 
 - *Human in the loop*, combinazione di generazione automatica con revisione umana per massimizzare efficienza e qualità
 - *Personalizzazione*, possibilità, per l'utenza del sistema, di adattare prompt e sezioni ai casi d'uso specifici, creando manuali su misura
@@ -349,7 +349,7 @@ Il flusso di produzione implementato in **Sous-Chef AI** ha permesso di ottenere
 1. *Riduzione dei tempi di gestione documentale* grazie alla selezione automatica dei documenti tramite FAISS e la generazione di sezioni con Google Gemini
 2. *Riduzione degli errori*, la struttura modulare, il versionamento e la revisione guidata dall’utente limitano gli errori di coerenza e di contenuto
 3. *Miglioramento della qualità dei documenti*, l’uso combinato di LLM e revisione umana dovrebbe garantire testi coerenti con il contesto aziendale
-4. *Miglioramento del livello di accettazione della tecnologia grazie alla possibilità di personalizzare i prompt e gestire i contenuti secondo le proprie esigenze
+4. *Miglioramento del livello di accettazione della tecnologia* grazie alla possibilità di personalizzare i prompt e gestire i contenuti secondo le proprie esigenze
 5. *Raggiungimento di nuovi canali di distribuzione*, l’esportazione automatica dei contenuti, unita alla pubblicazione su GitHub Pages, ha permesso di raggiungere facilmente più canali di distribuzione
 6. *Soddisfacimento di nuovi scenari d’uso*, il sistema supporta scenari non previsti inizialmente, come l’adattamento rapido a nuovi contenuti
 
