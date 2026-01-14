@@ -32,7 +32,7 @@ Progetto relativo al corso Editoria Digitale 2025/206 - UNIMI.
 
 ## Comandi di trasformazione `report.md`
 
-- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.pdf --lua-filter=html-img-to-md.lua --toc -F mermaid-filter` per generare il file pdf
+- `pandoc --pdf-engine=xelatex --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.pdf --lua-filter=html-img-to-md.lua --toc -F mermaid-filter --listings -H settings.tex --toc -V geometry:"left=1cm, top=1cm, right=1cm, bottom=2cm" -V fontsize=12pt` per generare il file pdf
 - `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.html --lua-filter=html-img-to-md.lua --toc -F mermaid-filter` per generare il file html
 - `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.epub --lua-filter=html-img-to-md.lua --toc -F mermaid-filter` per generare il file epub
-- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.tex --lua-filter=html-img-to-md.lua --toc -F mermaid-filter` per generare il file tex
+- `pandoc --embed-resources --resource-path='./assets' -f markdown-implicit_figures -s report.md -o report.tex --lua-filter=html-img-to-md.lua --toc -F mermaid-filter --listings -H settings.tex --toc -V geometry:"left=1cm, top=1cm, right=1cm, bottom=2cm" -V fontsize=12pt` per generare il file tex

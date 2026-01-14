@@ -3,6 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
+  12pt,
 ]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -36,44 +37,11 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\newenvironment{Shaded}{}{}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage[left=1cm, top=1cm, right=1cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -101,6 +69,26 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Contents of listings-setup.tex
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily,
+    numbers=left,
+    numberstyle=\footnotesize,
+    stepnumber=1,
+    numbersep=4pt,
+    backgroundcolor=\color{black!10},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    captionpos=b,
+    breaklines=true,
+    breakatwhitespace=true,
+    breakautoindent=true,
+    linewidth=\textwidth
+}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -194,29 +182,28 @@ contesto aziendale, mira a spiegare e comprendere:
 
 Il \textbf{sistema} è stato progettato per essere quanto più generale
 possibile, per questo le tematiche che ricerca sono elencate alla voce
-\texttt{TOPIC\_SPECS}. L'utenza può modellare le tematiche, utilizzando
-il seguente schema:
+\passthrough{\lstinline!TOPIC\_SPECS!}. L'utenza può modellare le
+tematiche, utilizzando il seguente schema:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\ErrorTok{"topic\_title":} \FunctionTok{\{}
-    \DataTypeTok{"title"}\FunctionTok{:} \StringTok{"Title to include"}\FunctionTok{,}
-    \DataTypeTok{"query"}\FunctionTok{:} \StringTok{"Query for LLM"}\FunctionTok{,}
-    \DataTypeTok{"deliverable\_sections"}\FunctionTok{:} \OtherTok{[}
-        \StringTok{"Section1"}\OtherTok{,}
-        \StringTok{"Section2"}\OtherTok{,}
-        \StringTok{"Example1"}\OtherTok{,}
-        \StringTok{"Example2"}\OtherTok{,}
-        \StringTok{"Pros/Cons"}\OtherTok{,}
-    \OtherTok{]}
-\FunctionTok{\}}
-\end{Highlighting}
-\end{Shaded}
+\begin{lstlisting}
+"topic_title": {
+    "title": "Title to include",
+    "query": "Query for LLM",
+    "deliverable_sections": [
+        "Section1",
+        "Section2",
+        "Example1",
+        "Example2",
+        "Pros/Cons",
+    ]
+}
+\end{lstlisting}
 
 Anche il processo di selezione dei documenti particolarmente rilevanti è
-personalizzabile tramite la voce \texttt{TOPIC\_SELECTOR\_SYSTEM}, la
-quale rappresenta il prompt di sistema utilizzato selezionare i
-documenti migliori mediante FAISS.
+personalizzabile tramite la voce
+\passthrough{\lstinline!TOPIC\_SELECTOR\_SYSTEM!}, la quale rappresenta
+il prompt di sistema utilizzato selezionare i documenti migliori
+mediante FAISS.
 
 I temi principali su cui il l'\textbf{utente utilizzatore} si concentra
 diventano quindi:
@@ -374,11 +361,11 @@ richieste, le quali spaziano su diverse aree.
   \begin{itemize}
   \tightlist
   \item
-    un file \texttt{book.toml} dove definire metadati e configurazioni
-    essenziali (eg: directory di output)
+    un file \passthrough{\lstinline!book.toml!} dove definire metadati e
+    configurazioni essenziali (eg: directory di output)
   \item
-    un file \texttt{SUMMARY.md} dove definire la struttura e la
-    navigazione del contenuto
+    un file \passthrough{\lstinline!SUMMARY.md!} dove definire la
+    struttura e la navigazione del contenuto
   \end{itemize}
 \end{itemize}
 
@@ -512,10 +499,11 @@ dei contenuti con la loro gestione, garantendo coerenza, tracciabilità e
 aggiornabilità.
 
 Il \textbf{sistema} è progettato per utilizzare fonti in formato Jupyter
-Notebook (\texttt{.ipynb}). Per cambiare documentale è necessario
-modificare il percorso della variabile di ambiente
-\texttt{COOKBOOK\_PATH}. In base ai requisiti progettuali, per questo
-manuale il percorso è impostato sul repository OpenAI Cookbook.
+Notebook (\passthrough{\lstinline!.ipynb!}). Per cambiare documentale è
+necessario modificare il percorso della variabile di ambiente
+\passthrough{\lstinline!COOKBOOK\_PATH!}. In base ai requisiti
+progettuali, per questo manuale il percorso è impostato sul repository
+OpenAI Cookbook.
 
 Le fonti attraversano tre fasi principali di trasformazione:
 
@@ -523,7 +511,8 @@ Le fonti attraversano tre fasi principali di trasformazione:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Inizialmente sono \emph{file} in formato \texttt{.ipynb}
+  Inizialmente sono \emph{file} in formato
+  \passthrough{\lstinline!.ipynb!}
 \item
   Successivamente ne vengono selezionati e adattati alcuni tramite l'uso
   di un LLM
@@ -591,11 +580,11 @@ coerenza e qualità dei contenuti.
   \begin{itemize}
   \tightlist
   \item
-    \texttt{env.GEMINI\_MODEL}, utilizzato per la generazione dei testi
-    (gemini-2.5-flash)
+    \passthrough{\lstinline!env.GEMINI\_MODEL!}, utilizzato per la
+    generazione dei testi (gemini-2.5-flash)
   \item
-    \texttt{env.GEMINI\_EMBED\_MODEL}, utilizzato per creare embedding
-    semantici delle fonti (text-embedding-004)
+    \passthrough{\lstinline!env.GEMINI\_EMBED\_MODEL!}, utilizzato per
+    creare embedding semantici delle fonti (text-embedding-004)
   \end{itemize}
 
   Contribuisce a \emph{velocizzare la produzione}, mantenendo un
@@ -636,19 +625,21 @@ necessario:
 \begin{itemize}
 \tightlist
 \item
-  \emph{copiare ed adattare il file} \texttt{.env.example} in
-  \texttt{.env}, mettendo la propria chiave API ed il proprio percorso
-  al suo interno
+  \emph{copiare ed adattare il file}
+  \passthrough{\lstinline!.env.example!} in
+  \passthrough{\lstinline!.env!}, mettendo la propria chiave API ed il
+  proprio percorso al suo interno
 \item
   \emph{installare tutte le dipendenze} elencate in
-  \texttt{requirements.txt} tramite il comando
-  \texttt{pip\ install\ -r\ requirements.txt}
+  \passthrough{\lstinline!requirements.txt!} tramite il comando
+  \passthrough{\lstinline!pip install -r requirements.txt!}
 \item
-  \emph{avere un documentale di file} \texttt{.ipynb} all'interno del
-  percorso specificato nelle variabili di ambiente
+  \emph{avere un documentale di file} \passthrough{\lstinline!.ipynb!}
+  all'interno del percorso specificato nelle variabili di ambiente
 \item
-  \emph{eseguire il comando} \texttt{python\ run.py} con l'opzione
-  \texttt{-\/-full} per avere un file comprensivo di tutte le sezioni
+  \emph{eseguire il comando} \passthrough{\lstinline!python run.py!} con
+  l'opzione \passthrough{\lstinline!--full!} per avere un file
+  comprensivo di tutte le sezioni
 \end{itemize}
 
 \hypertarget{utilizzo-di-ia-generativa}{%
@@ -716,48 +707,46 @@ I prompt sono suddivisi in due macro-categorie:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \emph{Prompt di selezione} (\texttt{TOPIC\_SELECTOR\_SYSTEM}),
-  utilizzati per guidare l'IA nell'identificazione degli estratti più
-  pertinenti. Snippet di prompt:
+  \emph{Prompt di selezione}
+  (\passthrough{\lstinline!TOPIC\_SELECTOR\_SYSTEM!}), utilizzati per
+  guidare l'IA nell'identificazione degli estratti più pertinenti.
+  Snippet di prompt:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{TOPIC\_SELECTOR\_SYSTEM }\OperatorTok{=} \StringTok{"""}
-\StringTok{Sei un assistente che deve selezionare, da una lista di estratti, quelli più rilevanti}
-\StringTok{per un manuale aziendale su prompt engineering.}
-\StringTok{Scegli solo estratti utili e pratici; scarta parti irrilevanti.}
-\StringTok{Restituisci JSON con:}
-\StringTok{{-} selected: [\{id, reason\}]}
-\StringTok{{-} rejected: [\{id, reason\}]}
-\StringTok{"""}
-\end{Highlighting}
-\end{Shaded}
+\begin{lstlisting}[language=Python]
+TOPIC_SELECTOR_SYSTEM = """
+Sei un assistente che deve selezionare, da una lista di estratti, quelli più rilevanti
+per un manuale aziendale su prompt engineering.
+Scegli solo estratti utili e pratici; scarta parti irrilevanti.
+Restituisci JSON con:
+- selected: [{id, reason}]
+- rejected: [{id, reason}]
+"""
+\end{lstlisting}
 \item
-  \emph{Prompt di generazione/adattamento} (\texttt{ADAPT\_SYSTEM}),
-  impiegati per rielaborare i contenuti selezionati, definendone la
-  struttura, lo stile ed il livello di dettaglio, in coerenza con gli
-  obiettivi ed il contesto dato dall'utente. Snippet di prompt:
+  \emph{Prompt di generazione/adattamento}
+  (\passthrough{\lstinline!ADAPT\_SYSTEM!}), impiegati per rielaborare i
+  contenuti selezionati, definendone la struttura, lo stile ed il
+  livello di dettaglio, in coerenza con gli obiettivi ed il contesto
+  dato dall'utente. Snippet di prompt:
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{MANUAL\_STYLE\_GUIDE }\OperatorTok{=} \StringTok{"""}
-\StringTok{Sei un content strategist senior in un\textquotesingle{}agenzia di comunicazione digitale.}
-\StringTok{Obiettivo: creare un manuale d\textquotesingle{}uso dell\textquotesingle{}IA per copywriter e content strategist.}
-\StringTok{Stile:}
-\StringTok{{-} linguaggio non tecnico, concreto, orientato al lavoro quotidiano}
-\StringTok{{-} frasi brevi, punti elenco quando utile}
-\StringTok{{-} evita gergo da sviluppo (API, token, embeddings) se non indispensabile}
-\StringTok{{-} evidenzia: obiettivo, quando usarlo, come usarlo, esempi, limiti, buone pratiche}
-\StringTok{{-} se trovi concetti tecnici nel testo sorgente, riscrivi in modo semplice}
-\StringTok{Output: Markdown pulito, modulare, con sezioni coerenti.}
-\StringTok{"""}
+\begin{lstlisting}[language=Python]
+MANUAL_STYLE_GUIDE = """
+Sei un content strategist senior in un'agenzia di comunicazione digitale.
+Obiettivo: creare un manuale d'uso dell'IA per copywriter e content strategist.
+Stile:
+- linguaggio non tecnico, concreto, orientato al lavoro quotidiano
+- frasi brevi, punti elenco quando utile
+- evita gergo da sviluppo (API, token, embeddings) se non indispensabile
+- evidenzia: obiettivo, quando usarlo, come usarlo, esempi, limiti, buone pratiche
+- se trovi concetti tecnici nel testo sorgente, riscrivi in modo semplice
+Output: Markdown pulito, modulare, con sezioni coerenti.
+"""
 
-\NormalTok{ADAPT\_SYSTEM }\OperatorTok{=}\NormalTok{ MANUAL\_STYLE\_GUIDE }\OperatorTok{+} \StringTok{"""}
-\StringTok{Regola importante: mantieni riferimenti alla fonte (path file + titolo se presente).}
-\StringTok{Non inventare contenuti; se manca un pezzo, segnalalo come \textquotesingle{}Da integrare\textquotesingle{} senza inventare.}
-\StringTok{"""}
-\end{Highlighting}
-\end{Shaded}
+ADAPT_SYSTEM = MANUAL_STYLE_GUIDE + """
+Regola importante: mantieni riferimenti alla fonte (path file + titolo se presente).
+Non inventare contenuti; se manca un pezzo, segnalalo come 'Da integrare' senza inventare.
+"""
+\end{lstlisting}
 \end{enumerate}
 
 L'intero processo è concepito secondo un approccio human-in-the-loop,
@@ -950,8 +939,8 @@ revisione umana integrata.
   \end{itemize}
 \item
   \emph{Integrazione di fonti eterogenee}, il sistema è utilizzabile
-  solo per fonti notebook \texttt{.ipynb}; formati diversi necessitano
-  di adattamento preliminare
+  solo per fonti notebook \passthrough{\lstinline!.ipynb!}; formati
+  diversi necessitano di adattamento preliminare
 \end{itemize}
 
 Gli ultimi due punti sono facilmente risolvibili all'interno di
